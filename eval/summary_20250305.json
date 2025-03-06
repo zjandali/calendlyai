@@ -1,0 +1,13 @@
+{
+  "run_timestamp": "2025-03-05T20:34:56.357554",
+  "this_run": {
+    "total_runs": 5,
+    "successful_runs": 5,
+    "success_rate": 100.0
+  },
+  "overall": {
+    "total_runs": 15,
+    "successful_runs": 9,
+    "success_rate": 60.0
+  }
+}

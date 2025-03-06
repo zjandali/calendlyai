@@ -1,0 +1,119 @@
+[
+  {
+    "success": false,
+    "error": "No module named 'pytz'",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/tools/calendly_api.py\", line 71, in book_calendly_meeting\n    unified_mock = convert_to_unified_format(mock_calendar, 'mock', calendly_timezone)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/utils/calendar_utils.py\", line 161, in convert_to_unified_format\n    import pytz  # Make sure to import pytz for timezone handling\n    ^^^^^^^^^^^\nModuleNotFoundError: No module named 'pytz'\n",
+    "timestamp": "2025-03-05T20:04:24.926778"
+  },
+  {
+    "success": false,
+    "error": "No module named 'pytz'",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/tools/calendly_api.py\", line 71, in book_calendly_meeting\n    unified_mock = convert_to_unified_format(mock_calendar, 'mock', calendly_timezone)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/utils/calendar_utils.py\", line 161, in convert_to_unified_format\n    import pytz  # Make sure to import pytz for timezone handling\n    ^^^^^^^^^^^\nModuleNotFoundError: No module named 'pytz'\n",
+    "timestamp": "2025-03-05T20:04:25.926241"
+  },
+  {
+    "success": false,
+    "error": "No module named 'pytz'",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/tools/calendly_api.py\", line 71, in book_calendly_meeting\n    unified_mock = convert_to_unified_format(mock_calendar, 'mock', calendly_timezone)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/utils/calendar_utils.py\", line 161, in convert_to_unified_format\n    import pytz  # Make sure to import pytz for timezone handling\n    ^^^^^^^^^^^\nModuleNotFoundError: No module named 'pytz'\n",
+    "timestamp": "2025-03-05T20:04:26.973755"
+  },
+  {
+    "success": false,
+    "error": "No module named 'pytz'",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/tools/calendly_api.py\", line 71, in book_calendly_meeting\n    unified_mock = convert_to_unified_format(mock_calendar, 'mock', calendly_timezone)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/utils/calendar_utils.py\", line 161, in convert_to_unified_format\n    import pytz  # Make sure to import pytz for timezone handling\n    ^^^^^^^^^^^\nModuleNotFoundError: No module named 'pytz'\n",
+    "timestamp": "2025-03-05T20:04:27.969676"
+  },
+  {
+    "success": false,
+    "error": "No module named 'pytz'",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/tools/calendly_api.py\", line 71, in book_calendly_meeting\n    unified_mock = convert_to_unified_format(mock_calendar, 'mock', calendly_timezone)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/utils/calendar_utils.py\", line 161, in convert_to_unified_format\n    import pytz  # Make sure to import pytz for timezone handling\n    ^^^^^^^^^^^\nModuleNotFoundError: No module named 'pytz'\n",
+    "timestamp": "2025-03-05T20:04:29.280799"
+  },
+  {
+    "success": true,
+    "result": "Filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-07T09:00:00-08:00?month=2025-03&date=2025-03-07",
+    "suggested_time_iso": "2025-03-07T09:00:00-08:00?month=2025-03&date=2025-03-07",
+    "suggested_time_pst": "Friday, March 07, 2025 at 09:00 AM PST",
+    "timestamp": "2025-03-05T20:05:15.860909",
+    "session_id": "bd4aa697-d159-4033-8cea-9467a8f68cf6"
+  },
+  {
+    "success": true,
+    "result": "I have filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page loaded successfully.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-07T10:00:00-08:00?month=2025-03&date=2025-03-07",
+    "suggested_time_iso": "2025-03-07T10:00:00-08:00?month=2025-03&date=2025-03-07",
+    "suggested_time_pst": "Friday, March 07, 2025 at 10:00 AM PST",
+    "timestamp": "2025-03-05T20:06:00.499027",
+    "session_id": "8ced2a77-8db9-4561-b1ab-cf02087bdd96"
+  },
+  {
+    "success": true,
+    "result": "The form has been filled out with name Robert Jandali, email robert@jandali.com, phone 5109198404, and the Schedule Event button has been clicked. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-06T15:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_iso": "2025-03-06T15:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_pst": "Thursday, March 06, 2025 at 03:00 PM PST",
+    "timestamp": "2025-03-05T20:06:32.035023",
+    "session_id": "05c7f2a1-bb07-4f8e-9b74-837e402b2f8b"
+  },
+  {
+    "success": true,
+    "result": "I filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-07T10:30:00-08:00?month=2025-03&date=2025-03-07",
+    "suggested_time_iso": "2025-03-07T10:30:00-08:00?month=2025-03&date=2025-03-07",
+    "suggested_time_pst": "Friday, March 07, 2025 at 10:30 AM PST",
+    "timestamp": "2025-03-05T20:07:03.478783",
+    "session_id": "f32262d7-fd25-4081-8bf4-7aeb497629fa"
+  },
+  {
+    "success": false,
+    "error": "Worker.evaluate: SyntaxError: Unexpected identifier 'out'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:234:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/calendly_agent/tools/calendly_api.py\", line 194, in book_calendly_meeting\n    result = await ai.evaluate(task)\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/async_api/_generated.py\", line 6671, in evaluate\n    await self._impl_obj.evaluate(\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 1425, in evaluate\n    await self._channel.send(\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 61, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 528, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Worker.evaluate: SyntaxError: Unexpected identifier 'out'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:234:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n",
+    "timestamp": "2025-03-05T20:07:59.647213"
+  },
+  {
+    "success": true,
+    "result": "I have filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-06T09:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_iso": "2025-03-06T09:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_pst": "Thursday, March 06, 2025 at 09:00 AM PST",
+    "timestamp": "2025-03-05T20:31:40.655644",
+    "session_id": "1679dd12-bfcf-465f-8819-448770fc18e9"
+  },
+  {
+    "success": true,
+    "result": "I have filled the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-06T09:30:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_iso": "2025-03-06T09:30:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_pst": "Thursday, March 06, 2025 at 09:30 AM PST",
+    "timestamp": "2025-03-05T20:32:13.700967",
+    "session_id": "73e97670-2f2d-49dc-b6e5-f635d77aa7c9"
+  },
+  {
+    "success": true,
+    "result": "I have filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-06T10:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_iso": "2025-03-06T10:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_pst": "Thursday, March 06, 2025 at 10:00 AM PST",
+    "timestamp": "2025-03-05T20:32:46.933367",
+    "session_id": "cdbc1061-a1ab-4730-b674-4add66e13c7f"
+  },
+  {
+    "success": true,
+    "result": "I filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page loaded successfully.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-06T10:30:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_iso": "2025-03-06T10:30:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_pst": "Thursday, March 06, 2025 at 10:30 AM PST",
+    "timestamp": "2025-03-05T20:33:23.734085",
+    "session_id": "4dfb0283-8a74-409e-a072-5d4e250e6942"
+  },
+  {
+    "success": true,
+    "result": "Filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-06T11:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_iso": "2025-03-06T11:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_pst": "Thursday, March 06, 2025 at 11:00 AM PST",
+    "timestamp": "2025-03-05T20:34:52.859175",
+    "session_id": "ad8216a9-0e19-44aa-b6d8-45526f038a51"
+  }
+]

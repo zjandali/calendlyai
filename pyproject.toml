@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "calendly"
+version = "0.1.0"
+description = ""
+authors = ["zjandali <yzjandali@berkeley.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+nest-asyncio = "^1.6.0"
+playwright = "^1.50.0"
+langchain = "^0.3.20"
+openai = "^1.65.4"
+pyzt = "^0.0.2"
+pydantic-settings = "^2.8.1"
+langchain-community = "^0.3.19"
+pytz = "^2025.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
