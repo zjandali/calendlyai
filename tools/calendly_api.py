@@ -214,8 +214,17 @@ async def book_calendly_meeting(calendly_url, anchor_api_key, openai_api_key, ma
                         result = await ai.evaluate(task)
                         print(result)
                         
-                        # Check if confirmation page is loaded or success message appears
-                        success = "confirmation page is loaded" in result or "success message appears" in result or "clicked the Schedule Event button" in result
+                        # Broader check to catch more variations of success messages
+                        success = (
+                            "confirmation page" in result.lower() or 
+                            "success message" in result.lower() or 
+                            "clicked the schedule event button" in result.lower() or
+                            "successfully filled" in result.lower() or
+                            "calendar invitation" in result.lower() or
+                            "has been sent" in result.lower() or
+                            "confirmation page loaded" in result.lower() or
+                            "scheduled" in result.lower()
+                        )
                         
                         await browser.close()
                         

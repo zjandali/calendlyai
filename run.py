@@ -38,6 +38,6 @@ if __name__ == "__main__":
         contact_name=args.name,
         contact_email=args.email,
         contact_phone=args.phone,
-        num_runs=args.num_runs,
+        num_runs=20,
         max_retries=args.max_retries
     )) 
