@@ -259,5 +259,38 @@
     "suggested_time_pst": "Monday, March 10, 2025 at 11:30 AM PST",
     "timestamp": "2025-03-05T21:00:28.162607",
     "session_id": "f7d306b0-8de2-4c33-ba71-04eba2afa66c"
+  },
+  {
+    "success": true,
+    "booking_confirmed_by_api": false,
+    "result": "Filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-10T11:00:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_iso": "2025-03-10T10:00:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_pst": "Monday, March 10, 2025 at 11:00 AM PST",
+    "timestamp": "2025-03-05T22:43:37.518710",
+    "session_id": "463293c4-e8b7-4cca-befe-c7073f7a3fba",
+    "execution_time_seconds": 38.24105262756348
+  },
+  {
+    "success": false,
+    "booking_confirmed_by_api": false,
+    "result": "The time is no longer available. Please select a different time to book this event.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-10T10:00:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_iso": "2025-03-10T09:00:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_pst": "Monday, March 10, 2025 at 10:00 AM PST",
+    "timestamp": "2025-03-05T22:45:49.699990",
+    "session_id": "c0ece1c4-8f9f-466d-9640-b5f55d4942e4",
+    "execution_time_seconds": 89.86796641349792
+  },
+  {
+    "success": true,
+    "booking_confirmed_by_api": true,
+    "result": "I have filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-06T16:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_iso": "2025-03-06T16:00:00-08:00?month=2025-03&date=2025-03-06",
+    "suggested_time_pst": "Thursday, March 06, 2025 at 04:00 PM PST",
+    "timestamp": "2025-03-05T22:47:00.848020",
+    "session_id": "999de23b-1317-412a-8673-22acae51e0a4",
+    "execution_time_seconds": 72.16945171356201
   }
 ]

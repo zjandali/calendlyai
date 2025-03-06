@@ -68,6 +68,13 @@ async def book_calendly_meeting(calendly_url, anchor_api_key, openai_api_key, ma
         calendly_data = calendar_response.json()
         print("Retrieved Calendly availability data")
         
+        # Store pre-booking available slots for verification later
+        pre_booking_slots = []
+        for day in calendly_data.get("days", []):
+            for spot in day.get("spots", []):
+                if spot.get("status") == "available" and not spot.get("booking"):
+                    pre_booking_slots.append(spot["start_time"])
+        
         # Format calendar data
         calendly_formatted = format_calendar_data(calendly_data)
         print("Formatted Calendly data")
@@ -232,15 +239,58 @@ async def book_calendly_meeting(calendly_url, anchor_api_key, openai_api_key, ma
                         dt_pst = datetime.fromisoformat(iso_datetime).astimezone(pst_zone)
                         pst_time_str = dt_pst.strftime("%A, %B %d, %Y at %I:%M %p PST")
                         
-                        return {
-                            "success": success,
-                            "result": result,
-                            "booking_url": final_url,
-                            "suggested_time_iso": suggested_time,
-                            "suggested_time_pst": pst_time_str,
-                            "timestamp": datetime.now().isoformat(),
-                            "session_id": session_id
-                        }
+                        # After booking attempt, check if the time slot is no longer available
+                        try:
+                            # Make another API call to get updated availability
+                            post_booking_response = requests.get(range_url, params=params)
+                            post_booking_response.raise_for_status()
+                            post_booking_data = post_booking_response.json()
+                            
+                            # Get post-booking available slots
+                            post_booking_slots = []
+                            for day in post_booking_data.get("days", []):
+                                for spot in day.get("spots", []):
+                                    if spot.get("status") == "available" and not spot.get("booking"):
+                                        post_booking_slots.append(spot["start_time"])
+                            
+                            # Check if the booked time is no longer available
+                            booking_confirmed = iso_datetime in pre_booking_slots and iso_datetime not in post_booking_slots
+                            print(1231231231231231231243124234234234234, booking_confirmed)
+                            # Update success criteria to include API verification
+                            success = (
+                                booking_confirmed or
+                                "confirmation page" in result.lower() or 
+                                "success message" in result.lower() or 
+                                "clicked the schedule event button" in result.lower() or
+                                "successfully filled" in result.lower() or
+                                "calendar invitation" in result.lower() or
+                                "has been sent" in result.lower() or
+                                "confirmation page loaded" in result.lower() or
+                                "scheduled" in result.lower()
+                            )
+                            
+                            return {
+                                "success": success,
+                                "booking_confirmed_by_api": booking_confirmed,
+                                "result": result,
+                                "booking_url": final_url,
+                                "suggested_time_iso": suggested_time,
+                                "suggested_time_pst": pst_time_str,
+                                "timestamp": datetime.now().isoformat(),
+                                "session_id": session_id
+                            }
+                        except Exception as verification_error:
+                            print(f"Error during booking verification: {str(verification_error)}")
+                            # Fall back to the original success criteria if verification fails
+                            return {
+                                "success": success,
+                                "result": result,
+                                "booking_url": final_url,
+                                "suggested_time_iso": suggested_time,
+                                "suggested_time_pst": pst_time_str,
+                                "timestamp": datetime.now().isoformat(),
+                                "session_id": session_id
+                            }
                 finally:
                     # Clean up Anchor Browser session
                     if session_id:

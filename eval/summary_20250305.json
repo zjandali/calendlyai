@@ -1,13 +1,21 @@
 {
-  "run_timestamp": "2025-03-05T21:00:32.883609",
+  "run_timestamp": "2025-03-05T22:47:06.277686",
   "this_run": {
-    "total_runs": 20,
-    "successful_runs": 16,
-    "success_rate": 80.0
+    "total_runs": 2,
+    "successful_runs": 1,
+    "success_rate": 50.0,
+    "execution_times": {
+      "per_run_seconds": [
+        89.86796641349792,
+        72.16945171356201
+      ],
+      "average_seconds": 81.01870906352997,
+      "total_seconds": 162.03741812705994
+    }
   },
   "overall": {
-    "total_runs": 29,
-    "successful_runs": 25,
-    "success_rate": 86.20689655172413
+    "total_runs": 32,
+    "successful_runs": 30,
+    "success_rate": 93.75
   }
 }
