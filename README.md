@@ -15,14 +15,11 @@ A LangChain-powered agent for automatically booking Calendly appointments based 
 1. Clone the repository
 2. Install dependencies:
 
-```bash
-pip install -r requirements.txt
-```
-
-3. Install Playwright browsers:
+2. Install dependencies using Poetry:
 
 ```bash
-python -m playwright install
+poetry install
+poetry playwright install
 ```
 
 4. Set up required environment variables in a `.env` file:
