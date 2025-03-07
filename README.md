@@ -67,24 +67,3 @@ python -m calendly_agent.main 10 5
 
 This will run 10 booking attempts with a maximum of 5 retries for each.
 
-## Project Structure
-
-```
-calendly_agent/
-├── agents/         # Agent definitions
-├── chains/         # LangChain chains
-├── config/         # Configuration settings
-├── data/           # Data resources
-├── models/         # Data models
-├── prompts/        # Prompt templates
-├── tools/          # Integration tools
-├── utils/          # Utility functions
-├── cli.py          # CLI interface
-├── main.py         # Main entry point
-├── requirements.txt # Dependencies
-└── README.md       # Documentation
-```
-
-## License
-
-MIT 
