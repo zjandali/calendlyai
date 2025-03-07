@@ -3,7 +3,7 @@ import requests
 import traceback
 from datetime import datetime, timedelta
 from playwright.async_api import async_playwright
-
+from prompts.scheduling_prompts import scheduling_prompt
 
 async def book_calendly_meeting(calendly_url, anchor_api_key, openai_api_key, max_retries=3, contact_details=None):
     """
@@ -100,21 +100,7 @@ async def book_calendly_meeting(calendly_url, anchor_api_key, openai_api_key, ma
         format_instructions = parser.get_format_instructions()
         
         # Create the prompt template
-        prompt_template = ChatPromptTemplate.from_template("""
-        You are a scheduling assistant. Please analyze the following available meeting times and suggest the best option.
-
-        Overlapping Available Times:
-        {overlapping_availability}
-
-        Find the best meeting time from these overlapping time slots at the earliest reasonable business hour.
-
-        {format_instructions}
-
-        Note: The suggested_time MUST be in this exact format:
-        "2025-03-05T09:30:00-08:00?month=2025-03&date=2025-03-05"
-        - Include ISO 8601 datetime with timezone offset (-08:00 for PST)
-        - Include query parameters for month and date
-        """)
+        prompt_template = scheduling_prompt(overlapping_calendar, format_instructions)
         
         # Initialize the LLM
         llm = ChatOpenAI(
@@ -184,7 +170,7 @@ async def book_calendly_meeting(calendly_url, anchor_api_key, openai_api_key, ma
                         "type": "anchor_residential",
                         "active": True
                     },
-                    "recording": {"active": False},
+                    "recording": {"active": True},
                     "profile": {
                         "name": "my-profile",
                         "persist": True,

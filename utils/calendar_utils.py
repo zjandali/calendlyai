@@ -108,13 +108,13 @@ def generate_mock_calendar():
 
 def format_calendar_data(data):
     """
-    Format Calendly calendar data into a consistent structure.
+    Format Calendly calendar data into a consistent structure with only ISO times.
     
     Args:
         data (dict): Raw Calendly calendar data
         
     Returns:
-        dict: Formatted calendar data with only truly available slots
+        dict: Formatted calendar data with only ISO times for available slots
     """
     formatted_data = {
         "timezone": data.get("availability_timezone"),
@@ -126,21 +126,16 @@ def format_calendar_data(data):
         status = day.get("status")
         
         if status == "available":
-            time_slots = []
+            iso_times = []
             for spot in day.get("spots", []):
                 # Only include spots that are explicitly available and not booked
                 if spot.get("status") == "available" and not spot.get("booking"):
-                    time = datetime.fromisoformat(spot["start_time"]).strftime("%I:%M %p")
-                    time_slots.append({
-                        "time": time,
-                        "iso_time": spot["start_time"]  # Keep the ISO time for later use
-                    })
+                    iso_times.append(spot["start_time"])
             
-            if time_slots:
+            if iso_times:
                 formatted_data["available_dates"].append({
                     "date": datetime.fromisoformat(date).strftime("%B %d, %Y"),
-                    "times": [slot["time"] for slot in time_slots],
-                    "iso_times": [slot["iso_time"] for slot in time_slots]
+                    "iso_times": iso_times
                 })
     
     return formatted_data
@@ -148,7 +143,7 @@ def format_calendar_data(data):
 
 def convert_to_unified_format(calendar_data, source_type, target_timezone=None):
     """
-    Convert calendar data to a unified format readable by an LLM.
+    Convert calendar data from different sources to a unified format.
     
     Args:
         calendar_data (dict): Calendar data from either mock or Calendly source
@@ -219,11 +214,18 @@ def convert_to_unified_format(calendar_data, source_type, target_timezone=None):
             date_str = day_data.get("date")
             date_obj = datetime.strptime(date_str, "%B %d, %Y")
             
-            if day_data.get("times"):
+            if day_data.get("iso_times"):
+                # Convert ISO times to formatted times for unified format
+                available_times = []
+                for iso_time in day_data.get("iso_times", []):
+                    time_obj = datetime.fromisoformat(iso_time)
+                    formatted_time = time_obj.strftime("%I:%M %p")
+                    available_times.append(formatted_time)
+                
                 unified_data["available_days"].append({
                     "date": date_str,
                     "day_of_week": date_obj.strftime("%A"),
-                    "available_times": day_data.get("times", [])
+                    "available_times": available_times
                 })
     
     # Sort available days by date

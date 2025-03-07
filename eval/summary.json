@@ -32,5 +32,375 @@
       "successful_runs": 30,
       "success_rate": 93.75
     }
+  },
+  {
+    "run_timestamp": "2025-03-05T22:49:54.408707",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 0,
+      "success_rate": 0.0,
+      "execution_times": {
+        "per_run_seconds": [
+          39.417006969451904,
+          73.05778169631958
+        ],
+        "average_seconds": 56.23739433288574,
+        "total_seconds": 112.47478866577148
+      }
+    },
+    "overall": {
+      "total_runs": 34,
+      "successful_runs": 30,
+      "success_rate": 88.23529411764706
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T22:56:29.233617",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 2,
+      "success_rate": 100.0,
+      "execution_times": {
+        "per_run_seconds": [
+          90.21790790557861,
+          56.97396278381348
+        ],
+        "average_seconds": 73.59593534469604,
+        "total_seconds": 147.1918706893921
+      }
+    },
+    "overall": {
+      "total_runs": 36,
+      "successful_runs": 32,
+      "success_rate": 88.88888888888889
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T22:59:12.247252",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 2,
+      "success_rate": 100.0,
+      "execution_times": {
+        "per_run_seconds": [
+          90.92114996910095,
+          39.90085458755493
+        ],
+        "average_seconds": 65.41100227832794,
+        "total_seconds": 130.82200455665588
+      }
+    },
+    "overall": {
+      "total_runs": 38,
+      "successful_runs": 34,
+      "success_rate": 89.47368421052632
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:05:05.082433",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 2,
+      "success_rate": 100.0,
+      "execution_times": {
+        "per_run_seconds": [
+          41.860700368881226,
+          75.91614890098572
+        ],
+        "average_seconds": 58.88842463493347,
+        "total_seconds": 117.77684926986694
+      }
+    },
+    "overall": {
+      "total_runs": 40,
+      "successful_runs": 36,
+      "success_rate": 90.0
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:25:45.967432",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 2,
+      "success_rate": 100.0,
+      "execution_times": {
+        "per_run_seconds": [
+          35.923978090286255,
+          40.25814914703369
+        ],
+        "average_seconds": 38.09106361865997,
+        "total_seconds": 76.18212723731995
+      }
+    },
+    "overall": {
+      "total_runs": 42,
+      "successful_runs": 38,
+      "success_rate": 90.47619047619048
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:28:52.991452",
+    "this_run": {
+      "total_runs": 1,
+      "successful_runs": 0,
+      "success_rate": 0.0,
+      "execution_times": {
+        "per_run_seconds": [
+          99.6743655204773
+        ],
+        "average_seconds": 99.6743655204773,
+        "total_seconds": 99.6743655204773
+      }
+    },
+    "overall": {
+      "total_runs": 43,
+      "successful_runs": 38,
+      "success_rate": 88.37209302325581
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:35:54.658043",
+    "this_run": {
+      "total_runs": 1,
+      "successful_runs": 0,
+      "success_rate": 0.0,
+      "execution_times": {
+        "per_run_seconds": [
+          6.3651018142700195
+        ],
+        "average_seconds": 6.3651018142700195,
+        "total_seconds": 6.3651018142700195
+      }
+    },
+    "overall": {
+      "total_runs": 44,
+      "successful_runs": 38,
+      "success_rate": 86.36363636363636
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:38:05.589022",
+    "this_run": {
+      "total_runs": 1,
+      "successful_runs": 0,
+      "success_rate": 0.0,
+      "execution_times": {
+        "per_run_seconds": [
+          6.020278453826904
+        ],
+        "average_seconds": 6.020278453826904,
+        "total_seconds": 6.020278453826904
+      }
+    },
+    "overall": {
+      "total_runs": 45,
+      "successful_runs": 38,
+      "success_rate": 84.44444444444444
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:44:00.777685",
+    "this_run": {
+      "total_runs": 1,
+      "successful_runs": 1,
+      "success_rate": 100.0,
+      "execution_times": {
+        "per_run_seconds": [
+          33.376567125320435
+        ],
+        "average_seconds": 33.376567125320435,
+        "total_seconds": 33.376567125320435
+      }
+    },
+    "overall": {
+      "total_runs": 46,
+      "successful_runs": 39,
+      "success_rate": 84.78260869565217
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:45:43.946459",
+    "this_run": {
+      "total_runs": 1,
+      "successful_runs": 1,
+      "success_rate": 100.0,
+      "execution_times": {
+        "per_run_seconds": [
+          49.234556674957275
+        ],
+        "average_seconds": 49.234556674957275,
+        "total_seconds": 49.234556674957275
+      }
+    },
+    "overall": {
+      "total_runs": 47,
+      "successful_runs": 40,
+      "success_rate": 85.1063829787234
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:47:12.325469",
+    "this_run": {
+      "total_runs": 1,
+      "successful_runs": 0,
+      "success_rate": 0.0,
+      "execution_times": {
+        "per_run_seconds": [
+          37.935099363327026
+        ],
+        "average_seconds": 37.935099363327026,
+        "total_seconds": 37.935099363327026
+      }
+    },
+    "overall": {
+      "total_runs": 48,
+      "successful_runs": 40,
+      "success_rate": 83.33333333333334
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:51:59.693588",
+    "this_run": {
+      "total_runs": 1,
+      "successful_runs": 1,
+      "success_rate": 100.0,
+      "execution_times": {
+        "per_run_seconds": [
+          43.76377582550049
+        ],
+        "average_seconds": 43.76377582550049,
+        "total_seconds": 43.76377582550049
+      }
+    },
+    "overall": {
+      "total_runs": 49,
+      "successful_runs": 41,
+      "success_rate": 83.6734693877551
+    }
+  },
+  {
+    "run_timestamp": "2025-03-05T23:59:47.488777",
+    "this_run": {
+      "total_runs": 1,
+      "successful_runs": 0,
+      "success_rate": 0.0,
+      "execution_times": {
+        "per_run_seconds": [
+          2.652677536010742
+        ],
+        "average_seconds": 2.652677536010742,
+        "total_seconds": 2.652677536010742
+      }
+    },
+    "overall": {
+      "total_runs": 50,
+      "successful_runs": 41,
+      "success_rate": 82.0
+    }
+  },
+  {
+    "run_timestamp": "2025-03-06T01:32:41.667443",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 2,
+      "success_rate": 100.0,
+      "execution_times": {
+        "per_run_seconds": [
+          47.65923738479614,
+          31.69338631629944
+        ],
+        "average_seconds": 39.67631185054779,
+        "total_seconds": 79.35262370109558
+      }
+    },
+    "overall": {
+      "total_runs": 2,
+      "successful_runs": 2,
+      "success_rate": 100.0
+    }
+  },
+  {
+    "run_timestamp": "2025-03-06T01:37:03.935299",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 2,
+      "success_rate": 100.0,
+      "execution_times": {
+        "per_run_seconds": [
+          106.2318811416626,
+          115.77725505828857
+        ],
+        "average_seconds": 111.00456809997559,
+        "total_seconds": 222.00913619995117
+      }
+    },
+    "overall": {
+      "total_runs": 4,
+      "successful_runs": 4,
+      "success_rate": 100.0
+    }
+  },
+  {
+    "run_timestamp": "2025-03-06T14:39:01.532891",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 1,
+      "success_rate": 50.0,
+      "execution_times": {
+        "per_run_seconds": [
+          66.8592050075531,
+          40.360042572021484
+        ],
+        "average_seconds": 53.60962378978729,
+        "total_seconds": 107.21924757957458
+      }
+    },
+    "overall": {
+      "total_runs": 6,
+      "successful_runs": 5,
+      "success_rate": 83.33333333333334
+    }
+  },
+  {
+    "run_timestamp": "2025-03-06T16:52:16.110452",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 0,
+      "success_rate": 0.0,
+      "execution_times": {
+        "per_run_seconds": [
+          4.175022602081299,
+          1.5994102954864502
+        ],
+        "average_seconds": 2.8872164487838745,
+        "total_seconds": 5.774432897567749
+      }
+    },
+    "overall": {
+      "total_runs": 8,
+      "successful_runs": 5,
+      "success_rate": 62.5
+    }
+  },
+  {
+    "run_timestamp": "2025-03-06T18:01:16.390239",
+    "this_run": {
+      "total_runs": 2,
+      "successful_runs": 0,
+      "success_rate": 0.0,
+      "execution_times": {
+        "per_run_seconds": [
+          2.759404420852661,
+          1.1809332370758057
+        ],
+        "average_seconds": 1.9701688289642334,
+        "total_seconds": 3.940337657928467
+      }
+    },
+    "overall": {
+      "total_runs": 10,
+      "successful_runs": 5,
+      "success_rate": 50.0
+    }
   }
 ]

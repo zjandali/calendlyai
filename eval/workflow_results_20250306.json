@@ -1,0 +1,96 @@
+[
+  {
+    "success": true,
+    "booking_confirmed_by_api": false,
+    "result": "Filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The event is scheduled for Monday, March 10, 2025, 7:30pm - 8:00pm.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-10T11:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_iso": "2025-03-10T10:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_pst": "Monday, March 10, 2025 at 11:30 AM PST",
+    "timestamp": "2025-03-06T01:32:04.986275",
+    "session_id": "0c8dbe95-2915-4bd5-830d-94bd12044adc",
+    "execution_time_seconds": 47.65923738479614
+  },
+  {
+    "success": true,
+    "booking_confirmed_by_api": false,
+    "result": "Filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-10T10:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_iso": "2025-03-10T09:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_pst": "Monday, March 10, 2025 at 10:30 AM PST",
+    "timestamp": "2025-03-06T01:32:36.872290",
+    "session_id": "ad1bf3bd-10a2-4536-ae1b-acf36a3eca5f",
+    "execution_time_seconds": 31.69338631629944
+  },
+  {
+    "success": true,
+    "booking_confirmed_by_api": false,
+    "result": "I filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404 and clicked the Schedule Event button.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-10T11:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_iso": "2025-03-10T10:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_pst": "Monday, March 10, 2025 at 11:30 AM PST",
+    "timestamp": "2025-03-06T01:35:03.213012",
+    "session_id": "de634dde-20ea-48c9-9eb8-d94db345fe97",
+    "execution_time_seconds": 106.2318811416626
+  },
+  {
+    "success": true,
+    "booking_confirmed_by_api": false,
+    "result": "I have filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The confirmation page is loaded.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-11T12:00:00-08:00?month=2025-03&date=2025-03-11",
+    "suggested_time_iso": "2025-03-11T11:00:00-08:00?month=2025-03&date=2025-03-11",
+    "suggested_time_pst": "Tuesday, March 11, 2025 at 12:00 PM PST",
+    "timestamp": "2025-03-06T01:36:58.153435",
+    "session_id": "d5b5e5a2-c140-41f7-8210-bd99b1e2d518",
+    "execution_time_seconds": 115.77725505828857
+  },
+  {
+    "success": false,
+    "booking_confirmed_by_api": false,
+    "result": "The phone number format was not recognized. Please check the country and number.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-10T10:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_iso": "2025-03-10T09:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_pst": "Monday, March 10, 2025 at 10:30 AM PST",
+    "timestamp": "2025-03-06T14:38:15.881071",
+    "session_id": "69d624b9-e0b8-4f2f-ab2b-fffbb43d6bbd",
+    "execution_time_seconds": 66.8592050075531
+  },
+  {
+    "success": true,
+    "booking_confirmed_by_api": false,
+    "result": "Filled out the form with name Robert Jandali, email robert@jandali.com, phone 5109198404, and clicked the Schedule Event button. The event was scheduled for March 10, 2025 at 6:30pm.",
+    "booking_url": "https://calendly.com/robertjandali/30min/2025-03-10T10:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_iso": "2025-03-10T09:30:00-08:00?month=2025-03&date=2025-03-10",
+    "suggested_time_pst": "Monday, March 10, 2025 at 10:30 AM PST",
+    "timestamp": "2025-03-06T14:38:55.797165",
+    "session_id": "98e0210f-0bba-437a-bd20-b24d41b21d82",
+    "execution_time_seconds": 40.360042572021484
+  },
+  {
+    "success": false,
+    "error": "\"'timezone'\"",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/tools/calendly_api.py\", line 127, in book_calendly_meeting\n    messages = prompt_template.format_messages(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 1227, in format_messages\n    message = message_template.format_messages(**kwargs)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 614, in format_messages\n    return [self.format(**kwargs)]\n            ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 648, in format\n    text = self.prompt.format(**kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/prompt.py\", line 185, in format\n    return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 190, in format\n    return self.vformat(format_string, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/utils/formatting.py\", line 33, in vformat\n    return super().vformat(format_string, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 194, in vformat\n    result, _ = self._vformat(format_string, args, kwargs, used_args, 2)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 234, in _vformat\n    obj, arg_used = self.get_field(field_name, args, kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 299, in get_field\n    obj = self.get_value(first, args, kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 256, in get_value\n    return kwargs[key]\n           ~~~~~~^^^^^\nKeyError: \"'timezone'\"\n",
+    "timestamp": "2025-03-06T16:52:14.508934",
+    "execution_time_seconds": 4.175022602081299
+  },
+  {
+    "success": false,
+    "error": "\"'timezone'\"",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/tools/calendly_api.py\", line 127, in book_calendly_meeting\n    messages = prompt_template.format_messages(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 1227, in format_messages\n    message = message_template.format_messages(**kwargs)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 614, in format_messages\n    return [self.format(**kwargs)]\n            ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 648, in format\n    text = self.prompt.format(**kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/prompt.py\", line 185, in format\n    return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 190, in format\n    return self.vformat(format_string, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/utils/formatting.py\", line 33, in vformat\n    return super().vformat(format_string, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 194, in vformat\n    result, _ = self._vformat(format_string, args, kwargs, used_args, 2)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 234, in _vformat\n    obj, arg_used = self.get_field(field_name, args, kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 299, in get_field\n    obj = self.get_value(first, args, kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 256, in get_value\n    return kwargs[key]\n           ~~~~~~^^^^^\nKeyError: \"'timezone'\"\n",
+    "timestamp": "2025-03-06T16:52:16.109424",
+    "execution_time_seconds": 1.5994102954864502
+  },
+  {
+    "success": false,
+    "error": "\"'timezone'\"",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/tools/calendly_api.py\", line 113, in book_calendly_meeting\n    messages = prompt_template.format_messages(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 1227, in format_messages\n    message = message_template.format_messages(**kwargs)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 614, in format_messages\n    return [self.format(**kwargs)]\n            ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 648, in format\n    text = self.prompt.format(**kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/prompt.py\", line 185, in format\n    return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 190, in format\n    return self.vformat(format_string, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/utils/formatting.py\", line 33, in vformat\n    return super().vformat(format_string, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 194, in vformat\n    result, _ = self._vformat(format_string, args, kwargs, used_args, 2)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 234, in _vformat\n    obj, arg_used = self.get_field(field_name, args, kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 299, in get_field\n    obj = self.get_value(first, args, kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 256, in get_value\n    return kwargs[key]\n           ~~~~~~^^^^^\nKeyError: \"'timezone'\"\n",
+    "timestamp": "2025-03-06T18:01:15.207006",
+    "execution_time_seconds": 2.759404420852661
+  },
+  {
+    "success": false,
+    "error": "\"'timezone'\"",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/zain/projects/xsap/calendly/tools/calendly_api.py\", line 113, in book_calendly_meeting\n    messages = prompt_template.format_messages(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 1227, in format_messages\n    message = message_template.format_messages(**kwargs)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 614, in format_messages\n    return [self.format(**kwargs)]\n            ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/chat.py\", line 648, in format\n    text = self.prompt.format(**kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/prompts/prompt.py\", line 185, in format\n    return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 190, in format\n    return self.vformat(format_string, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/langchain_core/utils/formatting.py\", line 33, in vformat\n    return super().vformat(format_string, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 194, in vformat\n    result, _ = self._vformat(format_string, args, kwargs, used_args, 2)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 234, in _vformat\n    obj, arg_used = self.get_field(field_name, args, kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 299, in get_field\n    obj = self.get_value(first, args, kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/string.py\", line 256, in get_value\n    return kwargs[key]\n           ~~~~~~^^^^^\nKeyError: \"'timezone'\"\n",
+    "timestamp": "2025-03-06T18:01:16.389089",
+    "execution_time_seconds": 1.1809332370758057
+  }
+]
