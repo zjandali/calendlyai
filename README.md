@@ -1,8 +1,4 @@
-# Calendly Agent
 
-A LangChain-powered agent for automatically booking Calendly appointments based on available time slots.
-
-## Features
 
 - Generates a mock calendar representing your availability
 - Retrieves available slots from a Calendly account
