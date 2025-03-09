@@ -1,0 +1,18 @@
+{
+  "name": "calendlyaijs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@browserbasehq/stagehand": "^1.14.0",
+    "stagehand": "^1.0.1",
+    "typescript": "^5.8.2",
+    "zod": "^3.24.2"
+  }
+}
