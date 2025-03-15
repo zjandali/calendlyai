@@ -1,0 +1,22 @@
+{
+  "total_runs": 5,
+  "successful_runs": 0,
+  "failed_runs": 1,
+  "run_details": [
+    {
+      "run_number": 1,
+      "test_data": {
+        "name": "Robert Miller",
+        "email": "robert.miller.1742080888@yahoo.com",
+        "phone": "8473325561",
+        "additional_info": "Test booking 1 created by automated test suite"
+      },
+      "start_time": "2025-03-15T16:21:29.125728",
+      "success": false,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T10:00:00-08:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T16:22:18.778267",
+      "duration_seconds": 49.652539
+    }
+  ]
+}

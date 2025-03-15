@@ -126,7 +126,7 @@ def get_suggested_time(overlapping_calendar: dict) -> str:
         )
         
         llm = ChatOpenAI(
-            model_name="gpt-4",
+            model_name="gpt-4o-mini",
             temperature=0,
             openai_api_key=os.getenv("OPENAI_API_KEY")
         )
@@ -202,16 +202,15 @@ def solve_recaptcha(driver, solver, url):
         recaptcha_iframes = driver.find_elements(By.XPATH, '//iframe[@title="reCAPTCHA"]')
         
         if recaptcha_iframes:
-            logger.info("reCAPTCHA detected, attempting to solve")
-            solver.click_recaptcha_v2(iframe=recaptcha_iframes[0])
-            logger.info("reCAPTCHA solved successfully")
+            logger.info("reCAPTCHA detected, closing browser to retry")
+            return False
         else:
             logger.info("No reCAPTCHA detected on the page")
             
         return True
         
     except Exception as e:
-        logger.error(f"Error solving reCAPTCHA: {str(e)}")
+        logger.error(f"Error checking for reCAPTCHA: {str(e)}")
         logger.error(f"Traceback: {traceback.format_exc()}")
         return False
 
@@ -228,9 +227,6 @@ def main():
         email = "john@doe.com"
         phone = "5109198404"
         additional_info = "This is a test booking"
-        
-        # Set up Selenium with reCAPTCHA solver
-        driver, solver = setup_selenium_with_recaptcha_solver()
         
         # Get mock calendar data
         logger.info("Generating mock calendar data")
@@ -260,26 +256,41 @@ def main():
         # Create final booking URL
         final_url = create_booking_url(calendly_url, suggested_time)
         
-        # Solve reCAPTCHA if present
-        recaptcha_solved = solve_recaptcha(driver, solver, final_url)
+        # Set up Selenium with reCAPTCHA solver and check for reCAPTCHA
+        driver, solver = setup_selenium_with_recaptcha_solver()
+        recaptcha_check = solve_recaptcha(driver, solver, final_url)
         
-        if not recaptcha_solved:
-            logger.warning("Failed to solve reCAPTCHA, attempting to book anyway")
-        
-        # Book the appointment using the imported function from scrape.py
-        logger.info(f"Booking Calendly appointment at URL: {final_url}")
-        booking_success = book_calendly_appointment(
-            url=final_url,
-            name=name,
-            email=email,
-            phone=phone,
-            additional_info=additional_info,
-            debug=True,  # Enable debug logging
-            headless=False  # Use headless mode since you were using it before
-        )
-        
-        # Make sure to close your existing driver before or after the booking call
-        driver.quit()
+        if not recaptcha_check:
+            logger.warning("reCAPTCHA detected, closing browser and retrying with direct booking")
+            driver.quit()
+            
+            # Book the appointment using the imported function from scrape.py
+            logger.info(f"Booking Calendly appointment at URL: {final_url}")
+            booking_success = book_calendly_appointment(
+                url=final_url,
+                name=name,
+                email=email,
+                phone=phone,
+                additional_info=additional_info,
+                debug=True,  # Enable debug logging
+                headless=False  # Use headless mode since you were using it before
+            )
+        else:
+            # No reCAPTCHA detected, proceed with current browser session
+            logger.info("No reCAPTCHA detected, proceeding with current browser session")
+            driver.quit()  # Close the browser we used for checking
+            
+            # Book the appointment using the imported function from scrape.py
+            logger.info(f"Booking Calendly appointment at URL: {final_url}")
+            booking_success = book_calendly_appointment(
+                url=final_url,
+                name=name,
+                email=email,
+                phone=phone,
+                additional_info=additional_info,
+                debug=True,  # Enable debug logging
+                headless=False  # Use headless mode since you were using it before
+            )
         
         if booking_success:
             logger.info("Calendly appointment booked successfully")

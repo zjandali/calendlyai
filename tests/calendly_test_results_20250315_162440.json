@@ -1,0 +1,37 @@
+{
+  "total_runs": 5,
+  "successful_runs": 2,
+  "failed_runs": 0,
+  "run_details": [
+    {
+      "run_number": 1,
+      "test_data": {
+        "name": "Michael Garcia",
+        "email": "michael.garcia.1742081055@hotmail.com",
+        "phone": "5109198404",
+        "additional_info": "Test booking 1 created by automated test suite"
+      },
+      "start_time": "2025-03-15T16:24:15.762693",
+      "success": true,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T09:30:00-08:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T16:24:29.007837",
+      "duration_seconds": 13.245144
+    },
+    {
+      "run_number": 2,
+      "test_data": {
+        "name": "David Brown",
+        "email": "david.brown.1742081056@example.com",
+        "phone": "5109198404",
+        "additional_info": "Test booking 2 created by automated test suite"
+      },
+      "start_time": "2025-03-15T16:24:29.008396",
+      "success": true,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T11:00:00-08:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T16:24:40.023320",
+      "duration_seconds": 11.014924
+    }
+  ]
+}

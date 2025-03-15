@@ -134,7 +134,7 @@ class CalendlyTestSuite:
             test_data.append({
                 "name": name,
                 "email": email,
-                "phone": phone,
+                "phone": "5109198404",
                 "additional_info": additional_info
             })
         
