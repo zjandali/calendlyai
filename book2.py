@@ -41,7 +41,7 @@ def setup_calendly_api(calendly_url: str) -> tuple:
     """
     Set up the Calendly API connection and get event type UUID
     """
-    logger.info(f"Setting up Calendly API for URL: {calendly_url}")
+    #logger.info(f"Setting up Calendly API for URL: {calendly_url}")
     
     try:
         url_parts = calendly_url.split('/')
@@ -50,7 +50,7 @@ def setup_calendly_api(calendly_url: str) -> tuple:
         
         id_url = f"https://calendly.com/api/booking/event_types/lookup?event_type_slug={event_type_slug}&profile_slug={profile_slug}"
         
-        logger.debug(f"Making request to: {id_url}")
+        #logger.debug(f"Making request to: {id_url}")
         response = requests.get(id_url)
         response.raise_for_status()
         
@@ -60,7 +60,7 @@ def setup_calendly_api(calendly_url: str) -> tuple:
         if not uuid:
             raise ValueError("UUID not found in response")
             
-        logger.info(f"Successfully retrieved UUID: {uuid}")
+        #logger.info(f"Successfully retrieved UUID: {uuid}")
         return uuid, profile_slug, event_type_slug
         
     except Exception as e:
@@ -72,12 +72,12 @@ def get_calendly_availability(uuid: str, timezone: str = "America/Los_Angeles") 
     """
     Get availability data from Calendly
     """
-    logger.info("Fetching Calendly availability")
+    #logger.info("Fetching Calendly availability")
     
     try:
         range_url = f"https://calendly.com/api/booking/event_types/{uuid}/calendar/range"
         start_date = datetime.now()
-        end_date = start_date + timedelta(days=35)
+        end_date = start_date + timedelta(days=7)
         
         params = {
             "timezone": timezone,
@@ -86,28 +86,29 @@ def get_calendly_availability(uuid: str, timezone: str = "America/Los_Angeles") 
             "range_end": end_date.strftime("%Y-%m-%d")
         }
         
-        logger.debug(f"Making request to: {range_url} with params: {params}")
         calendar_response = requests.get(range_url, params=params)
         calendar_response.raise_for_status()
         
         calendly_data = calendar_response.json()
+        # logger.debug(f"Calendly data: {pformat(calendly_data)}")
         calendly_formatted = format_calendar_data(calendly_data)
-        
-        logger.info("Successfully retrieved and formatted Calendly availability")
-        logger.debug(f"Formatted Calendly data: {pformat(calendly_formatted)}")
+        logger.info(f"4242342342\n\n\n\n\n\n\nCalendly data: {calendly_formatted}")
+
+        # logger.info("Successfully retrieved and formatted Calendly availability")
+        # logger.debug(f"Formatted Calendly data: {pformat(calendly_formatted)}")
         
         return calendly_formatted
         
     except Exception as e:
-        logger.error(f"Error getting Calendly availability: {str(e)}")
-        logger.error(f"Traceback: {traceback.format_exc()}")
+        # logger.error(f"Error getting Calendly availability: {str(e)}")
+        # logger.error(f"Traceback: {traceback.format_exc()}")
         raise
 
 def get_suggested_time(overlapping_calendar: dict) -> str:
     """
     Get suggested meeting time from LLM
     """
-    logger.info("Getting suggested meeting time from LLM")
+    # logger.info("Getting suggested meeting time from LLM")
     
     try:
         response_schema = ResponseSchema(
@@ -131,30 +132,30 @@ def get_suggested_time(overlapping_calendar: dict) -> str:
             openai_api_key=os.getenv("OPENAI_API_KEY")
         )
         
-        logger.debug("Sending prompt to LLM")
+        # logger.debug("Sending prompt to LLM")
         response = llm.invoke(messages)
         parsed_response = parser.parse(response.content)
         suggested_time = parsed_response['suggested_time']
         
-        logger.info(f"LLM suggested time: {suggested_time}")
+        # logger.info(f"LLM suggested time: {suggested_time}")
         return suggested_time
         
     except Exception as e:
-        logger.error(f"Error getting suggested time from LLM: {str(e)}")
-        logger.error(f"Traceback: {traceback.format_exc()}")
+        # logger.error(f"Error getting suggested time from LLM: {str(e)}")
+        # logger.error(f"Traceback: {traceback.format_exc()}")
         raise
 
 def create_booking_url(calendly_url: str, suggested_time: str) -> str:
     """
     Create the final booking URL
     """
-    logger.info("Creating booking URL")
+    #logger.info("Creating booking URL")
     
     try:
         base_path = '/'.join(calendly_url.split('?')[0].split('/')[:-1]) if calendly_url.endswith('/') else '/'.join(calendly_url.split('?')[0].split('/'))
         final_url = f"{base_path}/{suggested_time}"
         
-        logger.info(f"Created booking URL: {final_url}")
+        #logger.info(f"Created booking URL: {final_url}")
         return final_url
         
     except Exception as e:
@@ -166,7 +167,7 @@ def setup_selenium_with_recaptcha_solver():
     """
     Set up Selenium WebDriver with reCAPTCHA solver
     """
-    logger.info("Setting up Selenium with reCAPTCHA solver")
+    #logger.info("Setting up Selenium with reCAPTCHA solver")
     
     try:
         test_ua = 'Mozilla/5.0 (Windows NT 4.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36'
@@ -181,7 +182,7 @@ def setup_selenium_with_recaptcha_solver():
         driver = webdriver.Chrome(options=options)
         solver = RecaptchaSolver(driver=driver)
         
-        logger.info("Selenium and reCAPTCHA solver setup complete")
+        #logger.info("Selenium and reCAPTCHA solver setup complete")
         return driver, solver
         
     except Exception as e:
@@ -193,7 +194,7 @@ def solve_recaptcha(driver, solver, url):
     """
     Navigate to URL and solve reCAPTCHA if present
     """
-    logger.info(f"Navigating to {url} to solve reCAPTCHA")
+    #logger.info(f"Navigating to {url} to solve reCAPTCHA")
     
     try:
         driver.get(url)
@@ -231,28 +232,28 @@ def main():
         # Get mock calendar data
         logger.info("Generating mock calendar data")
         mock_calendar = generate_mock_calendar()
-        logger.info(f"Mock calendar data: {pformat(mock_calendar)}")
-        logger.debug(f"Mock calendar data: {pformat(mock_calendar)}")
+        #logger.info(f"Mock calendar data: {pformat(mock_calendar)}")
+        #logger.debug(f"Mock calendar data: {pformat(mock_calendar)}")
         
         # Set up Calendly API and get availability
         uuid, profile_slug, event_type_slug = setup_calendly_api(calendly_url)
         calendly_formatted = get_calendly_availability(uuid)
         
         # Convert calendars to unified format
-        logger.info("Converting calendars to unified format")
+       # logger.info("Converting calendars to unified format")
         calendly_timezone = calendly_formatted.get("timezone", "America/Los_Angeles")
         unified_mock = convert_to_unified_format(mock_calendar, 'mock', calendly_timezone)
-        logger.info(f"Unified mock calendar: {pformat(unified_mock)}")
         unified_calendly = convert_to_unified_format(calendly_formatted, 'calendly')
         
         # Find overlapping times
-        logger.info("Finding overlapping availability")
+        #logger.info("Finding overlapping availability")
         overlapping_calendar = find_overlapping_times(unified_mock, unified_calendly)
-        logger.debug(f"Overlapping calendar: {pformat(overlapping_calendar)}")
-        
+        #logger.debug(f"Overlapping calendar: {pformat(overlapping_calendar)}")
+        #logger.info(f"Unified mock calendar: {pformat(unified_mock)}")
+
         # Get suggested time from LLM
         suggested_time = get_suggested_time(overlapping_calendar)
-        
+        logger.info(f"Suggested time: {suggested_time}")
         # Create final booking URL
         final_url = create_booking_url(calendly_url, suggested_time)
         

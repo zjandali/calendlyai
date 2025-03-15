@@ -1,0 +1,52 @@
+{
+  "total_runs": 5,
+  "successful_runs": 0,
+  "failed_runs": 3,
+  "run_details": [
+    {
+      "run_number": 1,
+      "test_data": {
+        "name": "Michael Jones",
+        "email": "michael.jones.1742081218@gmail.com",
+        "phone": "5109198404",
+        "additional_info": "Test booking 1 created by automated test suite"
+      },
+      "start_time": "2025-03-15T16:26:58.730584",
+      "success": false,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-08:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T16:27:47.548319",
+      "duration_seconds": 48.817735
+    },
+    {
+      "run_number": 2,
+      "test_data": {
+        "name": "Sarah Jones",
+        "email": "sarah.jones.1742081219@gmail.com",
+        "phone": "5109198404",
+        "additional_info": "Test booking 2 created by automated test suite"
+      },
+      "start_time": "2025-03-15T16:27:47.548994",
+      "success": false,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T09:30:00-08:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T16:28:35.113370",
+      "duration_seconds": 47.564376
+    },
+    {
+      "run_number": 3,
+      "test_data": {
+        "name": "Jane Williams",
+        "email": "jane.williams.1742081220@yahoo.com",
+        "phone": "5109198404",
+        "additional_info": "Test booking 3 created by automated test suite"
+      },
+      "start_time": "2025-03-15T16:28:35.113937",
+      "success": false,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-08:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T16:29:23.337557",
+      "duration_seconds": 48.22362
+    }
+  ]
+}
