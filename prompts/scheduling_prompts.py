@@ -1,6 +1,6 @@
 from langchain.prompts import ChatPromptTemplate
 
-def scheduling_prompt(overlapping_availability, format_instructions):
+def scheduling_prompt():
     return ChatPromptTemplate.from_template("""
     You are a scheduling assistant. Please analyze the following available meeting times and suggest the best option.
 

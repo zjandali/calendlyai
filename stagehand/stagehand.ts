@@ -4,7 +4,7 @@ import { Stagehand } from "@browserbasehq/stagehand";
 // Defaults to Browserbase; if no API key is provided, it will default to LOCAL
 // Default model is gpt-4
 const stagehandlocal = new Stagehand({
-    modelName: 'gpt-4o',
+    modelName: 'gpt-4o-mini',
     //apiKey: process.env.BROWSERBASE_API_KEY,
     env: 'LOCAL',
     
