@@ -9,6 +9,11 @@ import pytz
 import requests
 from langchain.chat_models import ChatOpenAI
 from langchain.output_parsers import ResponseSchema, StructuredOutputParser
+# Add imports for reCAPTCHA solving
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium_recaptcha_solver import RecaptchaSolver
 
 from prompts.scheduling_prompts import scheduling_prompt
 from utils.calendar_utils import (
@@ -157,6 +162,59 @@ def create_booking_url(calendly_url: str, suggested_time: str) -> str:
         logger.error(f"Traceback: {traceback.format_exc()}")
         raise
 
+def setup_selenium_with_recaptcha_solver():
+    """
+    Set up Selenium WebDriver with reCAPTCHA solver
+    """
+    logger.info("Setting up Selenium with reCAPTCHA solver")
+    
+    try:
+        test_ua = 'Mozilla/5.0 (Windows NT 4.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36'
+        
+        options = Options()
+        options.add_argument("--headless")  # Remove for visible browser
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument(f'--user-agent={test_ua}')
+        options.add_argument('--no-sandbox')
+        options.add_argument("--disable-extensions")
+        
+        driver = webdriver.Chrome(options=options)
+        solver = RecaptchaSolver(driver=driver)
+        
+        logger.info("Selenium and reCAPTCHA solver setup complete")
+        return driver, solver
+        
+    except Exception as e:
+        logger.error(f"Error setting up Selenium with reCAPTCHA solver: {str(e)}")
+        logger.error(f"Traceback: {traceback.format_exc()}")
+        raise
+
+def solve_recaptcha(driver, solver, url):
+    """
+    Navigate to URL and solve reCAPTCHA if present
+    """
+    logger.info(f"Navigating to {url} to solve reCAPTCHA")
+    
+    try:
+        driver.get(url)
+        
+        # Check if reCAPTCHA is present
+        recaptcha_iframes = driver.find_elements(By.XPATH, '//iframe[@title="reCAPTCHA"]')
+        
+        if recaptcha_iframes:
+            logger.info("reCAPTCHA detected, attempting to solve")
+            solver.click_recaptcha_v2(iframe=recaptcha_iframes[0])
+            logger.info("reCAPTCHA solved successfully")
+        else:
+            logger.info("No reCAPTCHA detected on the page")
+            
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error solving reCAPTCHA: {str(e)}")
+        logger.error(f"Traceback: {traceback.format_exc()}")
+        return False
+
 def main():
     """
     Main workflow function
@@ -170,6 +228,9 @@ def main():
         email = "john@doe.com"
         phone = "5109198404"
         additional_info = "This is a test booking"
+        
+        # Set up Selenium with reCAPTCHA solver
+        driver, solver = setup_selenium_with_recaptcha_solver()
         
         # Get mock calendar data
         logger.info("Generating mock calendar data")
@@ -199,6 +260,12 @@ def main():
         # Create final booking URL
         final_url = create_booking_url(calendly_url, suggested_time)
         
+        # Solve reCAPTCHA if present
+        recaptcha_solved = solve_recaptcha(driver, solver, final_url)
+        
+        if not recaptcha_solved:
+            logger.warning("Failed to solve reCAPTCHA, attempting to book anyway")
+        
         # Book the appointment using the imported function from scrape.py
         logger.info(f"Booking Calendly appointment at URL: {final_url}")
         booking_success = book_calendly_appointment(
@@ -207,8 +274,12 @@ def main():
             email=email,
             phone=phone,
             additional_info=additional_info,
-            debug=True  # Enable debug logging
+            debug=True,  # Enable debug logging
+            headless=False  # Use headless mode since you were using it before
         )
+        
+        # Make sure to close your existing driver before or after the booking call
+        driver.quit()
         
         if booking_success:
             logger.info("Calendly appointment booked successfully")

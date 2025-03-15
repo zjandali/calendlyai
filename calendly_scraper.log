@@ -2110,3 +2110,664 @@ Stacktrace:
 2025-03-15 02:13:35,907 - scrape - INFO - Successfully submitted the Calendly booking form
 2025-03-15 02:13:36,061 - __main__ - INFO - Calendly appointment booked successfully
 2025-03-15 02:13:36,062 - __main__ - INFO - Workflow completed successfully
+2025-03-15 02:20:58,396 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 02:20:58,397 - __main__ - INFO - Generating mock calendar data
+2025-03-15 02:20:58,398 - __main__ - INFO - Mock calendar data: {'available_slots': [{'date': 'Monday, March 17, 2025',
+                      'free_slots': [{'end': '10:00 AM', 'start': '09:30 AM'},
+                                     {'end': '04:00 PM', 'start': '10:30 AM'}]},
+                     {'date': 'Tuesday, March 18, 2025',
+                      'free_slots': [{'end': '01:00 PM', 'start': '11:00 AM'},
+                                     {'end': '02:30 PM', 'start': '02:00 PM'},
+                                     {'end': '04:00 PM', 'start': '03:00 PM'}]},
+                     {'date': 'Wednesday, March 19, 2025',
+                      'free_slots': [{'end': '11:30 AM', 'start': '09:30 AM'},
+                                     {'end': '01:00 PM', 'start': '12:30 PM'},
+                                     {'end': '02:30 PM', 'start': '01:30 PM'},
+                                     {'end': '04:00 PM', 'start': '03:00 PM'}]},
+                     {'date': 'Thursday, March 20, 2025',
+                      'free_slots': [{'end': '01:00 PM', 'start': '09:30 AM'},
+                                     {'end': '04:00 PM', 'start': '01:30 PM'}]},
+                     {'date': 'Friday, March 21, 2025',
+                      'free_slots': [{'end': '11:30 AM', 'start': '09:00 AM'},
+                                     {'end': '01:00 PM', 'start': '12:30 PM'},
+                                     {'end': '04:00 PM',
+                                      'start': '01:30 PM'}]}],
+ 'timezone': 'America/Los_Angeles',
+ 'week_of': 'March 16, 2025'}
+2025-03-15 02:20:58,399 - __main__ - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-15 02:20:59,073 - __main__ - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-15 02:20:59,074 - __main__ - INFO - Fetching Calendly availability
+2025-03-15 02:20:59,737 - __main__ - INFO - Successfully retrieved and formatted Calendly availability
+2025-03-15 02:20:59,742 - __main__ - INFO - Converting calendars to unified format
+2025-03-15 02:20:59,762 - __main__ - INFO - Unified mock calendar: {'available_days': [{'available_times': ['09:30 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:00 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '02:30 PM',
+                                         '03:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 17, 2025',
+                     'day_of_week': 'Monday'},
+                    {'available_times': ['11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '02:00 PM',
+                                         '03:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 18, 2025',
+                     'day_of_week': 'Tuesday'},
+                    {'available_times': ['09:30 AM',
+                                         '10:00 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '12:30 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '03:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 19, 2025',
+                     'day_of_week': 'Wednesday'},
+                    {'available_times': ['09:30 AM',
+                                         '10:00 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '02:30 PM',
+                                         '03:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 20, 2025',
+                     'day_of_week': 'Thursday'},
+                    {'available_times': ['09:00 AM',
+                                         '09:30 AM',
+                                         '10:00 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '12:30 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '02:30 PM',
+                                         '03:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 21, 2025',
+                     'day_of_week': 'Friday'}],
+ 'timezone': 'America/Los_Angeles'}
+2025-03-15 02:20:59,767 - __main__ - INFO - Finding overlapping availability
+2025-03-15 02:20:59,768 - __main__ - INFO - Getting suggested meeting time from LLM
+2025-03-15 02:21:02,633 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 02:21:02,649 - __main__ - INFO - LLM suggested time: 2025-03-20T09:30:00-07:00?month=2025-03&date=2025-03-20
+2025-03-15 02:21:02,649 - __main__ - INFO - Creating booking URL
+2025-03-15 02:21:02,649 - __main__ - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-03-20T09:30:00-07:00?month=2025-03&date=2025-03-20
+2025-03-15 02:21:02,649 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-20T09:30:00-07:00?month=2025-03&date=2025-03-20
+2025-03-15 02:21:02,686 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 02:21:02,687 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 02:21:02,764 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 02:21:02,844 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 02:21:02,909 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 02:21:04,907 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-20T09:30:00-07:00?month=2025-03&date=2025-03-20
+2025-03-15 02:21:06,307 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 02:21:06,307 - scrape - INFO - Filling out Calendly form
+2025-03-15 02:21:08,693 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 02:21:08,817 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 02:21:09,012 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 02:21:09,064 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x5567cd74ea1a <unknown>
+#1 0x5567cd2061e3 <unknown>
+#2 0x5567cd24e282 <unknown>
+#3 0x5567cd27dbd2 <unknown>
+#4 0x5567cd24b78a <unknown>
+#5 0x5567cd27dd9e <unknown>
+#6 0x5567cd2a407b <unknown>
+#7 0x5567cd27d9a3 <unknown>
+#8 0x5567cd24960e <unknown>
+#9 0x5567cd24add1 <unknown>
+#10 0x5567cd714ddb <unknown>
+#11 0x5567cd718cbc <unknown>
+#12 0x5567cd6fc392 <unknown>
+#13 0x5567cd719834 <unknown>
+#14 0x5567cd6e01ef <unknown>
+#15 0x5567cd73d038 <unknown>
+#16 0x5567cd73d216 <unknown>
+#17 0x5567cd74d896 <unknown>
+#18 0x7fc88400daa4 <unknown>
+#19 0x7fc88409ac3c <unknown>
+
+2025-03-15 02:21:09,784 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 02:21:09,784 - scrape - INFO - Form filled successfully
+2025-03-15 02:21:09,784 - scrape - INFO - Attempting to submit form
+2025-03-15 02:21:09,834 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 02:21:09,863 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 02:21:09,888 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 02:21:09,911 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 02:21:09,934 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 02:21:09,962 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:09,985 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,009 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 02:21:10,032 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 02:21:10,060 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,085 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,110 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:21:10,134 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,156 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:21:10,180 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,203 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:21:10,225 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,249 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:21:10,272 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 02:21:10,297 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,322 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,344 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,368 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:21:10,395 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 02:21:10,430 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 02:21:10,721 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 02:21:11,801 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 02:21:11,895 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 02:21:11,896 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 02:21:11,896 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 02:21:12,008 - __main__ - INFO - Calendly appointment booked successfully
+2025-03-15 02:21:12,008 - __main__ - INFO - Workflow completed successfully
+2025-03-15 02:23:01,327 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 02:23:01,327 - __main__ - INFO - Setting up Selenium with reCAPTCHA solver
+2025-03-15 02:23:02,209 - __main__ - INFO - Selenium and reCAPTCHA solver setup complete
+2025-03-15 02:23:02,210 - __main__ - INFO - Generating mock calendar data
+2025-03-15 02:23:02,211 - __main__ - INFO - Mock calendar data: {'available_slots': [{'date': 'Monday, March 17, 2025',
+                      'free_slots': [{'end': '11:30 AM', 'start': '11:00 AM'},
+                                     {'end': '02:30 PM', 'start': '12:00 PM'},
+                                     {'end': '04:00 PM', 'start': '03:00 PM'},
+                                     {'end': '05:00 PM', 'start': '04:30 PM'}]},
+                     {'date': 'Tuesday, March 18, 2025',
+                      'free_slots': [{'end': '01:00 PM', 'start': '10:00 AM'},
+                                     {'end': '04:00 PM', 'start': '01:30 PM'}]},
+                     {'date': 'Wednesday, March 19, 2025',
+                      'free_slots': [{'end': '11:30 AM', 'start': '09:00 AM'},
+                                     {'end': '01:00 PM', 'start': '12:00 PM'},
+                                     {'end': '04:00 PM', 'start': '02:00 PM'}]},
+                     {'date': 'Thursday, March 20, 2025',
+                      'free_slots': [{'end': '10:00 AM', 'start': '09:30 AM'},
+                                     {'end': '01:00 PM', 'start': '11:00 AM'},
+                                     {'end': '04:00 PM', 'start': '02:00 PM'}]},
+                     {'date': 'Friday, March 21, 2025',
+                      'free_slots': [{'end': '02:30 PM', 'start': '11:00 AM'},
+                                     {'end': '04:00 PM', 'start': '03:00 PM'},
+                                     {'end': '05:00 PM',
+                                      'start': '04:30 PM'}]}],
+ 'timezone': 'America/Los_Angeles',
+ 'week_of': 'March 16, 2025'}
+2025-03-15 02:23:02,212 - __main__ - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-15 02:23:03,918 - __main__ - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-15 02:23:03,919 - __main__ - INFO - Fetching Calendly availability
+2025-03-15 02:23:04,450 - __main__ - INFO - Successfully retrieved and formatted Calendly availability
+2025-03-15 02:23:04,456 - __main__ - INFO - Converting calendars to unified format
+2025-03-15 02:23:04,486 - __main__ - INFO - Unified mock calendar: {'available_days': [{'available_times': ['11:00 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:00 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '03:00 PM',
+                                         '03:30 PM',
+                                         '04:30 PM'],
+                     'date': 'March 17, 2025',
+                     'day_of_week': 'Monday'},
+                    {'available_times': ['10:00 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '02:30 PM',
+                                         '03:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 18, 2025',
+                     'day_of_week': 'Tuesday'},
+                    {'available_times': ['09:00 AM',
+                                         '09:30 AM',
+                                         '10:00 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '02:00 PM',
+                                         '02:30 PM',
+                                         '03:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 19, 2025',
+                     'day_of_week': 'Wednesday'},
+                    {'available_times': ['09:30 AM',
+                                         '11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '02:00 PM',
+                                         '02:30 PM',
+                                         '03:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 20, 2025',
+                     'day_of_week': 'Thursday'},
+                    {'available_times': ['11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:00 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '03:00 PM',
+                                         '03:30 PM',
+                                         '04:30 PM'],
+                     'date': 'March 21, 2025',
+                     'day_of_week': 'Friday'}],
+ 'timezone': 'America/Los_Angeles'}
+2025-03-15 02:23:04,493 - __main__ - INFO - Finding overlapping availability
+2025-03-15 02:23:04,495 - __main__ - INFO - Getting suggested meeting time from LLM
+2025-03-15 02:23:10,313 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 02:23:10,339 - __main__ - INFO - LLM suggested time: 2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 02:23:10,339 - __main__ - INFO - Creating booking URL
+2025-03-15 02:23:10,339 - __main__ - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 02:23:10,339 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18 to solve reCAPTCHA
+2025-03-15 02:23:11,223 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 02:23:11,223 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 02:23:11,223 - __main__ - ERROR - Workflow failed: book_calendly_appointment() got an unexpected keyword argument 'driver'
+2025-03-15 02:23:11,224 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/home/zain/projects/xsap/calendly/book2.py", line 271, in main
+    booking_success = book_calendly_appointment(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: book_calendly_appointment() got an unexpected keyword argument 'driver'
+
+2025-03-15 02:24:18,079 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 02:24:18,079 - __main__ - INFO - Setting up Selenium with reCAPTCHA solver
+2025-03-15 02:24:18,971 - __main__ - INFO - Selenium and reCAPTCHA solver setup complete
+2025-03-15 02:24:18,971 - __main__ - INFO - Generating mock calendar data
+2025-03-15 02:24:18,973 - __main__ - INFO - Mock calendar data: {'available_slots': [{'date': 'Monday, March 17, 2025',
+                      'free_slots': [{'end': '04:00 PM', 'start': '11:00 AM'},
+                                     {'end': '05:00 PM', 'start': '04:30 PM'}]},
+                     {'date': 'Tuesday, March 18, 2025',
+                      'free_slots': [{'end': '11:30 AM', 'start': '10:00 AM'},
+                                     {'end': '04:00 PM', 'start': '12:00 PM'},
+                                     {'end': '05:00 PM', 'start': '04:30 PM'}]},
+                     {'date': 'Wednesday, March 19, 2025',
+                      'free_slots': [{'end': '10:00 AM', 'start': '09:00 AM'},
+                                     {'end': '01:00 PM', 'start': '11:00 AM'},
+                                     {'end': '02:30 PM', 'start': '01:30 PM'},
+                                     {'end': '05:00 PM', 'start': '03:30 PM'}]},
+                     {'date': 'Thursday, March 20, 2025',
+                      'free_slots': [{'end': '10:00 AM', 'start': '09:30 AM'},
+                                     {'end': '11:30 AM', 'start': '10:30 AM'},
+                                     {'end': '01:00 PM', 'start': '12:00 PM'},
+                                     {'end': '05:00 PM', 'start': '01:30 PM'}]},
+                     {'date': 'Friday, March 21, 2025',
+                      'free_slots': [{'end': '01:00 PM', 'start': '11:00 AM'},
+                                     {'end': '02:30 PM', 'start': '01:30 PM'},
+                                     {'end': '04:00 PM', 'start': '03:30 PM'},
+                                     {'end': '05:00 PM',
+                                      'start': '04:30 PM'}]}],
+ 'timezone': 'America/Los_Angeles',
+ 'week_of': 'March 16, 2025'}
+2025-03-15 02:24:18,974 - __main__ - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-15 02:24:19,864 - __main__ - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-15 02:24:19,865 - __main__ - INFO - Fetching Calendly availability
+2025-03-15 02:24:20,282 - __main__ - INFO - Successfully retrieved and formatted Calendly availability
+2025-03-15 02:24:20,287 - __main__ - INFO - Converting calendars to unified format
+2025-03-15 02:24:20,306 - __main__ - INFO - Unified mock calendar: {'available_days': [{'available_times': ['11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:00 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '02:30 PM',
+                                         '03:00 PM',
+                                         '03:30 PM',
+                                         '04:30 PM'],
+                     'date': 'March 17, 2025',
+                     'day_of_week': 'Monday'},
+                    {'available_times': ['10:00 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:00 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '02:30 PM',
+                                         '03:00 PM',
+                                         '03:30 PM',
+                                         '04:30 PM'],
+                     'date': 'March 18, 2025',
+                     'day_of_week': 'Tuesday'},
+                    {'available_times': ['09:00 AM',
+                                         '09:30 AM',
+                                         '11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '03:30 PM',
+                                         '04:00 PM',
+                                         '04:30 PM'],
+                     'date': 'March 19, 2025',
+                     'day_of_week': 'Wednesday'},
+                    {'available_times': ['09:30 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '02:30 PM',
+                                         '03:00 PM',
+                                         '03:30 PM',
+                                         '04:00 PM',
+                                         '04:30 PM'],
+                     'date': 'March 20, 2025',
+                     'day_of_week': 'Thursday'},
+                    {'available_times': ['11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '03:30 PM',
+                                         '04:30 PM'],
+                     'date': 'March 21, 2025',
+                     'day_of_week': 'Friday'}],
+ 'timezone': 'America/Los_Angeles'}
+2025-03-15 02:24:20,310 - __main__ - INFO - Finding overlapping availability
+2025-03-15 02:24:20,311 - __main__ - INFO - Getting suggested meeting time from LLM
+2025-03-15 02:24:23,740 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 02:24:23,756 - __main__ - INFO - LLM suggested time: 2025-03-17T12:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 02:24:23,757 - __main__ - INFO - Creating booking URL
+2025-03-15 02:24:23,757 - __main__ - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-03-17T12:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 02:24:23,757 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T12:00:00-07:00?month=2025-03&date=2025-03-17 to solve reCAPTCHA
+2025-03-15 02:24:24,804 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 02:24:24,804 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T12:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 02:24:24,844 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 02:24:24,844 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 02:24:24,920 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 02:24:25,249 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 02:24:25,306 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 02:24:26,263 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T12:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 02:24:27,505 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 02:24:27,506 - scrape - INFO - Filling out Calendly form
+2025-03-15 02:24:29,628 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 02:24:29,731 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 02:24:29,887 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 02:24:29,974 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55e40f016a1a <unknown>
+#1 0x55e40eace1e3 <unknown>
+#2 0x55e40eb16282 <unknown>
+#3 0x55e40eb45bd2 <unknown>
+#4 0x55e40eb1378a <unknown>
+#5 0x55e40eb45d9e <unknown>
+#6 0x55e40eb6c07b <unknown>
+#7 0x55e40eb459a3 <unknown>
+#8 0x55e40eb1160e <unknown>
+#9 0x55e40eb12dd1 <unknown>
+#10 0x55e40efdcddb <unknown>
+#11 0x55e40efe0cbc <unknown>
+#12 0x55e40efc4392 <unknown>
+#13 0x55e40efe1834 <unknown>
+#14 0x55e40efa81ef <unknown>
+#15 0x55e40f005038 <unknown>
+#16 0x55e40f005216 <unknown>
+#17 0x55e40f015896 <unknown>
+#18 0x7fe1bd90aaa4 <unknown>
+#19 0x7fe1bd997c3c <unknown>
+
+2025-03-15 02:24:30,786 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 02:24:30,786 - scrape - INFO - Form filled successfully
+2025-03-15 02:24:30,786 - scrape - INFO - Attempting to submit form
+2025-03-15 02:24:30,833 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 02:24:30,864 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 02:24:30,892 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 02:24:30,914 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 02:24:30,936 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 02:24:30,958 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:30,981 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,003 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 02:24:31,026 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 02:24:31,050 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,073 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,095 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:24:31,116 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,137 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:24:31,159 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,182 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:24:31,204 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,226 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:24:31,250 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 02:24:31,273 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,294 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,317 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,340 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:24:31,362 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 02:24:31,387 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 02:24:31,637 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 02:24:33,798 - scrape - INFO - reCAPTCHA detected, attempting to handle
+2025-03-15 02:24:33,873 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/recaptcha_detected.png
+2025-03-15 02:24:54,655 - scrape - DEBUG - Error in frame <selenium.webdriver.remote.webelement.WebElement (session="cae27f7eda4167f5afe3ec2cd1abde45", element="f.7A030576584ADB269C6F2780A907BC4D.d.7EC6DA5A40BB4BBE95BD5D6475F216BC.e.80")>: Message: no such element: element not found
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55e40f016a1a <unknown>
+#1 0x55e40eace390 <unknown>
+#2 0x55e40eae18eb <unknown>
+#3 0x55e40eae06a2 <unknown>
+#4 0x55e40ead5939 <unknown>
+#5 0x55e40ead3a9f <unknown>
+#6 0x55e40ead7728 <unknown>
+#7 0x55e40ead767f <unknown>
+#8 0x55e40ead77b3 <unknown>
+#9 0x55e40eb22f90 <unknown>
+#10 0x55e40eb6dea0 <unknown>
+#11 0x55e40eb45bd2 <unknown>
+#12 0x55e40eb6c07b <unknown>
+#13 0x55e40eb459a3 <unknown>
+#14 0x55e40eb1160e <unknown>
+#15 0x55e40eb12dd1 <unknown>
+#16 0x55e40efdcddb <unknown>
+#17 0x55e40efe0cbc <unknown>
+#18 0x55e40efc4392 <unknown>
+#19 0x55e40efe1834 <unknown>
+#20 0x55e40efa81ef <unknown>
+#21 0x55e40f005038 <unknown>
+#22 0x55e40f005216 <unknown>
+#23 0x55e40f015896 <unknown>
+#24 0x7fe1bd90aaa4 <unknown>
+#25 0x7fe1bd997c3c <unknown>
+
+2025-03-15 02:25:16,187 - scrape - ERROR - Could not find reCAPTCHA checkbox in any frame
+2025-03-15 02:25:22,405 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/cae27f7eda4167f5afe3ec2cd1abde45
+2025-03-15 02:25:22,406 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fcc549ca240>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/cae27f7eda4167f5afe3ec2cd1abde45
+2025-03-15 02:25:22,407 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fcc549ca690>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/cae27f7eda4167f5afe3ec2cd1abde45
+2025-03-15 02:25:38,375 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 02:25:38,375 - __main__ - INFO - Setting up Selenium with reCAPTCHA solver
+2025-03-15 02:25:39,241 - __main__ - INFO - Selenium and reCAPTCHA solver setup complete
+2025-03-15 02:25:39,241 - __main__ - INFO - Generating mock calendar data
+2025-03-15 02:25:39,243 - __main__ - INFO - Mock calendar data: {'available_slots': [{'date': 'Monday, March 17, 2025',
+                      'free_slots': [{'end': '11:30 AM', 'start': '10:30 AM'},
+                                     {'end': '02:30 PM', 'start': '12:00 PM'},
+                                     {'end': '04:00 PM', 'start': '03:30 PM'}]},
+                     {'date': 'Tuesday, March 18, 2025',
+                      'free_slots': [{'end': '11:30 AM', 'start': '09:30 AM'},
+                                     {'end': '02:30 PM', 'start': '12:00 PM'},
+                                     {'end': '05:00 PM', 'start': '03:00 PM'}]},
+                     {'date': 'Wednesday, March 19, 2025',
+                      'free_slots': [{'end': '10:00 AM', 'start': '09:30 AM'},
+                                     {'end': '11:30 AM', 'start': '10:30 AM'},
+                                     {'end': '01:00 PM', 'start': '12:00 PM'},
+                                     {'end': '02:30 PM', 'start': '01:30 PM'},
+                                     {'end': '05:00 PM', 'start': '03:00 PM'}]},
+                     {'date': 'Thursday, March 20, 2025',
+                      'free_slots': [{'end': '11:30 AM', 'start': '10:00 AM'},
+                                     {'end': '01:00 PM', 'start': '12:00 PM'},
+                                     {'end': '02:30 PM', 'start': '01:30 PM'},
+                                     {'end': '04:00 PM', 'start': '03:30 PM'}]},
+                     {'date': 'Friday, March 21, 2025',
+                      'free_slots': [{'end': '10:00 AM', 'start': '09:30 AM'},
+                                     {'end': '01:00 PM', 'start': '11:00 AM'},
+                                     {'end': '02:30 PM', 'start': '02:00 PM'},
+                                     {'end': '04:00 PM', 'start': '03:00 PM'},
+                                     {'end': '05:00 PM',
+                                      'start': '04:30 PM'}]}],
+ 'timezone': 'America/Los_Angeles',
+ 'week_of': 'March 16, 2025'}
+2025-03-15 02:25:39,245 - __main__ - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-15 02:25:40,116 - __main__ - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-15 02:25:40,118 - __main__ - INFO - Fetching Calendly availability
+2025-03-15 02:25:40,670 - __main__ - INFO - Successfully retrieved and formatted Calendly availability
+2025-03-15 02:25:40,675 - __main__ - INFO - Converting calendars to unified format
+2025-03-15 02:25:40,700 - __main__ - INFO - Unified mock calendar: {'available_days': [{'available_times': ['10:30 AM',
+                                         '11:00 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:00 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 17, 2025',
+                     'day_of_week': 'Monday'},
+                    {'available_times': ['09:30 AM',
+                                         '10:00 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:00 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '03:00 PM',
+                                         '03:30 PM',
+                                         '04:00 PM',
+                                         '04:30 PM'],
+                     'date': 'March 18, 2025',
+                     'day_of_week': 'Tuesday'},
+                    {'available_times': ['09:30 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '03:00 PM',
+                                         '03:30 PM',
+                                         '04:00 PM',
+                                         '04:30 PM'],
+                     'date': 'March 19, 2025',
+                     'day_of_week': 'Wednesday'},
+                    {'available_times': ['10:00 AM',
+                                         '10:30 AM',
+                                         '11:00 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '01:30 PM',
+                                         '02:00 PM',
+                                         '03:30 PM'],
+                     'date': 'March 20, 2025',
+                     'day_of_week': 'Thursday'},
+                    {'available_times': ['09:30 AM',
+                                         '11:00 AM',
+                                         '11:30 AM',
+                                         '12:00 PM',
+                                         '12:30 PM',
+                                         '02:00 PM',
+                                         '03:00 PM',
+                                         '03:30 PM',
+                                         '04:30 PM'],
+                     'date': 'March 21, 2025',
+                     'day_of_week': 'Friday'}],
+ 'timezone': 'America/Los_Angeles'}
+2025-03-15 02:25:40,704 - __main__ - INFO - Finding overlapping availability
+2025-03-15 02:25:40,706 - __main__ - INFO - Getting suggested meeting time from LLM
+2025-03-15 02:25:48,836 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 02:25:48,857 - __main__ - INFO - LLM suggested time: 2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 02:25:48,858 - __main__ - INFO - Creating booking URL
+2025-03-15 02:25:48,858 - __main__ - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 02:25:48,858 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18 to solve reCAPTCHA
+2025-03-15 02:25:49,881 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 02:25:49,881 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 02:25:49,929 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+2025-03-15 02:25:49,930 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 02:25:50,024 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 02:25:50,107 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 02:25:50,190 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 02:25:51,589 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 02:25:53,455 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 02:25:53,456 - scrape - INFO - Filling out Calendly form
+2025-03-15 02:25:55,414 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 02:25:55,637 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 02:25:55,794 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 02:25:55,844 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x562301cfca1a <unknown>
+#1 0x5623017b41e3 <unknown>
+#2 0x5623017fc282 <unknown>
+#3 0x56230182bbd2 <unknown>
+#4 0x5623017f978a <unknown>
+#5 0x56230182bd9e <unknown>
+#6 0x56230185207b <unknown>
+#7 0x56230182b9a3 <unknown>
+#8 0x5623017f760e <unknown>
+#9 0x5623017f8dd1 <unknown>
+#10 0x562301cc2ddb <unknown>
+#11 0x562301cc6cbc <unknown>
+#12 0x562301caa392 <unknown>
+#13 0x562301cc7834 <unknown>
+#14 0x562301c8e1ef <unknown>
+#15 0x562301ceb038 <unknown>
+#16 0x562301ceb216 <unknown>
+#17 0x562301cfb896 <unknown>
+#18 0x7f66bb5b1aa4 <unknown>
+#19 0x7f66bb63ec3c <unknown>
+
+2025-03-15 02:25:56,585 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 02:25:56,586 - scrape - INFO - Form filled successfully
+2025-03-15 02:25:56,586 - scrape - INFO - Attempting to submit form
+2025-03-15 02:25:56,636 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 02:25:56,666 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 02:25:56,690 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 02:25:56,715 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 02:25:56,739 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 02:25:56,765 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:56,787 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:56,810 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 02:25:56,832 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 02:25:56,855 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:56,878 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:56,901 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:25:56,923 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:56,947 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:25:56,968 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:56,992 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:25:57,014 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:57,038 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 02:25:57,062 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 02:25:57,084 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:57,109 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:57,131 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:57,155 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 02:25:57,178 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 02:25:57,201 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 02:25:57,464 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 02:25:59,074 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 02:25:59,150 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 02:25:59,150 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 02:25:59,150 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 02:25:59,329 - __main__ - INFO - Calendly appointment booked successfully
+2025-03-15 02:25:59,329 - __main__ - INFO - Workflow completed successfully
