@@ -12,8 +12,8 @@ def scheduling_prompt():
     {format_instructions}
 
     Note: The suggested_time MUST be in this exact format:
-    "2025-03-05T09:30:00-08:00?month=2025-03&date=2025-03-05"
-    - Include ISO 8601 datetime with timezone offset (-08:00 for PST)
+    "2025-03-05T09:30:00-07:00?month=2025-03&date=2025-03-05"
+    - Include ISO 8601 datetime with timezone offset (-07:00 for PST)
     - Include query parameters for month and date
     """)
 

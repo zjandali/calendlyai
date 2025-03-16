@@ -14,7 +14,7 @@ def generate_mock_calendar():
     
     formatted_data = {
         "week_of": tomorrow.strftime("%B %d, %Y"),
-        "timezone": "America/Los_Angeles",  # Changed from UTC to America/Los_Angeles
+        "timezone": "UTC",  # Changed from America/Los_Angeles to UTC
         "available_slots": []
     }
     

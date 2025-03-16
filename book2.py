@@ -68,7 +68,7 @@ def setup_calendly_api(calendly_url: str) -> tuple:
         logger.error(f"Traceback: {traceback.format_exc()}")
         raise
 
-def get_calendly_availability(uuid: str, timezone: str = "America/Los_Angeles") -> dict:
+def get_calendly_availability(uuid: str, timezone: str = "UTC") -> dict:
     """
     Get availability data from Calendly
     """
@@ -92,7 +92,7 @@ def get_calendly_availability(uuid: str, timezone: str = "America/Los_Angeles") 
         calendly_data = calendar_response.json()
         # logger.debug(f"Calendly data: {pformat(calendly_data)}")
         calendly_formatted = format_calendar_data(calendly_data)
-        logger.info(f"4242342342\n\n\n\n\n\n\nCalendly data: {calendly_formatted}")
+        #logger.info(f"4242342342\n\n\n\n\n\n\nCalendly data: {calendly_formatted}")
 
         # logger.info("Successfully retrieved and formatted Calendly availability")
         # logger.debug(f"Formatted Calendly data: {pformat(calendly_formatted)}")
@@ -108,18 +108,17 @@ def get_suggested_time(overlapping_calendar: dict) -> str:
     """
     Get suggested meeting time from LLM
     """
-    # logger.info("Getting suggested meeting time from LLM")
-    
     try:
         response_schema = ResponseSchema(
             name="suggested_time",
-            description="The suggested meeting time in ISO 8601 format",
+            description="The suggested meeting time in ISO 8601 format with UTC timezone",
             type="string"
         )
         
         parser = StructuredOutputParser.from_response_schemas([response_schema])
         format_instructions = parser.get_format_instructions()
         
+        # Make sure the prompt explicitly requests UTC time
         prompt_template = scheduling_prompt()
         messages = prompt_template.format_messages(
             overlapping_availability=json.dumps(overlapping_calendar, indent=2),
@@ -132,17 +131,17 @@ def get_suggested_time(overlapping_calendar: dict) -> str:
             openai_api_key=os.getenv("OPENAI_API_KEY")
         )
         
-        # logger.debug("Sending prompt to LLM")
         response = llm.invoke(messages)
         parsed_response = parser.parse(response.content)
         suggested_time = parsed_response['suggested_time']
         
-        # logger.info(f"LLM suggested time: {suggested_time}")
-        return suggested_time
+        # Ensure the suggested time is in UTC format with 'Z' suffix
+        # If it doesn't already have a timezone indicator
+        if 'Z' not in suggested_time and '+' not in suggested_time and '-' not in suggested_time:
+            suggested_time = f"{suggested_time}Z"
         
+        return suggested_time
     except Exception as e:
-        # logger.error(f"Error getting suggested time from LLM: {str(e)}")
-        # logger.error(f"Traceback: {traceback.format_exc()}")
         raise
 
 def create_booking_url(calendly_url: str, suggested_time: str) -> str:
@@ -232,25 +231,18 @@ def main():
         # Get mock calendar data
         logger.info("Generating mock calendar data")
         mock_calendar = generate_mock_calendar()
-        #logger.info(f"Mock calendar data: {pformat(mock_calendar)}")
-        #logger.debug(f"Mock calendar data: {pformat(mock_calendar)}")
         
         # Set up Calendly API and get availability
         uuid, profile_slug, event_type_slug = setup_calendly_api(calendly_url)
-        calendly_formatted = get_calendly_availability(uuid)
+        calendly_formatted = get_calendly_availability(uuid, timezone="UTC")  # Use UTC timezone
         
         # Convert calendars to unified format
-       # logger.info("Converting calendars to unified format")
-        calendly_timezone = calendly_formatted.get("timezone", "America/Los_Angeles")
-        unified_mock = convert_to_unified_format(mock_calendar, 'mock', calendly_timezone)
-        unified_calendly = convert_to_unified_format(calendly_formatted, 'calendly')
+        unified_mock = convert_to_unified_format(mock_calendar, 'mock', "UTC")
+        unified_calendly = convert_to_unified_format(calendly_formatted, 'calendly', "UTC")
         
         # Find overlapping times
-        #logger.info("Finding overlapping availability")
         overlapping_calendar = find_overlapping_times(unified_mock, unified_calendly)
-        #logger.debug(f"Overlapping calendar: {pformat(overlapping_calendar)}")
-        #logger.info(f"Unified mock calendar: {pformat(unified_mock)}")
-
+        
         # Get suggested time from LLM
         suggested_time = get_suggested_time(overlapping_calendar)
         logger.info(f"Suggested time: {suggested_time}")
