@@ -4,6 +4,7 @@ import os
 import traceback
 from datetime import datetime, timedelta
 from pprint import pformat
+import time
 
 import pytz
 import requests
@@ -116,7 +117,14 @@ def format_matches(matching_times):
     Returns:
         list: List of formatted time strings
     """
-    return [time.strftime("%Y-%m-%d %H:%M %Z") for time in matching_times]
+    formatted_times = []
+    for time in matching_times:
+        iso_format = time.strftime("%Y-%m-%dT%H:%M:%S-07:00")
+        readable_format = time.strftime("%A, %B %d, %Y at %I:%M %p")
+        formatted_times.append(f"{readable_format} ({iso_format})")
+    
+    # Join the times with line breaks for better readability in the prompt
+    return "\n".join(formatted_times)
 
 def get_calendly_availability(uuid: str, timezone: str = "America/Los_Angeles") -> dict:
     """
@@ -150,19 +158,21 @@ def get_suggested_time(overlapping_calendar: dict) -> str:
     try:
         response_schema = ResponseSchema(
             name="suggested_time",
-            description="The suggested meeting time in ISO 8601 format with UTC timezone",
+            description="The suggested meeting time in ISO 8601 format with UTC -07:00 timezone",
             type="string"
         )
         
         parser = StructuredOutputParser.from_response_schemas([response_schema])
         format_instructions = parser.get_format_instructions()
         
+        
         # Make sure the prompt explicitly requests UTC time
         prompt_template = scheduling_prompt()
         messages = prompt_template.format_messages(
-            overlapping_availability=json.dumps(overlapping_calendar, indent=2),
+            overlapping_availability=overlapping_calendar,
             format_instructions=format_instructions
         )
+        
         
         llm = ChatOpenAI(
             model_name="gpt-4o-mini",
@@ -176,8 +186,6 @@ def get_suggested_time(overlapping_calendar: dict) -> str:
         
         # Ensure the suggested time is in UTC format with 'Z' suffix
         # If it doesn't already have a timezone indicator
-        if 'Z' not in suggested_time and '+' not in suggested_time and '-' not in suggested_time:
-            suggested_time = f"{suggested_time}Z"
         
         return suggested_time
     except Exception as e:
@@ -230,28 +238,105 @@ def setup_selenium_with_recaptcha_solver():
 
 def solve_recaptcha(driver, solver, url):
     """
-    Navigate to URL and solve reCAPTCHA if present
+    Navigate to URL and check if reCAPTCHA is present
     """
-    #logger.info(f"Navigating to {url} to solve reCAPTCHA")
+    logger.info(f"Navigating to {url} to check for reCAPTCHA")
     
     try:
         driver.get(url)
         
-        # Check if reCAPTCHA is present
-        recaptcha_iframes = driver.find_elements(By.XPATH, '//iframe[@title="reCAPTCHA"]')
+        # More robust reCAPTCHA detection
+        # Check for multiple indicators of reCAPTCHA presence
+        recaptcha_iframes = driver.find_elements(By.XPATH, '//iframe[contains(@src, "recaptcha")]')
+        recaptcha_divs = driver.find_elements(By.XPATH, '//div[contains(@class, "g-recaptcha")]')
+        recaptcha_scripts = driver.find_elements(By.XPATH, '//script[contains(@src, "recaptcha")]')
         
-        if recaptcha_iframes:
-            logger.info("reCAPTCHA detected, closing browser to retry")
+        # Only consider it a reCAPTCHA if we have strong evidence
+        if recaptcha_iframes and (recaptcha_divs or recaptcha_scripts):
+            logger.info("reCAPTCHA confirmed on the page")
             return False
         else:
             logger.info("No reCAPTCHA detected on the page")
-            
-        return True
+            return True
         
     except Exception as e:
         logger.error(f"Error checking for reCAPTCHA: {str(e)}")
         logger.error(f"Traceback: {traceback.format_exc()}")
         return False
+
+def book_with_retry(url, name, email, phone, additional_info, max_retries=3):
+    """
+    Attempt to book a Calendly appointment with retries for reCAPTCHA
+    """
+    logger.info(f"Attempting to book appointment at {url} with up to {max_retries} retries")
+    
+    for attempt in range(1, max_retries + 1):
+        logger.info(f"Booking attempt {attempt} of {max_retries}")
+        
+        # Set up a new browser instance for each attempt
+        driver, solver = setup_selenium_with_recaptcha_solver()
+        
+        try:
+            # Check for reCAPTCHA and attempt to solve
+            recaptcha_solved = solve_recaptcha(driver, solver, url)
+            
+            if not recaptcha_solved:
+                logger.warning(f"reCAPTCHA detected and could not be solved on attempt {attempt}")
+                # Close the browser before retrying
+                driver.quit()
+                
+                if attempt < max_retries:
+                    logger.info(f"Waiting 5 seconds before retry {attempt + 1}")
+                    time.sleep(5)  # Add a delay before retrying
+                    continue
+                else:
+                    logger.error("Max retries reached, falling back to direct booking method")
+            
+            # If we get here, either no reCAPTCHA was detected or it was solved
+            # Proceed with booking using the current browser session
+            logger.info("Proceeding with booking using current browser session")
+            
+            # Add code here to fill out the form using the current driver
+            # This would be an alternative to using book_calendly_appointment
+            
+            # For now, close this browser and use the imported function
+            driver.quit()
+            
+            booking_success = book_calendly_appointment(
+                url=url,
+                name=name,
+                email=email,
+                phone=phone,
+                additional_info=additional_info,
+                debug=True,
+                headless=False
+            )
+            
+            if booking_success:
+                logger.info("Calendly appointment booked successfully")
+                return True
+            else:
+                logger.error(f"Booking failed on attempt {attempt}")
+                if attempt < max_retries:
+                    continue
+        
+        except Exception as e:
+            logger.error(f"Error during booking attempt {attempt}: {str(e)}")
+            logger.error(traceback.format_exc())
+            
+            # Make sure to close the browser before retrying
+            try:
+                driver.quit()
+            except:
+                pass
+            
+            if attempt < max_retries:
+                logger.info(f"Waiting 5 seconds before retry {attempt + 1}")
+                time.sleep(5)
+                continue
+    
+    logger.error("All booking attempts failed")
+    return False
 
 def main():
     """
@@ -282,51 +367,24 @@ def main():
         # Get suggested time from LLM
         suggested_time = get_suggested_time(formatted_matches)
         logger.info(f"Suggested time: {suggested_time}")
+        
         # Create final booking URL
         final_url = create_booking_url(calendly_url, suggested_time)
         
-        # Set up Selenium with reCAPTCHA solver and check for reCAPTCHA
-        driver, solver = setup_selenium_with_recaptcha_solver()
-        recaptcha_check = solve_recaptcha(driver, solver, final_url)
-        
-        if not recaptcha_check:
-            logger.warning("reCAPTCHA detected, closing browser and retrying with direct booking")
-            driver.quit()
-            
-            # Book the appointment using the imported function from scrape.py
-            logger.info(f"Booking Calendly appointment at URL: {final_url}")
-            booking_success = book_calendly_appointment(
-                url=final_url,
-                name=name,
-                email=email,
-                phone=phone,
-                additional_info=additional_info,
-                debug=True,  # Enable debug logging
-                headless=False  # Use headless mode since you were using it before
-            )
-        else:
-            # No reCAPTCHA detected, proceed with current browser session
-            logger.info("No reCAPTCHA detected, proceeding with current browser session")
-            driver.quit()  # Close the browser we used for checking
-            
-            # Book the appointment using the imported function from scrape.py
-            logger.info(f"Booking Calendly appointment at URL: {final_url}")
-            booking_success = book_calendly_appointment(
-                url=final_url,
-                name=name,
-                email=email,
-                phone=phone,
-                additional_info=additional_info,
-                debug=True,  # Enable debug logging
-                headless=False  # Use headless mode since you were using it before
-            )
+        # Use the new retry function to handle reCAPTCHA and booking
+        booking_success = book_with_retry(
+            url=final_url,
+            name=name,
+            email=email,
+            phone=phone,
+            additional_info=additional_info
+        )
         
         if booking_success:
-            logger.info("Calendly appointment booked successfully")
+            logger.info("Calendly workflow completed successfully")
         else:
-            logger.error("Failed to book Calendly appointment")
+            logger.error("Calendly workflow failed")
         
-        logger.info("Workflow completed successfully")
         return final_url
         
     except Exception as e:

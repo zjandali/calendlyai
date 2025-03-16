@@ -513,7 +513,7 @@ class CalendlyScraper:
         try:
             # Wait a moment to see if page title changes
             try:
-                WebDriverWait(self.driver, 2).until(
+                WebDriverWait(self.driver, 15).until(
                     lambda driver: "confirmed" in driver.title.lower() or 
                     "confirmed" in driver.title.lower() or 
                     "scheduled" in driver.title.lower() or

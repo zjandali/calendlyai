@@ -1,0 +1,52 @@
+{
+  "total_runs": 20,
+  "successful_runs": 5,
+  "failed_runs": 0,
+  "run_details": [
+    {
+      "run_number": 1,
+      "start_time": "2025-03-15T18:36:52.523308",
+      "success": true,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T14:00:00-07:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T18:37:13.820621",
+      "duration_seconds": 21.297313
+    },
+    {
+      "run_number": 2,
+      "start_time": "2025-03-15T18:37:13.821378",
+      "success": true,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T14:30:00-07:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T18:37:27.074996",
+      "duration_seconds": 13.253618
+    },
+    {
+      "run_number": 3,
+      "start_time": "2025-03-15T18:37:27.076334",
+      "success": true,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T15:00:00-07:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T18:37:40.449378",
+      "duration_seconds": 13.373044
+    },
+    {
+      "run_number": 4,
+      "start_time": "2025-03-15T18:37:40.449967",
+      "success": true,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-18T10:00:00-07:00?month=2025-03&date=2025-03-18",
+      "error": null,
+      "end_time": "2025-03-15T18:37:59.054670",
+      "duration_seconds": 18.604703
+    },
+    {
+      "run_number": 5,
+      "start_time": "2025-03-15T18:37:59.055610",
+      "success": true,
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-17T15:30:00-07:00?month=2025-03&date=2025-03-17",
+      "error": null,
+      "end_time": "2025-03-15T18:38:13.480933",
+      "duration_seconds": 14.425323
+    }
+  ]
+}
