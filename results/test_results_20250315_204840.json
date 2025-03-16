@@ -1,0 +1,21 @@
+{
+    "successful": 8,
+    "failed": 2,
+    "total_runs": 10,
+    "start_time": "2025-03-15T20:45:20.903027",
+    "successful_urls": [
+        "https://calendly.com/robertjandali/30min/2025-03-19T10:00:00-07:00?month=2025-03&date=2025-03-19",
+        "https://calendly.com/robertjandali/30min/2025-03-19T10:30:00-07:00?month=2025-03&date=2025-03-19",
+        "https://calendly.com/robertjandali/30min/2025-03-19T11:00:00-07:00?month=2025-03&date=2025-03-19",
+        "https://calendly.com/robertjandali/30min/2025-03-19T11:30:00-07:00?month=2025-03&date=2025-03-19",
+        "https://calendly.com/robertjandali/30min/2025-03-19T12:00:00-07:00?month=2025-03&date=2025-03-19",
+        "https://calendly.com/robertjandali/30min/2025-03-19T12:30:00-07:00?month=2025-03&date=2025-03-19",
+        "https://calendly.com/robertjandali/30min/2025-03-19T13:00:00-07:00?month=2025-03&date=2025-03-19",
+        "https://calendly.com/robertjandali/30min/2025-03-19T13:30:00-07:00?month=2025-03&date=2025-03-19"
+    ],
+    "errors": [
+        "Run 9 failed - No booking URL returned",
+        "Run 10 failed - No booking URL returned"
+    ],
+    "end_time": "2025-03-15T20:48:40.149392"
+}

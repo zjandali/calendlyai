@@ -1,0 +1,21 @@
+{
+    "successful": 1,
+    "failed": 9,
+    "total_runs": 10,
+    "start_time": "2025-03-15T20:53:28.614765",
+    "successful_urls": [
+        "https://calendly.com/robertjandali/30min/2025-03-19T14:00:00-07:00?month=2025-03&date=2025-03-19"
+    ],
+    "errors": [
+        "Run 1 failed - No booking URL returned",
+        "Run 2 failed - No booking URL returned",
+        "Run 4 failed - No booking URL returned",
+        "Run 5 failed - No booking URL returned",
+        "Run 6 failed - No booking URL returned",
+        "Run 7 failed - No booking URL returned",
+        "Run 8 failed - No booking URL returned",
+        "Run 9 failed - No booking URL returned",
+        "Run 10 failed - No booking URL returned"
+    ],
+    "end_time": "2025-03-15T20:53:54.029080"
+}

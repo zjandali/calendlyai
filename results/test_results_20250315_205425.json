@@ -1,0 +1,20 @@
+{
+    "successful": 0,
+    "failed": 10,
+    "total_runs": 10,
+    "start_time": "2025-03-15T20:54:11.349071",
+    "successful_urls": [],
+    "errors": [
+        "Run 1 failed - No booking URL returned",
+        "Run 2 failed - No booking URL returned",
+        "Run 3 failed - No booking URL returned",
+        "Run 4 failed - No booking URL returned",
+        "Run 5 failed - No booking URL returned",
+        "Run 6 failed - No booking URL returned",
+        "Run 7 failed - No booking URL returned",
+        "Run 8 failed - No booking URL returned",
+        "Run 9 failed - No booking URL returned",
+        "Run 10 failed - No booking URL returned"
+    ],
+    "end_time": "2025-03-15T20:54:25.948832"
+}

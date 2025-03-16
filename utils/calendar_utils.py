@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 def generate_mock_calendar():
     """
-    Generate a mock calendar in Calendly API format with free time slots during business hours.
+    Generate a mock calendar in Calendly API format with mostly busy time slots during business hours.
     
     Returns:
         dict: Formatted calendar data matching Calendly API structure
@@ -50,6 +50,10 @@ def generate_mock_calendar():
                 slot_time = current_date.replace(hour=hour, minute=minute)
                 # Format with timezone offset (-07:00 for PDT)
                 slot_time_str = slot_time.strftime("%Y-%m-%dT%H:%M:00-07:00")
+                
+                # Make most slots busy (80% chance of being busy)
+                if random.random() < 0.8:
+                    continue
                 
                 # Add available spot
                 spots.append({
