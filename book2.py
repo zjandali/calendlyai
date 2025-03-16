@@ -68,12 +68,60 @@ def setup_calendly_api(calendly_url: str) -> tuple:
         logger.error(f"Traceback: {traceback.format_exc()}")
         raise
 
-def get_calendly_availability(uuid: str, timezone: str = "UTC") -> dict:
+def find_matching_times(calendar1, calendar2):
+    """
+    Find matching available time slots between two calendars with Calendly-like structure.
+    
+    Args:
+        calendar1 (dict): First calendar data in Calendly format
+        calendar2 (dict): Second calendar data in Calendly format
+        
+    Returns:
+        list: List of matching datetime objects that are available in both calendars
+    """
+    # Extract timezones (use the first calendar's timezone if second doesn't specify)
+    tz1 = pytz.timezone(calendar1.get('availability_timezone', 'UTC'))
+    tz2 = pytz.timezone(calendar2.get('availability_timezone', tz1.zone))
+    
+    # Create sets of available times from both calendars
+    times1 = set()
+    times2 = set()
+    
+    # Helper function to extract times from a calendar
+    def extract_times(calendar, time_set):
+        for day in calendar.get('days', []):
+            if day['status'] == 'available' and day.get('enabled', True):
+                for spot in day.get('spots', []):
+                    if spot['status'] == 'available' and spot.get('invitees_remaining', 0) > 0:
+                        # Parse the ISO format time string
+                        time = datetime.fromisoformat(spot['start_time'])
+                        time_set.add(time)
+    
+    # Extract times from both calendars
+    extract_times(calendar1, times1)
+    extract_times(calendar2, times2)
+    
+    # Find intersection of available times
+    matching_times = sorted(times1.intersection(times2))
+    
+    return matching_times
+
+def format_matches(matching_times):
+    """
+    Format matching times in a readable way.
+    
+    Args:
+        matching_times (list): List of datetime objects
+        
+    Returns:
+        list: List of formatted time strings
+    """
+    return [time.strftime("%Y-%m-%d %H:%M %Z") for time in matching_times]
+
+def get_calendly_availability(uuid: str, timezone: str = "America/Los_Angeles") -> dict:
     """
     Get availability data from Calendly
     """
-    #logger.info("Fetching Calendly availability")
-    
     try:
         range_url = f"https://calendly.com/api/booking/event_types/{uuid}/calendar/range"
         start_date = datetime.now()
@@ -89,19 +137,10 @@ def get_calendly_availability(uuid: str, timezone: str = "UTC") -> dict:
         calendar_response = requests.get(range_url, params=params)
         calendar_response.raise_for_status()
         
-        calendly_data = calendar_response.json()
-        # logger.debug(f"Calendly data: {pformat(calendly_data)}")
-        calendly_formatted = format_calendar_data(calendly_data)
-        #logger.info(f"4242342342\n\n\n\n\n\n\nCalendly data: {calendly_formatted}")
-
-        # logger.info("Successfully retrieved and formatted Calendly availability")
-        # logger.debug(f"Formatted Calendly data: {pformat(calendly_formatted)}")
-        
-        return calendly_formatted
+        return calendar_response.json()
         
     except Exception as e:
-        # logger.error(f"Error getting Calendly availability: {str(e)}")
-        # logger.error(f"Traceback: {traceback.format_exc()}")
+        logger.error(f"Error getting Calendly availability: {str(e)}")
         raise
 
 def get_suggested_time(overlapping_calendar: dict) -> str:
@@ -234,17 +273,14 @@ def main():
         
         # Set up Calendly API and get availability
         uuid, profile_slug, event_type_slug = setup_calendly_api(calendly_url)
-        calendly_formatted = get_calendly_availability(uuid, timezone="UTC")  # Use UTC timezone
+        calendly_data = get_calendly_availability(uuid)
         
-        # Convert calendars to unified format
-        unified_mock = convert_to_unified_format(mock_calendar, 'mock', "UTC")
-        unified_calendly = convert_to_unified_format(calendly_formatted, 'calendly', "UTC")
-        
-        # Find overlapping times
-        overlapping_calendar = find_overlapping_times(unified_mock, unified_calendly)
+        # Find matching times
+        matches = find_matching_times(mock_calendar, calendly_data)
+        formatted_matches = format_matches(matches)
         
         # Get suggested time from LLM
-        suggested_time = get_suggested_time(overlapping_calendar)
+        suggested_time = get_suggested_time(formatted_matches)
         logger.info(f"Suggested time: {suggested_time}")
         # Create final booking URL
         final_url = create_booking_url(calendly_url, suggested_time)

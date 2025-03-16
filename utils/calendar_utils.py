@@ -4,106 +4,71 @@ from datetime import datetime, timedelta
 
 def generate_mock_calendar():
     """
-    Generate a formatted mock calendar with free time slots during normal business hours.
+    Generate a mock calendar in Calendly API format with free time slots during business hours.
     
     Returns:
-        dict: Formatted calendar data with realistic free time slots
+        dict: Formatted calendar data matching Calendly API structure
     """
-    # Calculate start (tomorrow) and end (7 days from tomorrow) dates
-    tomorrow = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
+    # Calculate today and format it properly
+    today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    today_str = today.strftime("%Y-%m-%d")
     
-    formatted_data = {
-        "week_of": tomorrow.strftime("%B %d, %Y"),
-        "timezone": "UTC",  # Changed from America/Los_Angeles to UTC
-        "available_slots": []
+    calendly_data = {
+        "invitee_publisher_error": False,
+        "today": today_str,
+        "availability_timezone": "America/Los_Angeles",
+        "days": []
     }
     
-    # Business hours - 9:00 to 17:00 (5 PM)
+    # Business hours - 9:00 to 17:00 (5 PM) in 30-minute increments
     business_start = 9
     business_end = 17
     
-    # Process each day
+    # Process each day (today + 7 days)
     for i in range(7):
-        current_date = tomorrow + timedelta(days=i)
-        if current_date.weekday() < 5:  # Skip weekends
-            # Create a schedule for the day with 30-minute blocks
-            day_schedule = {}
-            for hour in range(business_start, business_end):
-                for minute in [0, 30]:
-                    day_schedule[f"{hour}:{minute:02d}"] = "free"
-            
-            # Common meeting times
-            common_meeting_starts = [
-                (9, 0),   # Morning standup
-                (10, 0),  # Mid-morning meeting
-                (11, 30), # Pre-lunch meeting
-                (13, 0),  # After-lunch meeting
-                (14, 30), # Mid-afternoon meeting
-                (16, 0)   # End-of-day wrap-up
-            ]
-            
-            # Add 3-5 meetings per day
-            num_meetings = random.randint(3, 5)
-            
-            # Prioritize some common meeting times, but randomize a bit
-            selected_times = random.sample(common_meeting_starts, min(num_meetings, len(common_meeting_starts)))
-            
-            # If we need more meetings than common times, add some random ones
-            while len(selected_times) < num_meetings:
-                hour = random.randint(business_start, business_end - 1)
-                minute = random.choice([0, 30])
-                if (hour, minute) not in selected_times:
-                    selected_times.append((hour, minute))
-            
-            # Block time for meetings
-            for hour, minute in selected_times:                
-                # 30 or 60 minute meetings
-                duration = random.choice([30, 60])
+        current_date = today + timedelta(days=i)
+        current_date_str = current_date.strftime("%Y-%m-%d")
+        
+        # Weekend days are unavailable
+        if current_date.weekday() >= 5:  # Saturday or Sunday
+            day_data = {
+                "date": current_date_str,
+                "status": "unavailable",
+                "spots": [],
+                "enabled": False
+            }
+            calendly_data["days"].append(day_data)
+            continue
+        
+        # Create available spots for weekdays
+        spots = []
+        
+        # Generate all possible time slots
+        for hour in range(business_start, business_end):
+            for minute in [0, 30]:
+                # Create datetime with timezone info
+                slot_time = current_date.replace(hour=hour, minute=minute)
+                # Format with timezone offset (-07:00 for PDT)
+                slot_time_str = slot_time.strftime("%Y-%m-%dT%H:%M:00-07:00")
                 
-                # Mark meeting blocks as occupied
-                for block in range(duration // 30):
-                    block_hour = (hour + (minute + block * 30) // 60) % 24
-                    block_minute = (minute + block * 30) % 60
-                    block_key = f"{block_hour}:{block_minute:02d}"
-                    if block_key in day_schedule:
-                        day_schedule[block_key] = "busy"
-            
-            # Convert schedule to available slots
-            free_slots = []
-            current_start = None
-            
-            for hour in range(business_start, business_end):
-                for minute in [0, 30]:
-                    time_key = f"{hour}:{minute:02d}"
-                    
-                    if day_schedule.get(time_key) == "free":
-                        if current_start is None:
-                            current_start = current_date.replace(hour=hour, minute=minute)
-                    else:  # busy or end of time slot
-                        if current_start is not None:
-                            end_time = current_date.replace(hour=hour, minute=minute)
-                            # Only add if slot is at least 30 minutes
-                            free_slots.append({
-                                "start": current_start.strftime("%I:%M %p"),
-                                "end": end_time.strftime("%I:%M %p")
-                            })
-                            current_start = None
-            
-            # Handle case where the last slot(s) of the day are free
-            if current_start is not None:
-                end_time = current_date.replace(hour=business_end, minute=0)
-                free_slots.append({
-                    "start": current_start.strftime("%I:%M %p"),
-                    "end": end_time.strftime("%I:%M %p")
+                # Add available spot
+                spots.append({
+                    "status": "available",
+                    "start_time": slot_time_str,
+                    "invitees_remaining": 1
                 })
-            
-            if free_slots:
-                formatted_data["available_slots"].append({
-                    "date": current_date.strftime("%A, %B %d, %Y"),
-                    "free_slots": free_slots
-                })
+        
+        # Add day data
+        day_data = {
+            "date": current_date_str,
+            "status": "available" if spots else "unavailable",
+            "spots": spots,
+            "enabled": True
+        }
+        
+        calendly_data["days"].append(day_data)
     
-    return formatted_data
+    return calendly_data
 
 
 def format_calendar_data(data):
@@ -286,4 +251,100 @@ def find_overlapping_times(calendar1, calendar2):
         key=lambda x: datetime.strptime(x["date"], "%B %d, %Y")
     )
     
-    return overlapping_calendar 
+    return overlapping_calendar
+
+
+def generate_mock_calendly_calendar():
+    """
+    Generate a mock calendar in Calendly API format with free time slots during business hours.
+    
+    Returns:
+        dict: Formatted calendar data matching Calendly API structure
+    """
+    # Calculate today and the next 7 days
+    today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    today_str = today.strftime("%Y-%m-%d")
+    
+    calendly_data = {
+        "invitee_publisher_error": False,
+        "today": today_str,
+        "availability_timezone": "America/Los_Angeles",
+        "days": []
+    }
+    
+    # Business hours - 7:00 to 17:00 (5 PM) in 30-minute increments
+    business_start = 7
+    business_end = 17
+    
+    # Process each day (today + 14 days)
+    for i in range(15):
+        current_date = today + timedelta(days=i)
+        current_date_str = current_date.strftime("%Y-%m-%d")
+        
+        # Weekend days are unavailable
+        if current_date.weekday() >= 5:  # Saturday or Sunday
+            calendly_data["days"].append({
+                "date": current_date_str,
+                "status": "unavailable",
+                "spots": [],
+                "invitee_events": []
+            })
+            continue
+        
+        # Create available spots for weekdays
+        spots = []
+        
+        # Common meeting times to block (similar to generate_mock_calendar)
+        common_meeting_starts = [
+            (9, 0),   # Morning standup
+            (10, 0),  # Mid-morning meeting
+            (11, 30), # Pre-lunch meeting
+            (13, 0),  # After-lunch meeting
+            (14, 30), # Mid-afternoon meeting
+            (16, 0)   # End-of-day wrap-up
+        ]
+        
+        # Add 3-5 meetings per day
+        num_meetings = random.randint(3, 5)
+        
+        # Prioritize some common meeting times, but randomize a bit
+        blocked_times = random.sample(common_meeting_starts, min(num_meetings, len(common_meeting_starts)))
+        
+        # If we need more meetings than common times, add some random ones
+        while len(blocked_times) < num_meetings:
+            hour = random.randint(business_start, business_end - 1)
+            minute = random.choice([0, 30])
+            if (hour, minute) not in blocked_times:
+                blocked_times.append((hour, minute))
+        
+        # Generate all possible time slots
+        for hour in range(business_start, business_end):
+            for minute in [0, 30]:
+                # Skip blocked meeting times
+                if (hour, minute) in blocked_times:
+                    continue
+                
+                # Create datetime in local timezone
+                slot_time = current_date.replace(hour=hour, minute=minute)
+                
+                # Convert to UTC for the API format
+                slot_time_utc = slot_time.strftime("%Y-%m-%dT%H:%M:%S") + "Z"
+                
+                # Add available spot
+                spots.append({
+                    "status": "available",
+                    "start_time": slot_time_utc,
+                    "invitees_remaining": 1
+                })
+        
+        # Add day data
+        day_data = {
+            "date": current_date_str,
+            "status": "available" if spots else "unavailable",
+            "spots": spots,
+            "invitee_events": []
+        }
+        
+        calendly_data["days"].append(day_data)
+    
+    return calendly_data 

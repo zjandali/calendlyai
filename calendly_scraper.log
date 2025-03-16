@@ -9290,3 +9290,1737 @@ Stacktrace:
 2025-03-15 17:01:12,314 - scrape - INFO - Successfully submitted the Calendly booking form
 2025-03-15 17:01:12,437 - __main__ - INFO - Calendly appointment booked successfully
 2025-03-15 17:01:12,437 - __main__ - INFO - Workflow completed successfully
+2025-03-15 17:02:00,038 - __main__ - INFO - Generating test data for 5 runs
+2025-03-15 17:02:00,604 - __main__ - INFO - Validated Calendly URL: https://calendly.com/robertjandali/30min
+2025-03-15 17:02:00,605 - __main__ - INFO - Starting test suite with 5 runs
+2025-03-15 17:02:00,605 - __main__ - INFO - Starting test run 1/5
+2025-03-15 17:02:00,605 - __main__ - INFO - Generating mock calendar data for test
+2025-03-15 17:02:10,898 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:02:10,914 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T07:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:02:10,948 - scrape - INFO - Using User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+2025-03-15 17:02:10,948 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 17:02:11,018 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:02:11,087 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:02:11,143 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 17:02:12,213 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T07:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:02:13,676 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 17:02:13,676 - scrape - INFO - Filling out Calendly form
+2025-03-15 17:02:15,929 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 17:02:16,037 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 17:02:16,191 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 17:02:16,239 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55be87f2ba1a <unknown>
+#1 0x55be879e31e3 <unknown>
+#2 0x55be87a2b282 <unknown>
+#3 0x55be87a5abd2 <unknown>
+#4 0x55be87a2878a <unknown>
+#5 0x55be87a5ad9e <unknown>
+#6 0x55be87a8107b <unknown>
+#7 0x55be87a5a9a3 <unknown>
+#8 0x55be87a2660e <unknown>
+#9 0x55be87a27dd1 <unknown>
+#10 0x55be87ef1ddb <unknown>
+#11 0x55be87ef5cbc <unknown>
+#12 0x55be87ed9392 <unknown>
+#13 0x55be87ef6834 <unknown>
+#14 0x55be87ebd1ef <unknown>
+#15 0x55be87f1a038 <unknown>
+#16 0x55be87f1a216 <unknown>
+#17 0x55be87f2a896 <unknown>
+#18 0x7f2dbc9f1aa4 <unknown>
+#19 0x7f2dbca7ec3c <unknown>
+
+2025-03-15 17:02:17,149 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 17:02:17,149 - scrape - INFO - Form filled successfully
+2025-03-15 17:02:17,149 - scrape - INFO - Attempting to submit form
+2025-03-15 17:02:17,215 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 17:02:17,248 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 17:02:17,275 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 17:02:17,299 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 17:02:17,332 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 17:02:17,365 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,398 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,427 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 17:02:17,453 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 17:02:17,482 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,503 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,530 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:02:17,557 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,585 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:02:17,608 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,631 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:02:17,659 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,686 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:02:17,715 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 17:02:17,742 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,768 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,791 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,819 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:17,842 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 17:02:17,872 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 17:02:18,216 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 17:02:19,495 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 17:02:19,702 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 17:02:19,703 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 17:02:19,703 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 17:02:19,966 - __main__ - INFO - Calendly appointment booked successfully
+2025-03-15 17:02:19,967 - __main__ - INFO - Test run 1 succeeded
+2025-03-15 17:02:19,968 - __main__ - INFO - Test results saved to calendly_test_results_20250315_170219.json
+2025-03-15 17:02:19,970 - __main__ - INFO - Starting test run 2/5
+2025-03-15 17:02:19,971 - __main__ - INFO - Generating mock calendar data for test
+2025-03-15 17:02:22,258 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:02:22,263 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T07:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:02:22,300 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 17:02:22,301 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 17:02:22,377 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:02:22,440 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:02:22,523 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 17:02:23,581 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T07:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:02:24,866 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 17:02:24,867 - scrape - INFO - Filling out Calendly form
+2025-03-15 17:02:27,127 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 17:02:27,228 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 17:02:27,397 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 17:02:27,445 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55bc06bf5a1a <unknown>
+#1 0x55bc066ad1e3 <unknown>
+#2 0x55bc066f5282 <unknown>
+#3 0x55bc06724bd2 <unknown>
+#4 0x55bc066f278a <unknown>
+#5 0x55bc06724d9e <unknown>
+#6 0x55bc0674b07b <unknown>
+#7 0x55bc067249a3 <unknown>
+#8 0x55bc066f060e <unknown>
+#9 0x55bc066f1dd1 <unknown>
+#10 0x55bc06bbbddb <unknown>
+#11 0x55bc06bbfcbc <unknown>
+#12 0x55bc06ba3392 <unknown>
+#13 0x55bc06bc0834 <unknown>
+#14 0x55bc06b871ef <unknown>
+#15 0x55bc06be4038 <unknown>
+#16 0x55bc06be4216 <unknown>
+#17 0x55bc06bf4896 <unknown>
+#18 0x7fb7ffea2aa4 <unknown>
+#19 0x7fb7fff2fc3c <unknown>
+
+2025-03-15 17:02:28,225 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 17:02:28,226 - scrape - INFO - Form filled successfully
+2025-03-15 17:02:28,226 - scrape - INFO - Attempting to submit form
+2025-03-15 17:02:28,270 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 17:02:28,295 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 17:02:28,319 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 17:02:28,341 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 17:02:28,365 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 17:02:28,391 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,413 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,435 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 17:02:28,457 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 17:02:28,479 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,500 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,522 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:02:28,544 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,566 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:02:28,587 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,610 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:02:28,635 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,661 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:02:28,705 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 17:02:28,730 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,756 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,784 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,806 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:02:28,830 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 17:02:28,853 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 17:02:29,100 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 17:02:31,268 - scrape - INFO - reCAPTCHA detected, attempting to handle
+2025-03-15 17:02:31,346 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/recaptcha_detected.png
+2025-03-15 17:02:52,031 - scrape - ERROR - Could not find reCAPTCHA checkbox in any frame
+2025-03-15 17:02:55,771 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/3099b73dde20c0faf8a2c408e893913b
+2025-03-15 17:02:55,772 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f274b998890>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/3099b73dde20c0faf8a2c408e893913b
+2025-03-15 17:02:55,772 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f274b998c50>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/3099b73dde20c0faf8a2c408e893913b
+2025-03-15 17:03:36,301 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 17:03:36,301 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:03:40,425 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:03:40,440 - __main__ - INFO - Suggested time: 2025-03-17T11:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:03:42,142 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 17:03:42,142 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 17:03:42,280 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T11:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:03:42,338 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Mobile Safari/537.36
+2025-03-15 17:03:42,339 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 17:03:42,420 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:03:42,483 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:03:42,551 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 17:03:43,578 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T11:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:03:45,064 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 17:03:45,064 - scrape - INFO - Filling out Calendly form
+2025-03-15 17:03:47,514 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 17:03:47,640 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 17:03:47,818 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 17:03:47,869 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x5618cfbc9a1a <unknown>
+#1 0x5618cf6811e3 <unknown>
+#2 0x5618cf6c9282 <unknown>
+#3 0x5618cf6f8bd2 <unknown>
+#4 0x5618cf6c678a <unknown>
+#5 0x5618cf6f8d9e <unknown>
+#6 0x5618cf71f07b <unknown>
+#7 0x5618cf6f89a3 <unknown>
+#8 0x5618cf6c460e <unknown>
+#9 0x5618cf6c5dd1 <unknown>
+#10 0x5618cfb8fddb <unknown>
+#11 0x5618cfb93cbc <unknown>
+#12 0x5618cfb77392 <unknown>
+#13 0x5618cfb94834 <unknown>
+#14 0x5618cfb5b1ef <unknown>
+#15 0x5618cfbb8038 <unknown>
+#16 0x5618cfbb8216 <unknown>
+#17 0x5618cfbc8896 <unknown>
+#18 0x7f6737ea9aa4 <unknown>
+#19 0x7f6737f36c3c <unknown>
+
+2025-03-15 17:03:48,541 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 17:03:48,541 - scrape - INFO - Form filled successfully
+2025-03-15 17:03:48,541 - scrape - INFO - Attempting to submit form
+2025-03-15 17:03:48,588 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 17:03:48,613 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 17:03:48,636 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 17:03:48,658 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 17:03:48,682 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 17:03:48,703 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:48,724 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:48,746 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 17:03:48,767 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 17:03:48,788 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:48,811 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:48,832 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:03:48,854 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:48,875 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:03:48,896 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:48,917 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:03:48,938 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:48,959 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:03:48,980 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 17:03:49,002 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:49,024 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:49,045 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:49,068 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:03:49,091 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 17:03:49,116 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 17:03:49,341 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 17:03:51,066 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 17:03:51,143 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 17:03:51,143 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 17:03:51,143 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 17:03:51,267 - __main__ - INFO - Calendly appointment booked successfully
+2025-03-15 17:03:51,267 - __main__ - INFO - Workflow completed successfully
+2025-03-15 17:03:56,012 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 17:03:56,013 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:03:59,311 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:03:59,329 - __main__ - INFO - Suggested time: 2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:04:01,645 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 17:04:01,645 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 17:04:01,731 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:04:01,771 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+2025-03-15 17:04:01,771 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 17:04:01,841 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:04:01,903 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:04:01,987 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 17:04:03,073 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:04:08,412 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 17:04:08,412 - scrape - INFO - Filling out Calendly form
+2025-03-15 17:04:10,536 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 17:04:10,643 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 17:04:10,813 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 17:04:10,863 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55f8cd537a1a <unknown>
+#1 0x55f8ccfef1e3 <unknown>
+#2 0x55f8cd037282 <unknown>
+#3 0x55f8cd066bd2 <unknown>
+#4 0x55f8cd03478a <unknown>
+#5 0x55f8cd066d9e <unknown>
+#6 0x55f8cd08d07b <unknown>
+#7 0x55f8cd0669a3 <unknown>
+#8 0x55f8cd03260e <unknown>
+#9 0x55f8cd033dd1 <unknown>
+#10 0x55f8cd4fdddb <unknown>
+#11 0x55f8cd501cbc <unknown>
+#12 0x55f8cd4e5392 <unknown>
+#13 0x55f8cd502834 <unknown>
+#14 0x55f8cd4c91ef <unknown>
+#15 0x55f8cd526038 <unknown>
+#16 0x55f8cd526216 <unknown>
+#17 0x55f8cd536896 <unknown>
+#18 0x7f5089e73aa4 <unknown>
+#19 0x7f5089f00c3c <unknown>
+
+2025-03-15 17:04:11,554 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 17:04:11,554 - scrape - INFO - Form filled successfully
+2025-03-15 17:04:11,554 - scrape - INFO - Attempting to submit form
+2025-03-15 17:04:11,602 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 17:04:11,628 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 17:04:11,651 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 17:04:11,674 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 17:04:11,697 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 17:04:11,720 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:11,743 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:11,765 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 17:04:11,788 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 17:04:11,811 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:11,842 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:11,873 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:04:11,902 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:11,931 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:04:11,953 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:11,975 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:04:11,999 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:12,022 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:04:12,047 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 17:04:12,072 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:12,096 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:12,121 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:12,146 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:04:12,174 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 17:04:12,203 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 17:04:12,514 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 17:04:14,694 - scrape - INFO - reCAPTCHA detected, attempting to handle
+2025-03-15 17:04:14,783 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/recaptcha_detected.png
+2025-03-15 17:04:35,519 - scrape - ERROR - Could not find reCAPTCHA checkbox in any frame
+2025-03-15 17:04:46,370 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/c8e517a067aa07f7b59e4106e1205796
+2025-03-15 17:04:46,371 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7474d12870>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c8e517a067aa07f7b59e4106e1205796
+2025-03-15 17:04:46,372 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7475128140>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c8e517a067aa07f7b59e4106e1205796
+2025-03-15 17:04:50,068 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 17:04:50,068 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:04:53,138 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:04:53,153 - __main__ - INFO - Suggested time: 2025-03-17T09:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:04:55,136 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 17:04:55,136 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 17:04:55,224 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T09:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:04:55,265 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 17:04:55,266 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 17:04:55,338 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:04:55,399 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:04:55,468 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 17:04:56,546 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T09:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:04:58,155 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 17:04:58,155 - scrape - INFO - Filling out Calendly form
+2025-03-15 17:05:00,347 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 17:05:00,458 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 17:05:00,679 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 17:05:00,743 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x561d48f6fa1a <unknown>
+#1 0x561d48a271e3 <unknown>
+#2 0x561d48a6f282 <unknown>
+#3 0x561d48a9ebd2 <unknown>
+#4 0x561d48a6c78a <unknown>
+#5 0x561d48a9ed9e <unknown>
+#6 0x561d48ac507b <unknown>
+#7 0x561d48a9e9a3 <unknown>
+#8 0x561d48a6a60e <unknown>
+#9 0x561d48a6bdd1 <unknown>
+#10 0x561d48f35ddb <unknown>
+#11 0x561d48f39cbc <unknown>
+#12 0x561d48f1d392 <unknown>
+#13 0x561d48f3a834 <unknown>
+#14 0x561d48f011ef <unknown>
+#15 0x561d48f5e038 <unknown>
+#16 0x561d48f5e216 <unknown>
+#17 0x561d48f6e896 <unknown>
+#18 0x7ffb751f1aa4 <unknown>
+#19 0x7ffb7527ec3c <unknown>
+
+2025-03-15 17:05:01,455 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 17:05:01,455 - scrape - INFO - Form filled successfully
+2025-03-15 17:05:01,455 - scrape - INFO - Attempting to submit form
+2025-03-15 17:05:01,505 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 17:05:01,532 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 17:05:01,557 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 17:05:01,580 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 17:05:01,602 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 17:05:01,625 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:01,646 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:01,669 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 17:05:01,691 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 17:05:01,713 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:01,735 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:01,757 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:05:01,779 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:01,802 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:05:01,826 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:01,848 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:05:01,870 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:01,891 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:05:01,915 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 17:05:01,939 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:01,961 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:01,985 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:02,008 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:02,031 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 17:05:02,057 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 17:05:02,305 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 17:05:03,923 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 17:05:04,012 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 17:05:04,012 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 17:05:04,012 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 17:05:04,096 - __main__ - INFO - Calendly appointment booked successfully
+2025-03-15 17:05:04,096 - __main__ - INFO - Workflow completed successfully
+2025-03-15 17:05:11,462 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 17:05:11,462 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:05:15,972 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:05:15,986 - __main__ - INFO - Suggested time: 2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:05:17,831 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 17:05:17,831 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 17:05:17,922 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:05:17,970 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+2025-03-15 17:05:17,970 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 17:05:18,040 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:05:18,098 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:05:18,166 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 17:05:19,337 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:05:20,717 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 17:05:20,717 - scrape - INFO - Filling out Calendly form
+2025-03-15 17:05:23,040 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 17:05:23,153 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 17:05:23,324 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 17:05:23,379 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x558ac413fa1a <unknown>
+#1 0x558ac3bf71e3 <unknown>
+#2 0x558ac3c3f282 <unknown>
+#3 0x558ac3c6ebd2 <unknown>
+#4 0x558ac3c3c78a <unknown>
+#5 0x558ac3c6ed9e <unknown>
+#6 0x558ac3c9507b <unknown>
+#7 0x558ac3c6e9a3 <unknown>
+#8 0x558ac3c3a60e <unknown>
+#9 0x558ac3c3bdd1 <unknown>
+#10 0x558ac4105ddb <unknown>
+#11 0x558ac4109cbc <unknown>
+#12 0x558ac40ed392 <unknown>
+#13 0x558ac410a834 <unknown>
+#14 0x558ac40d11ef <unknown>
+#15 0x558ac412e038 <unknown>
+#16 0x558ac412e216 <unknown>
+#17 0x558ac413e896 <unknown>
+#18 0x7f13aaa02aa4 <unknown>
+#19 0x7f13aaa8fc3c <unknown>
+
+2025-03-15 17:05:24,111 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 17:05:24,112 - scrape - INFO - Form filled successfully
+2025-03-15 17:05:24,112 - scrape - INFO - Attempting to submit form
+2025-03-15 17:05:24,162 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 17:05:24,188 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 17:05:24,213 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 17:05:24,237 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 17:05:24,260 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 17:05:24,283 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:24,306 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:24,328 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 17:05:24,352 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 17:05:24,373 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:24,395 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:24,417 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:05:24,438 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:24,459 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.54/text
+2025-03-15 17:05:24,460 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059d74f740>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.54/text
+2025-03-15 17:05:24,460 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb4110>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.54/text
+2025-03-15 17:05:24,461 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb4560>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.55/text
+2025-03-15 17:05:24,462 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb4950>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.55/text
+2025-03-15 17:05:24,463 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb4c50>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.55/text
+2025-03-15 17:05:24,464 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb5010>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.56/text
+2025-03-15 17:05:24,464 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb53d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.56/text
+2025-03-15 17:05:24,465 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb56d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.56/text
+2025-03-15 17:05:24,466 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb5a60>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.57/text
+2025-03-15 17:05:24,467 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb5e50>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.57/text
+2025-03-15 17:05:24,467 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059d74f710>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.57/text
+2025-03-15 17:05:24,469 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb5970>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.58/text
+2025-03-15 17:05:24,470 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb5190>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.58/text
+2025-03-15 17:05:24,471 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb4c20>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.58/text
+2025-03-15 17:05:24,472 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb44a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.59/text
+2025-03-15 17:05:24,473 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6120>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.59/text
+2025-03-15 17:05:24,473 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6420>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.59/text
+2025-03-15 17:05:24,475 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb67e0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.60/text
+2025-03-15 17:05:24,476 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6ba0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.60/text
+2025-03-15 17:05:24,478 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6d20>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.60/text
+2025-03-15 17:05:24,480 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6f90>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.61/text
+2025-03-15 17:05:24,481 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb7350>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.61/text
+2025-03-15 17:05:24,483 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb7590>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.61/text
+2025-03-15 17:05:24,485 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb42c0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.62/text
+2025-03-15 17:05:24,486 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6e10>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.62/text
+2025-03-15 17:05:24,486 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6900>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.62/text
+2025-03-15 17:05:24,488 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6450>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.63/text
+2025-03-15 17:05:24,488 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb4a70>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.63/text
+2025-03-15 17:05:24,489 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb4620>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.63/text
+2025-03-15 17:05:24,491 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb5580>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.64/text
+2025-03-15 17:05:24,491 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb7ad0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.64/text
+2025-03-15 17:05:24,492 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb7dd0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element/f.8787F7EA9865555F3B1F25EA4FBCBC9C.d.5E0F0F92FF808BBCC93DB43C1606FCA4.e.64/text
+2025-03-15 17:05:24,493 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059db84260>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element
+2025-03-15 17:05:24,493 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059db843b0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element
+2025-03-15 17:05:24,494 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059db84590>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element
+2025-03-15 17:05:24,495 - scrape - DEBUG - Retry 1/3 finding element xpath=//button[
+                    contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'schedule event') or 
+                    contains(@class, 'submit') or 
+                    contains(@type, 'submit')
+                ]
+2025-03-15 17:05:24,495 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb7e30>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element
+2025-03-15 17:05:24,496 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb7860>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element
+2025-03-15 17:05:24,497 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6120>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element
+2025-03-15 17:05:24,497 - scrape - DEBUG - Retry 2/3 finding element xpath=//button[
+                    contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'schedule event') or 
+                    contains(@class, 'submit') or 
+                    contains(@type, 'submit')
+                ]
+2025-03-15 17:05:24,498 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb5f40>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element
+2025-03-15 17:05:24,499 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb6840>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element
+2025-03-15 17:05:24,500 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059dbb7230>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293/element
+2025-03-15 17:05:24,502 - scrape - WARNING - Could not find element xpath=//button[
+                    contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'schedule event') or 
+                    contains(@class, 'submit') or 
+                    contains(@type, 'submit')
+                ] after 3 attempts: HTTPConnectionPool(host='localhost', port=60115): Max retries exceeded with url: /session/128094b5f6d9cb87145051b1cd524293/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059d74f740>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 17:05:24,503 - scrape - ERROR - Could not find Schedule Event button
+2025-03-15 17:05:24,503 - scrape - ERROR - Failed to submit the form
+2025-03-15 17:05:24,504 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059db840e0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293
+2025-03-15 17:05:24,505 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059db84950>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293
+2025-03-15 17:05:24,506 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f059db84ad0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/128094b5f6d9cb87145051b1cd524293
+2025-03-15 17:05:24,507 - __main__ - ERROR - Failed to book Calendly appointment
+2025-03-15 17:05:24,508 - __main__ - INFO - Workflow completed successfully
+2025-03-15 17:05:28,370 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 17:05:28,370 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:05:31,196 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:05:31,214 - __main__ - INFO - Suggested time: 2025-03-17T09:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:05:32,947 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 17:05:32,947 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 17:05:33,082 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T09:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:05:33,118 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 17:05:33,118 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 17:05:33,187 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:05:33,247 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:05:33,308 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 17:05:34,355 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T09:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:05:35,902 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 17:05:35,902 - scrape - INFO - Filling out Calendly form
+2025-03-15 17:05:38,280 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 17:05:38,381 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 17:05:38,557 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 17:05:38,610 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55e0c5c67a1a <unknown>
+#1 0x55e0c571f1e3 <unknown>
+#2 0x55e0c5767282 <unknown>
+#3 0x55e0c5796bd2 <unknown>
+#4 0x55e0c576478a <unknown>
+#5 0x55e0c5796d9e <unknown>
+#6 0x55e0c57bd07b <unknown>
+#7 0x55e0c57969a3 <unknown>
+#8 0x55e0c576260e <unknown>
+#9 0x55e0c5763dd1 <unknown>
+#10 0x55e0c5c2dddb <unknown>
+#11 0x55e0c5c31cbc <unknown>
+#12 0x55e0c5c15392 <unknown>
+#13 0x55e0c5c32834 <unknown>
+#14 0x55e0c5bf91ef <unknown>
+#15 0x55e0c5c56038 <unknown>
+#16 0x55e0c5c56216 <unknown>
+#17 0x55e0c5c66896 <unknown>
+#18 0x7f2dc55a6aa4 <unknown>
+#19 0x7f2dc5633c3c <unknown>
+
+2025-03-15 17:05:39,292 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 17:05:39,293 - scrape - INFO - Form filled successfully
+2025-03-15 17:05:39,293 - scrape - INFO - Attempting to submit form
+2025-03-15 17:05:39,339 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 17:05:39,365 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 17:05:39,389 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 17:05:39,411 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 17:05:39,433 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 17:05:39,457 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,479 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,501 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 17:05:39,523 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 17:05:39,546 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,569 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,592 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:05:39,613 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,636 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:05:39,660 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,684 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:05:39,706 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,728 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:05:39,750 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 17:05:39,772 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,794 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,817 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,838 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:05:39,860 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 17:05:39,887 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 17:05:40,160 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 17:05:42,323 - scrape - INFO - reCAPTCHA detected, attempting to handle
+2025-03-15 17:05:42,433 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/recaptcha_detected.png
+2025-03-15 17:05:46,137 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11090d3500>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/element
+2025-03-15 17:05:46,138 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11090d36e0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/element
+2025-03-15 17:05:46,138 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e40b0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/element
+2025-03-15 17:05:46,139 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e44a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/element
+2025-03-15 17:05:46,140 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e46e0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/element
+2025-03-15 17:05:46,140 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e4b60>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/element
+2025-03-15 17:05:46,141 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e4560>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/url
+2025-03-15 17:05:46,141 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e5070>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/url
+2025-03-15 17:05:46,142 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e5370>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/url
+2025-03-15 17:05:46,143 - scrape - ERROR - Error handling reCAPTCHA: HTTPConnectionPool(host='localhost', port=43287): Max retries exceeded with url: /session/2a49190c94e67fcab1f8cb6d12e94706/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e5670>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 17:05:46,143 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11090d2600>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/screenshot
+2025-03-15 17:05:46,144 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11090d2990>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/screenshot
+2025-03-15 17:05:46,144 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e5910>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/screenshot
+2025-03-15 17:05:46,145 - scrape - WARNING - Error taking screenshot: HTTPConnectionPool(host='localhost', port=43287): Max retries exceeded with url: /session/2a49190c94e67fcab1f8cb6d12e94706/screenshot (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e49b0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 17:05:46,146 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e4ce0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/frame
+2025-03-15 17:05:46,146 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e4200>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/frame
+2025-03-15 17:05:46,147 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e5ac0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/frame
+2025-03-15 17:05:46,148 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e4c20>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/url
+2025-03-15 17:05:46,149 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e60c0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/url
+2025-03-15 17:05:46,150 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e63c0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/url
+2025-03-15 17:05:46,151 - scrape - ERROR - Error submitting form: HTTPConnectionPool(host='localhost', port=43287): Max retries exceeded with url: /session/2a49190c94e67fcab1f8cb6d12e94706/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e6690>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 17:05:46,153 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e5fa0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/screenshot
+2025-03-15 17:05:46,155 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e6ba0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/screenshot
+2025-03-15 17:05:46,156 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e6e70>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706/screenshot
+2025-03-15 17:05:46,157 - scrape - WARNING - Error taking screenshot: HTTPConnectionPool(host='localhost', port=43287): Max retries exceeded with url: /session/2a49190c94e67fcab1f8cb6d12e94706/screenshot (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11090d3560>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 17:05:46,157 - scrape - ERROR - Failed to submit the form
+2025-03-15 17:05:46,158 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f1109d859a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706
+2025-03-15 17:05:46,159 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e4050>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706
+2025-03-15 17:05:46,160 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f11094e46b0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2a49190c94e67fcab1f8cb6d12e94706
+2025-03-15 17:05:46,162 - __main__ - ERROR - Failed to book Calendly appointment
+2025-03-15 17:05:46,162 - __main__ - INFO - Workflow completed successfully
+2025-03-15 17:05:50,431 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 17:05:50,431 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:05:53,354 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:05:53,372 - __main__ - INFO - Suggested time: 2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:05:55,232 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 17:05:55,232 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 17:05:55,370 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:05:55,409 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 17:05:55,409 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 17:05:55,480 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:05:55,547 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:05:55,612 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 17:05:56,682 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:05:58,102 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 17:05:58,102 - scrape - INFO - Filling out Calendly form
+2025-03-15 17:06:00,143 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 17:06:00,362 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 17:06:00,546 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 17:06:00,593 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x565105996a1a <unknown>
+#1 0x56510544e1e3 <unknown>
+#2 0x565105496282 <unknown>
+#3 0x5651054c5bd2 <unknown>
+#4 0x56510549378a <unknown>
+#5 0x5651054c5d9e <unknown>
+#6 0x5651054ec07b <unknown>
+#7 0x5651054c59a3 <unknown>
+#8 0x56510549160e <unknown>
+#9 0x565105492dd1 <unknown>
+#10 0x56510595cddb <unknown>
+#11 0x565105960cbc <unknown>
+#12 0x565105944392 <unknown>
+#13 0x565105961834 <unknown>
+#14 0x5651059281ef <unknown>
+#15 0x565105985038 <unknown>
+#16 0x565105985216 <unknown>
+#17 0x565105995896 <unknown>
+#18 0x7f8b3c9c6aa4 <unknown>
+#19 0x7f8b3ca53c3c <unknown>
+
+2025-03-15 17:06:01,275 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 17:06:01,275 - scrape - INFO - Form filled successfully
+2025-03-15 17:06:01,275 - scrape - INFO - Attempting to submit form
+2025-03-15 17:06:01,321 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 17:06:01,349 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 17:06:01,374 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 17:06:01,397 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 17:06:01,419 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 17:06:01,442 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,465 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,487 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 17:06:01,509 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 17:06:01,530 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,551 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,572 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:06:01,593 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,613 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:06:01,634 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,656 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:06:01,677 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,698 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:06:01,722 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 17:06:01,744 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,765 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,786 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,809 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:01,830 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 17:06:01,851 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 17:06:02,074 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 17:06:03,411 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/35f773fd413eee3a13ad8187e7a90f45
+2025-03-15 17:06:03,412 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f82af793800>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/35f773fd413eee3a13ad8187e7a90f45
+2025-03-15 17:06:03,413 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f82af792de0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/35f773fd413eee3a13ad8187e7a90f45
+2025-03-15 17:06:07,399 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 17:06:07,399 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:06:10,678 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:06:10,692 - __main__ - INFO - Suggested time: 2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:06:16,534 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 17:06:16,534 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 17:06:16,621 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:06:16,658 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+2025-03-15 17:06:16,659 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 17:06:16,729 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:06:16,794 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 17:06:16,859 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 17:06:17,912 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:06:19,382 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 17:06:19,382 - scrape - INFO - Filling out Calendly form
+2025-03-15 17:06:21,570 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 17:06:21,679 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 17:06:21,827 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 17:06:21,876 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x564065222a1a <unknown>
+#1 0x564064cda1e3 <unknown>
+#2 0x564064d22282 <unknown>
+#3 0x564064d51bd2 <unknown>
+#4 0x564064d1f78a <unknown>
+#5 0x564064d51d9e <unknown>
+#6 0x564064d7807b <unknown>
+#7 0x564064d519a3 <unknown>
+#8 0x564064d1d60e <unknown>
+#9 0x564064d1edd1 <unknown>
+#10 0x5640651e8ddb <unknown>
+#11 0x5640651eccbc <unknown>
+#12 0x5640651d0392 <unknown>
+#13 0x5640651ed834 <unknown>
+#14 0x5640651b41ef <unknown>
+#15 0x564065211038 <unknown>
+#16 0x564065211216 <unknown>
+#17 0x564065221896 <unknown>
+#18 0x7fa52beaaaa4 <unknown>
+#19 0x7fa52bf37c3c <unknown>
+
+2025-03-15 17:06:22,554 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 17:06:22,554 - scrape - INFO - Form filled successfully
+2025-03-15 17:06:22,555 - scrape - INFO - Attempting to submit form
+2025-03-15 17:06:22,601 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 17:06:22,627 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 17:06:22,649 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 17:06:22,671 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 17:06:22,692 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 17:06:22,715 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:22,735 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:22,757 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 17:06:22,779 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 17:06:22,801 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:22,822 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:22,843 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:06:22,865 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:22,886 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:06:22,907 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:22,928 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:06:22,949 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:22,973 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 17:06:22,997 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 17:06:23,018 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:23,039 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:23,062 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:23,087 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 17:06:23,111 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 17:06:23,133 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 17:06:23,371 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 17:06:25,518 - scrape - INFO - reCAPTCHA detected, attempting to handle
+2025-03-15 17:06:25,613 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/recaptcha_detected.png
+2025-03-15 17:06:27,751 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9806c60>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/element
+2025-03-15 17:06:27,752 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c37da0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/element
+2025-03-15 17:06:27,752 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c37aa0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/element
+2025-03-15 17:06:27,753 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c376b0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/element
+2025-03-15 17:06:27,753 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c372c0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/element
+2025-03-15 17:06:27,754 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c37020>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/element
+2025-03-15 17:06:27,754 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c375f0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/url
+2025-03-15 17:06:27,755 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c36db0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/url
+2025-03-15 17:06:27,756 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c36840>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/url
+2025-03-15 17:06:27,757 - scrape - ERROR - Error handling reCAPTCHA: HTTPConnectionPool(host='localhost', port=43985): Max retries exceeded with url: /session/21edfab35017d8e5aed87df5a8385c61/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c36540>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 17:06:27,757 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9806b40>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/screenshot
+2025-03-15 17:06:27,758 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f98076b0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/screenshot
+2025-03-15 17:06:27,759 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c36270>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/screenshot
+2025-03-15 17:06:27,759 - scrape - WARNING - Error taking screenshot: HTTPConnectionPool(host='localhost', port=43985): Max retries exceeded with url: /session/21edfab35017d8e5aed87df5a8385c61/screenshot (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c36c90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 17:06:27,760 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c37290>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/frame
+2025-03-15 17:06:27,761 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c376e0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/frame
+2025-03-15 17:06:27,762 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c36240>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/frame
+2025-03-15 17:06:27,764 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c37170>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/url
+2025-03-15 17:06:27,765 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c35c10>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/url
+2025-03-15 17:06:27,767 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c35910>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/url
+2025-03-15 17:06:27,768 - scrape - ERROR - Error submitting form: HTTPConnectionPool(host='localhost', port=43985): Max retries exceeded with url: /session/21edfab35017d8e5aed87df5a8385c61/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c35730>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 17:06:27,769 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c35d30>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/screenshot
+2025-03-15 17:06:27,770 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c35190>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/screenshot
+2025-03-15 17:06:27,771 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c34d40>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61/screenshot
+2025-03-15 17:06:27,772 - scrape - WARNING - Error taking screenshot: HTTPConnectionPool(host='localhost', port=43985): Max retries exceeded with url: /session/21edfab35017d8e5aed87df5a8385c61/screenshot (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f98076e0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 17:06:27,772 - scrape - ERROR - Failed to submit the form
+2025-03-15 17:06:27,773 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c375c0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61
+2025-03-15 17:06:27,774 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c360c0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61
+2025-03-15 17:06:27,775 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f62f9c37560>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/21edfab35017d8e5aed87df5a8385c61
+2025-03-15 17:06:27,776 - __main__ - ERROR - Failed to book Calendly appointment
+2025-03-15 17:06:27,776 - __main__ - INFO - Workflow completed successfully
+2025-03-15 17:10:52,222 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:16:43,389 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:19:05,701 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:19:09,845 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:19:09,863 - __main__ - INFO - Suggested time: 2025-03-17T09:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 17:20:21,393 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:20:23,755 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:34:30,914 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:34:34,510 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:45:22,624 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:45:25,655 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:47:17,765 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:47:19,856 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:47:28,342 - __main__ - INFO - Generating mock calendar data
+2025-03-15 17:47:30,366 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 17:59:12,240 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:03:41,822 - __main__ - INFO - Generating test data for 5 runs
+2025-03-15 18:03:42,626 - __main__ - INFO - Validated Calendly URL: https://calendly.com/robertjandali/30min
+2025-03-15 18:03:42,626 - __main__ - INFO - Starting test suite with 5 runs
+2025-03-15 18:03:42,626 - __main__ - INFO - Starting test run 1/5
+2025-03-15 18:03:42,627 - __main__ - INFO - Generating mock calendar data for test
+2025-03-15 18:03:45,935 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:03:45,951 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-05T09:30:00-07:00?month=2025-03&date=2025-03-05
+2025-03-15 18:03:45,987 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+2025-03-15 18:03:45,988 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:03:46,058 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:03:46,156 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:03:46,237 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:03:47,371 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-05T09:30:00-07:00?month=2025-03&date=2025-03-05
+2025-03-15 18:03:48,866 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:03:48,866 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:03:51,214 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:03:51,414 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:03:51,592 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:03:51,646 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x557d03d38a1a <unknown>
+#1 0x557d037f01e3 <unknown>
+#2 0x557d03838282 <unknown>
+#3 0x557d03867bd2 <unknown>
+#4 0x557d0383578a <unknown>
+#5 0x557d03867d9e <unknown>
+#6 0x557d0388e07b <unknown>
+#7 0x557d038679a3 <unknown>
+#8 0x557d0383360e <unknown>
+#9 0x557d03834dd1 <unknown>
+#10 0x557d03cfeddb <unknown>
+#11 0x557d03d02cbc <unknown>
+#12 0x557d03ce6392 <unknown>
+#13 0x557d03d03834 <unknown>
+#14 0x557d03cca1ef <unknown>
+#15 0x557d03d27038 <unknown>
+#16 0x557d03d27216 <unknown>
+#17 0x557d03d37896 <unknown>
+#18 0x7f02cacbcaa4 <unknown>
+#19 0x7f02cad49c3c <unknown>
+
+2025-03-15 18:03:52,547 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:03:52,547 - scrape - INFO - Form filled successfully
+2025-03-15 18:03:52,547 - scrape - INFO - Attempting to submit form
+2025-03-15 18:03:52,594 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:03:52,625 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:03:52,654 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:03:52,678 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:03:52,703 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:03:52,729 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:52,754 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:52,780 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:03:52,806 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:03:52,833 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:52,860 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:52,886 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:03:52,911 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:52,937 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:03:52,961 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:52,987 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:03:53,010 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:53,035 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:03:53,059 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:03:53,084 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:53,116 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:53,157 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:53,180 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:03:53,202 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:03:53,225 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:03:53,461 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:03:55,612 - scrape - INFO - reCAPTCHA detected, attempting to handle
+2025-03-15 18:03:55,700 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/recaptcha_detected.png
+2025-03-15 18:04:03,030 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f13a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/element
+2025-03-15 18:04:03,031 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f1b50>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/element
+2025-03-15 18:04:03,032 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f1e50>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/element
+2025-03-15 18:04:03,033 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f1700>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/url
+2025-03-15 18:04:03,034 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f2330>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/url
+2025-03-15 18:04:03,034 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f2600>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/url
+2025-03-15 18:04:03,035 - scrape - ERROR - Error handling reCAPTCHA: HTTPConnectionPool(host='localhost', port=57229): Max retries exceeded with url: /session/07b810dd039000c0790494ddb57fed2d/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f2ab0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 18:04:03,036 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f1b20>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/screenshot
+2025-03-15 18:04:03,037 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f2d50>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/screenshot
+2025-03-15 18:04:03,038 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f1730>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/screenshot
+2025-03-15 18:04:03,038 - scrape - WARNING - Error taking screenshot: HTTPConnectionPool(host='localhost', port=57229): Max retries exceeded with url: /session/07b810dd039000c0790494ddb57fed2d/screenshot (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f1fd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 18:04:03,039 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f16d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/frame
+2025-03-15 18:04:03,040 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f2fc0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/frame
+2025-03-15 18:04:03,040 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f3380>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/frame
+2025-03-15 18:04:03,041 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f13a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/url
+2025-03-15 18:04:03,042 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f39e0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/url
+2025-03-15 18:04:03,043 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f3b90>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/url
+2025-03-15 18:04:03,044 - scrape - ERROR - Error submitting form: HTTPConnectionPool(host='localhost', port=57229): Max retries exceeded with url: /session/07b810dd039000c0790494ddb57fed2d/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f3e60>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 18:04:03,045 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f81a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/screenshot
+2025-03-15 18:04:03,046 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f8380>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/screenshot
+2025-03-15 18:04:03,047 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f8560>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d/screenshot
+2025-03-15 18:04:03,048 - scrape - WARNING - Error taking screenshot: HTTPConnectionPool(host='localhost', port=57229): Max retries exceeded with url: /session/07b810dd039000c0790494ddb57fed2d/screenshot (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f8830>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 18:04:03,048 - scrape - ERROR - Failed to submit the form
+2025-03-15 18:04:03,049 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f8b00>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d
+2025-03-15 18:04:03,050 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f8e00>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d
+2025-03-15 18:04:03,051 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff9159f3e30>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/07b810dd039000c0790494ddb57fed2d
+2025-03-15 18:04:03,110 - __main__ - ERROR - Failed to book Calendly appointment
+2025-03-15 18:04:03,110 - __main__ - ERROR - Test run 1 failed
+2025-03-15 18:04:03,111 - __main__ - INFO - Test results saved to calendly_test_results_20250315_180403.json
+2025-03-15 18:04:03,111 - __main__ - INFO - Starting test run 2/5
+2025-03-15 18:04:03,111 - __main__ - INFO - Generating mock calendar data for test
+2025-03-15 18:04:05,198 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:04:05,201 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-05T09:30:00-07:00?month=2025-03&date=2025-03-05
+2025-03-15 18:04:05,234 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 Edg/133.0.0.0
+2025-03-15 18:04:05,234 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:04:05,313 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:04:05,378 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:04:05,457 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:04:06,619 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-05T09:30:00-07:00?month=2025-03&date=2025-03-05
+2025-03-15 18:04:06,945 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/79878fa6fa28aa42912cb2049abc5a6a
+2025-03-15 18:04:06,946 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff915623f50>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/79878fa6fa28aa42912cb2049abc5a6a
+2025-03-15 18:04:06,947 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff915623200>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/79878fa6fa28aa42912cb2049abc5a6a
+2025-03-15 18:04:18,568 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:07:31,727 - __main__ - INFO - Generating test data for 5 runs
+2025-03-15 18:07:32,296 - __main__ - INFO - Validated Calendly URL: https://calendly.com/robertjandali/30min
+2025-03-15 18:07:32,296 - __main__ - INFO - Starting test suite with 5 runs
+2025-03-15 18:07:32,296 - __main__ - INFO - Starting test run 1/5
+2025-03-15 18:07:32,296 - __main__ - INFO - Generating mock calendar data for test
+2025-03-15 18:07:35,320 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:07:35,335 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-05T09:30:00-07:00?month=2025-03&date=2025-03-05
+2025-03-15 18:07:35,371 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+2025-03-15 18:07:35,371 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:07:35,441 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:07:35,506 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:07:35,563 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:07:36,556 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-05T09:30:00-07:00?month=2025-03&date=2025-03-05
+2025-03-15 18:07:37,772 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:07:37,773 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:07:39,878 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:07:40,053 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:07:40,239 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:07:40,292 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x561066545a1a <unknown>
+#1 0x561065ffd1e3 <unknown>
+#2 0x561066045282 <unknown>
+#3 0x561066074bd2 <unknown>
+#4 0x56106604278a <unknown>
+#5 0x561066074d9e <unknown>
+#6 0x56106609b07b <unknown>
+#7 0x5610660749a3 <unknown>
+#8 0x56106604060e <unknown>
+#9 0x561066041dd1 <unknown>
+#10 0x56106650bddb <unknown>
+#11 0x56106650fcbc <unknown>
+#12 0x5610664f3392 <unknown>
+#13 0x561066510834 <unknown>
+#14 0x5610664d71ef <unknown>
+#15 0x561066534038 <unknown>
+#16 0x561066534216 <unknown>
+#17 0x561066544896 <unknown>
+#18 0x7f90f4dc0aa4 <unknown>
+#19 0x7f90f4e4dc3c <unknown>
+
+2025-03-15 18:07:41,035 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:07:41,036 - scrape - INFO - Form filled successfully
+2025-03-15 18:07:41,036 - scrape - INFO - Attempting to submit form
+2025-03-15 18:07:41,082 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:07:41,109 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:07:41,132 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:07:41,153 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:07:41,176 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:07:41,210 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,235 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,258 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:07:41,282 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:07:41,303 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,325 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,348 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:07:41,370 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,392 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:07:41,416 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,439 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:07:41,460 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,483 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:07:41,504 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:07:41,527 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,549 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,574 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,596 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:07:41,619 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:07:41,643 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:07:41,884 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:07:44,034 - scrape - INFO - reCAPTCHA detected, attempting to handle
+2025-03-15 18:07:44,120 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/recaptcha_detected.png
+2025-03-15 18:07:59,605 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4684329220>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/url
+2025-03-15 18:07:59,606 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4684329190>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/url
+2025-03-15 18:07:59,606 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4684329580>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/url
+2025-03-15 18:07:59,607 - scrape - ERROR - Error handling reCAPTCHA: HTTPConnectionPool(host='localhost', port=39311): Max retries exceeded with url: /session/c83ff369bb1f96e0ad3a3b7cbe02282a/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4684329880>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 18:07:59,608 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4684329010>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/screenshot
+2025-03-15 18:07:59,608 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4684329d90>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/screenshot
+2025-03-15 18:07:59,609 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432a030>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/screenshot
+2025-03-15 18:07:59,609 - scrape - WARNING - Error taking screenshot: HTTPConnectionPool(host='localhost', port=39311): Max retries exceeded with url: /session/c83ff369bb1f96e0ad3a3b7cbe02282a/screenshot (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432a2d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 18:07:59,610 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432a600>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/frame
+2025-03-15 18:07:59,611 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432a900>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/frame
+2025-03-15 18:07:59,612 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432a4e0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/frame
+2025-03-15 18:07:59,614 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432a5a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/url
+2025-03-15 18:07:59,614 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432aae0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/url
+2025-03-15 18:07:59,615 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432a9f0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/url
+2025-03-15 18:07:59,616 - scrape - ERROR - Error submitting form: HTTPConnectionPool(host='localhost', port=39311): Max retries exceeded with url: /session/c83ff369bb1f96e0ad3a3b7cbe02282a/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432ac00>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 18:07:59,617 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4684329d00>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/screenshot
+2025-03-15 18:07:59,617 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432b320>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/screenshot
+2025-03-15 18:07:59,618 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432b620>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a/screenshot
+2025-03-15 18:07:59,619 - scrape - WARNING - Error taking screenshot: HTTPConnectionPool(host='localhost', port=39311): Max retries exceeded with url: /session/c83ff369bb1f96e0ad3a3b7cbe02282a/screenshot (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432b920>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 18:07:59,620 - scrape - ERROR - Failed to submit the form
+2025-03-15 18:07:59,620 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432bc80>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a
+2025-03-15 18:07:59,622 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f468432bf80>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a
+2025-03-15 18:07:59,623 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4684348290>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/c83ff369bb1f96e0ad3a3b7cbe02282a
+2025-03-15 18:07:59,670 - __main__ - ERROR - Failed to book Calendly appointment
+2025-03-15 18:07:59,671 - __main__ - ERROR - Test run 1 failed
+2025-03-15 18:07:59,671 - __main__ - INFO - Test results saved to calendly_test_results_20250315_180759.json
+2025-03-15 18:07:59,671 - __main__ - INFO - Starting test run 2/5
+2025-03-15 18:07:59,672 - __main__ - INFO - Generating mock calendar data for test
+2025-03-15 18:08:11,508 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 18:08:11,508 - __main__ - INFO - Generating mock calendar data
+2025-03-15 18:08:15,051 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:08:15,065 - __main__ - INFO - Suggested time: 2025-03-17T11:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:08:16,886 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 18:08:16,886 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 18:08:16,972 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T11:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:08:17,009 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 18:08:17,009 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:08:17,097 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:08:17,166 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:08:17,231 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:08:18,279 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T11:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:08:19,783 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:08:19,783 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:08:22,350 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:08:22,526 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:08:22,682 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:08:22,735 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x5634528b2a1a <unknown>
+#1 0x56345236a1e3 <unknown>
+#2 0x5634523b2282 <unknown>
+#3 0x5634523e1bd2 <unknown>
+#4 0x5634523af78a <unknown>
+#5 0x5634523e1d9e <unknown>
+#6 0x56345240807b <unknown>
+#7 0x5634523e19a3 <unknown>
+#8 0x5634523ad60e <unknown>
+#9 0x5634523aedd1 <unknown>
+#10 0x563452878ddb <unknown>
+#11 0x56345287ccbc <unknown>
+#12 0x563452860392 <unknown>
+#13 0x56345287d834 <unknown>
+#14 0x5634528441ef <unknown>
+#15 0x5634528a1038 <unknown>
+#16 0x5634528a1216 <unknown>
+#17 0x5634528b1896 <unknown>
+#18 0x7f6941414aa4 <unknown>
+#19 0x7f69414a1c3c <unknown>
+
+2025-03-15 18:08:23,410 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:08:23,410 - scrape - INFO - Form filled successfully
+2025-03-15 18:08:23,410 - scrape - INFO - Attempting to submit form
+2025-03-15 18:08:23,456 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:08:23,486 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:08:23,510 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:08:23,534 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:08:23,556 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:08:23,578 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,600 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,622 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:08:23,644 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:08:23,668 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,692 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,715 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:08:23,738 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,760 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:08:23,784 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,806 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:08:23,829 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,852 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:08:23,873 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:08:23,896 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,918 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,941 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,963 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:23,984 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:08:24,007 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:08:24,244 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:08:25,317 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 18:08:25,397 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 18:08:25,397 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 18:08:25,397 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 18:08:25,517 - __main__ - INFO - Calendly appointment booked successfully
+2025-03-15 18:08:25,517 - __main__ - INFO - Workflow completed successfully
+2025-03-15 18:08:31,163 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 18:08:31,163 - __main__ - INFO - Generating mock calendar data
+2025-03-15 18:08:35,515 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:08:35,529 - __main__ - INFO - Suggested time: 2025-03-18T09:30:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 18:08:37,359 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 18:08:37,360 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 18:08:37,445 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-18T09:30:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 18:08:37,484 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Mobile Safari/537.36
+2025-03-15 18:08:37,484 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:08:37,556 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:08:37,617 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:08:37,680 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:08:38,729 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-18T09:30:00-07:00?month=2025-03&date=2025-03-18
+2025-03-15 18:08:39,987 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:08:39,987 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:08:42,215 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:08:42,336 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:08:42,493 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:08:42,540 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x562b684e0a1a <unknown>
+#1 0x562b67f981e3 <unknown>
+#2 0x562b67fe0282 <unknown>
+#3 0x562b6800fbd2 <unknown>
+#4 0x562b67fdd78a <unknown>
+#5 0x562b6800fd9e <unknown>
+#6 0x562b6803607b <unknown>
+#7 0x562b6800f9a3 <unknown>
+#8 0x562b67fdb60e <unknown>
+#9 0x562b67fdcdd1 <unknown>
+#10 0x562b684a6ddb <unknown>
+#11 0x562b684aacbc <unknown>
+#12 0x562b6848e392 <unknown>
+#13 0x562b684ab834 <unknown>
+#14 0x562b684721ef <unknown>
+#15 0x562b684cf038 <unknown>
+#16 0x562b684cf216 <unknown>
+#17 0x562b684df896 <unknown>
+#18 0x7fd00b536aa4 <unknown>
+#19 0x7fd00b5c3c3c <unknown>
+
+2025-03-15 18:08:43,203 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:08:43,204 - scrape - INFO - Form filled successfully
+2025-03-15 18:08:43,204 - scrape - INFO - Attempting to submit form
+2025-03-15 18:08:43,250 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:08:43,277 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:08:43,301 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:08:43,324 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:08:43,352 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:08:43,378 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,403 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,428 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:08:43,451 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:08:43,474 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,496 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,516 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:08:43,539 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,560 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:08:43,582 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,604 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:08:43,625 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,647 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:08:43,670 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:08:43,691 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,714 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,736 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,758 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:08:43,780 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:08:43,803 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:08:44,038 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:08:45,647 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 18:08:45,725 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 18:08:45,725 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 18:08:45,725 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 18:08:45,850 - __main__ - INFO - Calendly appointment booked successfully
+2025-03-15 18:08:45,851 - __main__ - INFO - Workflow completed successfully
+2025-03-15 18:15:01,382 - __main__ - INFO - Starting test runner with 5 runs
+2025-03-15 18:15:01,383 - __main__ - INFO - Starting run 1/5
+2025-03-15 18:15:01,383 - book2 - INFO - Starting Calendly workflow
+2025-03-15 18:15:01,383 - book2 - INFO - Generating mock calendar data
+2025-03-15 18:15:04,987 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:15:05,003 - book2 - INFO - Suggested time: 2025-03-17T12:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:15:07,164 - book2 - INFO - No reCAPTCHA detected on the page
+2025-03-15 18:15:07,164 - book2 - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 18:15:07,254 - book2 - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T12:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:15:07,303 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/134.0.6998.33 Mobile/15E148 Safari/604.1
+2025-03-15 18:15:07,303 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:15:07,379 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:15:07,443 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:15:07,505 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:15:08,573 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T12:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:15:09,969 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:15:09,969 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:15:12,341 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:15:12,448 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:15:12,602 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:15:12,650 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x557a99954a1a <unknown>
+#1 0x557a9940c1e3 <unknown>
+#2 0x557a99454282 <unknown>
+#3 0x557a99483bd2 <unknown>
+#4 0x557a9945178a <unknown>
+#5 0x557a99483d9e <unknown>
+#6 0x557a994aa07b <unknown>
+#7 0x557a994839a3 <unknown>
+#8 0x557a9944f60e <unknown>
+#9 0x557a99450dd1 <unknown>
+#10 0x557a9991addb <unknown>
+#11 0x557a9991ecbc <unknown>
+#12 0x557a99902392 <unknown>
+#13 0x557a9991f834 <unknown>
+#14 0x557a998e61ef <unknown>
+#15 0x557a99943038 <unknown>
+#16 0x557a99943216 <unknown>
+#17 0x557a99953896 <unknown>
+#18 0x7f43bde42aa4 <unknown>
+#19 0x7f43bdecfc3c <unknown>
+
+2025-03-15 18:15:13,330 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:15:13,330 - scrape - INFO - Form filled successfully
+2025-03-15 18:15:13,330 - scrape - INFO - Attempting to submit form
+2025-03-15 18:15:13,378 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:15:13,404 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:15:13,427 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:15:13,450 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:15:13,472 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:15:13,493 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,517 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,540 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:15:13,562 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:15:13,584 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,607 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,627 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:15:13,650 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,673 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:15:13,693 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,716 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:15:13,738 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,759 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:15:13,781 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:15:13,804 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,826 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,851 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,875 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:15:13,899 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:15:13,921 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:15:14,164 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:15:15,805 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 18:15:15,885 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 18:15:15,886 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 18:15:15,886 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 18:15:15,965 - book2 - INFO - Calendly appointment booked successfully
+2025-03-15 18:15:15,965 - book2 - INFO - Workflow completed successfully
+2025-03-15 18:15:15,966 - __main__ - INFO - Run 1 succeeded
+2025-03-15 18:16:10,233 - __main__ - INFO - Starting Calendly workflow
+2025-03-15 18:16:10,233 - __main__ - INFO - Generating mock calendar data
+2025-03-15 18:16:13,875 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:16:13,889 - __main__ - INFO - Suggested time: 2025-03-17T13:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:16:15,831 - __main__ - INFO - No reCAPTCHA detected on the page
+2025-03-15 18:16:15,831 - __main__ - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 18:16:15,916 - __main__ - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T13:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:16:15,953 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 18:16:15,953 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:16:16,022 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:16:16,083 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:16:16,171 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:16:17,233 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T13:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:16:19,196 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:16:19,196 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:16:21,475 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:16:21,575 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:16:21,771 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:16:21,851 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55f2da801a1a <unknown>
+#1 0x55f2da2b91e3 <unknown>
+#2 0x55f2da301282 <unknown>
+#3 0x55f2da330bd2 <unknown>
+#4 0x55f2da2fe78a <unknown>
+#5 0x55f2da330d9e <unknown>
+#6 0x55f2da35707b <unknown>
+#7 0x55f2da3309a3 <unknown>
+#8 0x55f2da2fc60e <unknown>
+#9 0x55f2da2fddd1 <unknown>
+#10 0x55f2da7c7ddb <unknown>
+#11 0x55f2da7cbcbc <unknown>
+#12 0x55f2da7af392 <unknown>
+#13 0x55f2da7cc834 <unknown>
+#14 0x55f2da7931ef <unknown>
+#15 0x55f2da7f0038 <unknown>
+#16 0x55f2da7f0216 <unknown>
+#17 0x55f2da800896 <unknown>
+#18 0x7f2ee82acaa4 <unknown>
+#19 0x7f2ee8339c3c <unknown>
+
+2025-03-15 18:16:22,637 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:16:22,638 - scrape - INFO - Form filled successfully
+2025-03-15 18:16:22,638 - scrape - INFO - Attempting to submit form
+2025-03-15 18:16:22,683 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:16:22,710 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:16:22,732 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:16:22,754 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:16:22,780 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:16:22,805 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:22,830 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:22,853 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:16:22,876 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:16:22,905 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:22,932 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:22,958 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:16:22,981 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:23,004 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:16:23,024 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:23,046 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:16:23,068 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:23,090 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:16:23,119 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:16:23,142 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:23,165 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:23,187 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:23,214 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:16:23,238 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:16:23,260 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:16:23,505 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:16:25,113 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 18:16:25,197 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 18:16:25,197 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 18:16:25,197 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 18:16:25,323 - __main__ - INFO - Calendly appointment booked successfully
+2025-03-15 18:16:25,323 - __main__ - INFO - Workflow completed successfully
+2025-03-15 18:16:58,717 - __main__ - INFO - Starting test runner with 5 runs
+2025-03-15 18:16:58,717 - __main__ - INFO - Starting run 1/5
+2025-03-15 18:16:58,717 - book2 - INFO - Starting Calendly workflow
+2025-03-15 18:16:58,717 - book2 - INFO - Generating mock calendar data
+2025-03-15 18:17:01,992 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:17:02,007 - book2 - INFO - Suggested time: 2025-03-17T13:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:04,062 - book2 - INFO - No reCAPTCHA detected on the page
+2025-03-15 18:17:04,062 - book2 - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 18:17:04,148 - book2 - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T13:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:04,183 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/358.1.731895952 Mobile/15E148 Safari/604.1
+2025-03-15 18:17:04,183 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:17:04,251 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:17:04,315 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:17:04,376 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:17:05,402 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T13:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:06,764 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:17:06,764 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:17:08,940 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:17:09,040 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:17:09,206 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:17:09,257 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x562bb7867a1a <unknown>
+#1 0x562bb731f1e3 <unknown>
+#2 0x562bb7367282 <unknown>
+#3 0x562bb7396bd2 <unknown>
+#4 0x562bb736478a <unknown>
+#5 0x562bb7396d9e <unknown>
+#6 0x562bb73bd07b <unknown>
+#7 0x562bb73969a3 <unknown>
+#8 0x562bb736260e <unknown>
+#9 0x562bb7363dd1 <unknown>
+#10 0x562bb782dddb <unknown>
+#11 0x562bb7831cbc <unknown>
+#12 0x562bb7815392 <unknown>
+#13 0x562bb7832834 <unknown>
+#14 0x562bb77f91ef <unknown>
+#15 0x562bb7856038 <unknown>
+#16 0x562bb7856216 <unknown>
+#17 0x562bb7866896 <unknown>
+#18 0x7fc35cacfaa4 <unknown>
+#19 0x7fc35cb5cc3c <unknown>
+
+2025-03-15 18:17:09,919 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:17:09,919 - scrape - INFO - Form filled successfully
+2025-03-15 18:17:09,919 - scrape - INFO - Attempting to submit form
+2025-03-15 18:17:09,965 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:17:09,990 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:17:10,012 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:17:10,035 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:17:10,057 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:17:10,079 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,100 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,127 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:17:10,148 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:17:10,170 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,192 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,214 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:10,235 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,258 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:10,279 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,301 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:10,322 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,345 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:10,368 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:17:10,390 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,411 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,432 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,458 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:10,481 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:17:10,504 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:17:10,736 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:17:12,344 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 18:17:12,422 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 18:17:12,422 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 18:17:12,423 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 18:17:12,508 - book2 - INFO - Calendly appointment booked successfully
+2025-03-15 18:17:12,508 - book2 - INFO - Workflow completed successfully
+2025-03-15 18:17:12,509 - __main__ - INFO - Run 1 succeeded
+2025-03-15 18:17:12,510 - __main__ - INFO - Test results saved to results/calendly_test_results_20250315_181712.json
+2025-03-15 18:17:12,510 - __main__ - INFO - Starting run 2/5
+2025-03-15 18:17:12,510 - book2 - INFO - Starting Calendly workflow
+2025-03-15 18:17:12,511 - book2 - INFO - Generating mock calendar data
+2025-03-15 18:17:14,901 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:17:14,903 - book2 - INFO - Suggested time: 2025-03-17T14:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:16,740 - book2 - INFO - No reCAPTCHA detected on the page
+2025-03-15 18:17:16,740 - book2 - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 18:17:16,853 - book2 - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T14:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:16,892 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Mobile Safari/537.36
+2025-03-15 18:17:16,893 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:17:16,962 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:17:17,018 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:17:17,084 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:17:18,085 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T14:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:19,436 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:17:19,437 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:17:22,039 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:17:22,164 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:17:22,317 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:17:22,366 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x562b478c7a1a <unknown>
+#1 0x562b4737f1e3 <unknown>
+#2 0x562b473c7282 <unknown>
+#3 0x562b473f6bd2 <unknown>
+#4 0x562b473c478a <unknown>
+#5 0x562b473f6d9e <unknown>
+#6 0x562b4741d07b <unknown>
+#7 0x562b473f69a3 <unknown>
+#8 0x562b473c260e <unknown>
+#9 0x562b473c3dd1 <unknown>
+#10 0x562b4788dddb <unknown>
+#11 0x562b47891cbc <unknown>
+#12 0x562b47875392 <unknown>
+#13 0x562b47892834 <unknown>
+#14 0x562b478591ef <unknown>
+#15 0x562b478b6038 <unknown>
+#16 0x562b478b6216 <unknown>
+#17 0x562b478c6896 <unknown>
+#18 0x7f8299062aa4 <unknown>
+#19 0x7f82990efc3c <unknown>
+
+2025-03-15 18:17:23,143 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:17:23,144 - scrape - INFO - Form filled successfully
+2025-03-15 18:17:23,144 - scrape - INFO - Attempting to submit form
+2025-03-15 18:17:23,188 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:17:23,213 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:17:23,237 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:17:23,261 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:17:23,284 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:17:23,307 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,330 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,353 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:17:23,376 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:17:23,398 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,419 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,441 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:23,461 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,484 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:23,505 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,527 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:23,549 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,572 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:23,596 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:17:23,621 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,644 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,667 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,695 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:23,718 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:17:23,739 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:17:23,961 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:17:26,107 - scrape - INFO - URL or page title indicates successful submission
+2025-03-15 18:17:26,209 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/submission_success_before_recaptcha.png
+2025-03-15 18:17:26,209 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 18:17:26,209 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 18:17:26,295 - book2 - INFO - Calendly appointment booked successfully
+2025-03-15 18:17:26,296 - book2 - INFO - Workflow completed successfully
+2025-03-15 18:17:26,298 - __main__ - INFO - Run 2 succeeded
+2025-03-15 18:17:26,299 - __main__ - INFO - Test results saved to results/calendly_test_results_20250315_181726.json
+2025-03-15 18:17:26,299 - __main__ - INFO - Starting run 3/5
+2025-03-15 18:17:26,299 - book2 - INFO - Starting Calendly workflow
+2025-03-15 18:17:26,300 - book2 - INFO - Generating mock calendar data
+2025-03-15 18:17:28,914 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:17:28,915 - book2 - INFO - Suggested time: 2025-03-17T14:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:30,852 - book2 - INFO - No reCAPTCHA detected on the page
+2025-03-15 18:17:30,852 - book2 - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 18:17:30,916 - book2 - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T14:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:30,955 - scrape - INFO - Using User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+2025-03-15 18:17:30,956 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:17:31,029 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:17:31,115 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:17:31,195 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:17:32,263 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T14:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:39,225 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:17:39,225 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:17:41,667 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:17:41,776 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:17:41,932 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:17:41,979 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55fb7fbaea1a <unknown>
+#1 0x55fb7f6661e3 <unknown>
+#2 0x55fb7f6ae282 <unknown>
+#3 0x55fb7f6ddbd2 <unknown>
+#4 0x55fb7f6ab78a <unknown>
+#5 0x55fb7f6ddd9e <unknown>
+#6 0x55fb7f70407b <unknown>
+#7 0x55fb7f6dd9a3 <unknown>
+#8 0x55fb7f6a960e <unknown>
+#9 0x55fb7f6aadd1 <unknown>
+#10 0x55fb7fb74ddb <unknown>
+#11 0x55fb7fb78cbc <unknown>
+#12 0x55fb7fb5c392 <unknown>
+#13 0x55fb7fb79834 <unknown>
+#14 0x55fb7fb401ef <unknown>
+#15 0x55fb7fb9d038 <unknown>
+#16 0x55fb7fb9d216 <unknown>
+#17 0x55fb7fbad896 <unknown>
+#18 0x7fc07fe7aaa4 <unknown>
+#19 0x7fc07ff07c3c <unknown>
+
+2025-03-15 18:17:42,671 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:17:42,672 - scrape - INFO - Form filled successfully
+2025-03-15 18:17:42,672 - scrape - INFO - Attempting to submit form
+2025-03-15 18:17:42,723 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:17:42,751 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:17:42,775 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:17:42,798 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:17:42,820 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:17:42,844 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:42,868 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:42,890 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:17:42,913 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:17:42,935 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:42,957 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:42,979 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:43,001 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:43,022 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:43,044 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:43,064 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:43,086 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:43,107 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:43,129 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:17:43,152 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:43,183 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:43,209 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:43,236 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:43,264 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:17:43,287 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:17:43,507 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:17:45,756 - scrape - INFO - URL or page title indicates successful submission
+2025-03-15 18:17:45,843 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/submission_success_before_recaptcha.png
+2025-03-15 18:17:45,843 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 18:17:45,843 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 18:17:45,971 - book2 - INFO - Calendly appointment booked successfully
+2025-03-15 18:17:45,971 - book2 - INFO - Workflow completed successfully
+2025-03-15 18:17:45,972 - __main__ - INFO - Run 3 succeeded
+2025-03-15 18:17:45,972 - __main__ - INFO - Test results saved to results/calendly_test_results_20250315_181745.json
+2025-03-15 18:17:45,972 - __main__ - INFO - Starting run 4/5
+2025-03-15 18:17:45,972 - book2 - INFO - Starting Calendly workflow
+2025-03-15 18:17:45,973 - book2 - INFO - Generating mock calendar data
+2025-03-15 18:17:49,702 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:17:49,705 - book2 - INFO - Suggested time: 2025-03-17T15:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:52,113 - book2 - INFO - No reCAPTCHA detected on the page
+2025-03-15 18:17:52,113 - book2 - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 18:17:52,177 - book2 - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T15:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:52,212 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 18:17:52,212 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:17:52,284 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:17:52,338 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:17:52,403 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:17:53,447 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T15:00:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:17:54,754 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:17:54,754 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:17:56,595 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:17:56,701 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:17:56,836 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:17:56,885 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x5649883eea1a <unknown>
+#1 0x564987ea61e3 <unknown>
+#2 0x564987eee282 <unknown>
+#3 0x564987f1dbd2 <unknown>
+#4 0x564987eeb78a <unknown>
+#5 0x564987f1dd9e <unknown>
+#6 0x564987f4407b <unknown>
+#7 0x564987f1d9a3 <unknown>
+#8 0x564987ee960e <unknown>
+#9 0x564987eeadd1 <unknown>
+#10 0x5649883b4ddb <unknown>
+#11 0x5649883b8cbc <unknown>
+#12 0x56498839c392 <unknown>
+#13 0x5649883b9834 <unknown>
+#14 0x5649883801ef <unknown>
+#15 0x5649883dd038 <unknown>
+#16 0x5649883dd216 <unknown>
+#17 0x5649883ed896 <unknown>
+#18 0x7f2416e3baa4 <unknown>
+#19 0x7f2416ec8c3c <unknown>
+
+2025-03-15 18:17:57,798 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:17:57,799 - scrape - INFO - Form filled successfully
+2025-03-15 18:17:57,799 - scrape - INFO - Attempting to submit form
+2025-03-15 18:17:57,846 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:17:57,872 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:17:57,897 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:17:57,920 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:17:57,942 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:17:57,964 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:57,987 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,008 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:17:58,032 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:17:58,053 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,075 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,101 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:58,138 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,160 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:58,184 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,205 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:58,228 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,251 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:17:58,273 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:17:58,296 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,318 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,341 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,366 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:17:58,388 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:17:58,413 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:17:58,655 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:18:00,913 - scrape - INFO - URL or page title indicates successful submission
+2025-03-15 18:18:00,991 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/submission_success_before_recaptcha.png
+2025-03-15 18:18:00,991 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 18:18:00,991 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 18:18:01,115 - book2 - INFO - Calendly appointment booked successfully
+2025-03-15 18:18:01,115 - book2 - INFO - Workflow completed successfully
+2025-03-15 18:18:01,116 - __main__ - INFO - Run 4 succeeded
+2025-03-15 18:18:01,116 - __main__ - INFO - Test results saved to results/calendly_test_results_20250315_181801.json
+2025-03-15 18:18:01,116 - __main__ - INFO - Starting run 5/5
+2025-03-15 18:18:01,116 - book2 - INFO - Starting Calendly workflow
+2025-03-15 18:18:01,116 - book2 - INFO - Generating mock calendar data
+2025-03-15 18:18:03,339 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-15 18:18:03,342 - book2 - INFO - Suggested time: 2025-03-17T15:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:18:05,129 - book2 - INFO - No reCAPTCHA detected on the page
+2025-03-15 18:18:05,129 - book2 - INFO - No reCAPTCHA detected, proceeding with current browser session
+2025-03-15 18:18:05,193 - book2 - INFO - Booking Calendly appointment at URL: https://calendly.com/robertjandali/30min/2025-03-17T15:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:18:05,227 - scrape - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
+2025-03-15 18:18:05,228 - WDM - INFO - ====== WebDriver manager ======
+2025-03-15 18:18:05,301 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:18:05,386 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-15 18:18:05,446 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.88/chromedriver-linux64/chromedriver] found in cache
+2025-03-15 18:18:06,502 - scrape - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-17T15:30:00-07:00?month=2025-03&date=2025-03-17
+2025-03-15 18:18:07,965 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/initial_page_load.png
+2025-03-15 18:18:07,965 - scrape - INFO - Filling out Calendly form
+2025-03-15 18:18:10,201 - scrape - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-15 18:18:10,310 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/before_country_select.png
+2025-03-15 18:18:10,447 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_country_select_click.png
+2025-03-15 18:18:10,498 - scrape - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55be07029a1a <unknown>
+#1 0x55be06ae11e3 <unknown>
+#2 0x55be06b29282 <unknown>
+#3 0x55be06b58bd2 <unknown>
+#4 0x55be06b2678a <unknown>
+#5 0x55be06b58d9e <unknown>
+#6 0x55be06b7f07b <unknown>
+#7 0x55be06b589a3 <unknown>
+#8 0x55be06b2460e <unknown>
+#9 0x55be06b25dd1 <unknown>
+#10 0x55be06fefddb <unknown>
+#11 0x55be06ff3cbc <unknown>
+#12 0x55be06fd7392 <unknown>
+#13 0x55be06ff4834 <unknown>
+#14 0x55be06fbb1ef <unknown>
+#15 0x55be07018038 <unknown>
+#16 0x55be07018216 <unknown>
+#17 0x55be07028896 <unknown>
+#18 0x7fa22e281aa4 <unknown>
+#19 0x7fa22e30ec3c <unknown>
+
+2025-03-15 18:18:11,193 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/form_filled.png
+2025-03-15 18:18:11,193 - scrape - INFO - Form filled successfully
+2025-03-15 18:18:11,193 - scrape - INFO - Attempting to submit form
+2025-03-15 18:18:11,243 - scrape - DEBUG - Found button: text='', class='uvkj3lh _iiDwDq8a4e3_DhY4dXQ AZPKYAvEWmXHb2_RS8ZT biKRmvOwxcRoud6JHtYV'
+2025-03-15 18:18:11,269 - scrape - DEBUG - Found button: text='Cookie settings', class='uvkj3lh l15h8fme bxji8yh f1tj3z0k'
+2025-03-15 18:18:11,293 - scrape - DEBUG - Found button: text='Add Guests', class='uvkj3lh l15h8fme bzua8jl d6p4nuq soq3ksa'
+2025-03-15 18:18:11,317 - scrape - DEBUG - Found button: text='Schedule Event', class='uvkj3lh l15h8fme bzua8jl dyxacjh sbsarjr'
+2025-03-15 18:18:11,342 - scrape - DEBUG - Found button: text='', class='cookie-setting-link'
+2025-03-15 18:18:11,367 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,390 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,413 - scrape - DEBUG - Found button: text='', class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon'
+2025-03-15 18:18:11,435 - scrape - DEBUG - Found button: text='', class='ot-close-icon'
+2025-03-15 18:18:11,457 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,479 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,501 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:18:11,524 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,545 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:18:11,567 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,588 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:18:11,609 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,630 - scrape - DEBUG - Found button: text='', class='ot-link-btn category-host-list-handler'
+2025-03-15 18:18:11,653 - scrape - DEBUG - Found button: text='', class='ot-link-btn back-btn-handler'
+2025-03-15 18:18:11,674 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,697 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,720 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,741 - scrape - DEBUG - Found button: text='', class=''
+2025-03-15 18:18:11,764 - scrape - DEBUG - Found button: text='', class='ot-pc-refuse-all-handler'
+2025-03-15 18:18:11,787 - scrape - DEBUG - Found button: text='', class='save-preference-btn-handler onetrust-close-btn-handler'
+2025-03-15 18:18:12,022 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/after_submit_click.png
+2025-03-15 18:18:13,624 - scrape - INFO - Page title changed to indicate successful submission
+2025-03-15 18:18:13,706 - scrape - DEBUG - Screenshot saved to /home/zain/projects/xsap/calendly/screenshots/title_change_success.png
+2025-03-15 18:18:13,706 - scrape - INFO - reCAPTCHA handled successfully
+2025-03-15 18:18:13,706 - scrape - INFO - Successfully submitted the Calendly booking form
+2025-03-15 18:18:13,830 - book2 - INFO - Calendly appointment booked successfully
+2025-03-15 18:18:13,830 - book2 - INFO - Workflow completed successfully
+2025-03-15 18:18:13,831 - __main__ - INFO - Run 5 succeeded
+2025-03-15 18:18:13,831 - __main__ - INFO - Test results saved to results/calendly_test_results_20250315_181813.json
+2025-03-15 18:18:13,831 - __main__ - INFO - Test runner completed
+2025-03-15 18:18:13,831 - __main__ - INFO - Results: 5 successful, 0 failed
