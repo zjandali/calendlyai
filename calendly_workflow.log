@@ -1,0 +1,24 @@
+2025-03-16 17:30:23,232 - __main__ - INFO - Starting Calendly workflow
+2025-03-16 17:30:23,233 - __main__ - INFO - Generating mock calendar data
+2025-03-16 17:30:23,235 - __main__ - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-16 17:30:23,833 - __main__ - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-16 17:30:23,835 - __main__ - INFO - Fetching Calendly availability
+2025-03-16 17:30:24,884 - __main__ - ERROR - Error getting Calendly availability: 400 Client Error: Bad Request for url: https://calendly.com/api/booking/event_types/987a2219-b57a-4bef-a2ae-1001d1ae7837/calendar/range?timezone=America%2FLos_Angeles&diagnostics=false&range_start=2025-03-16&range_end=2025-04-20
+2025-03-16 17:30:24,886 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/home/zain/projects/xsap/calendly/book.py", line 86, in get_calendly_availability
+    calendar_response.raise_for_status()
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://calendly.com/api/booking/event_types/987a2219-b57a-4bef-a2ae-1001d1ae7837/calendar/range?timezone=America%2FLos_Angeles&diagnostics=false&range_start=2025-03-16&range_end=2025-04-20
+
+2025-03-16 17:30:24,886 - __main__ - ERROR - Workflow failed: 400 Client Error: Bad Request for url: https://calendly.com/api/booking/event_types/987a2219-b57a-4bef-a2ae-1001d1ae7837/calendar/range?timezone=America%2FLos_Angeles&diagnostics=false&range_start=2025-03-16&range_end=2025-04-20
+2025-03-16 17:30:24,887 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/home/zain/projects/xsap/calendly/book.py", line 180, in main
+    calendly_formatted = get_calendly_availability(uuid)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/book.py", line 86, in get_calendly_availability
+    calendar_response.raise_for_status()
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://calendly.com/api/booking/event_types/987a2219-b57a-4bef-a2ae-1001d1ae7837/calendar/range?timezone=America%2FLos_Angeles&diagnostics=false&range_start=2025-03-16&range_end=2025-04-20
+

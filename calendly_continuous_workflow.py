@@ -27,7 +27,6 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('calendly_workflow.log'),
         logging.StreamHandler()
     ]
 )
@@ -82,10 +81,30 @@ def run_calendly_workflow(
             "range_start": start_date.strftime("%Y-%m-%d"),
             "range_end": end_date.strftime("%Y-%m-%d")
         }
-        
+        print(f"range_url: {range_url}")
         calendar_response = requests.get(range_url, params=params)
         calendar_response.raise_for_status()
-        calendly_data = calendar_response.json()
+        
+        # Add retry logic for API response
+        max_api_retries = 3
+        retry_delay = 2  # seconds
+        
+        for api_retry in range(max_api_retries):
+            try:
+                calendly_data = calendar_response.json()
+                if calendly_data:
+                    logger.info(f"Successfully retrieved Calendly data on attempt {api_retry + 1}")
+                    break
+            except json.JSONDecodeError:
+                logger.warning(f"Failed to decode JSON on attempt {api_retry + 1}")
+                if api_retry < max_api_retries - 1:
+                    logger.info(f"Waiting {retry_delay} seconds before retry")
+                    time.sleep(retry_delay)
+                else:
+                    logger.error("All attempts to decode Calendly data failed")
+                    raise
+        
+        print(f"calendly_data: {calendly_data}")
         #logger.info(f"Calendly data: {calendly_data}")
         # Step 4: Find matching times between calendars
         #logger.info("Finding matching available time slots")
@@ -115,7 +134,7 @@ def run_calendly_workflow(
         
         # Find intersection of available times
         matching_times = sorted(times1.intersection(times2))
-        logger.info(f"Matching times: {matching_times}")
+        #logger.info(f"Matching times: {matching_times}")
         # Step 5: Format matching times
         #logger.info(f"Formatting {len(matching_times)} matching time slots")
         formatted_times = []
@@ -141,7 +160,7 @@ def run_calendly_workflow(
         #logger.info("Getting suggested meeting time from LLM")
         response_schema = ResponseSchema(
             name="suggested_time",
-            description="The suggested meeting time in ISO 8601 format with UTC -07:00 timezone",
+            description="The suggested meeting time in ISO 8601 format with UTC -07:00 timezone (e.g., '2025-03-14T10:30:00-07:00')",
             type="string"
         )
         
@@ -163,26 +182,19 @@ def run_calendly_workflow(
         response = llm.invoke(messages)
         parsed_response = parser.parse(response.content)
         suggested_time = parsed_response['suggested_time']
-        logger.info(f"Suggested time: {suggested_time}")
+        logger.info(f"LLM Suggested time: {suggested_time}")
         
-        # Validate that the suggested time is actually in our available times
-        suggested_time_valid = False
-        for time_option in formatted_times:
-            if suggested_time in time_option["iso"]:
-                suggested_time_valid = True
-                suggested_time = time_option["iso"]  # Use the exact format from our list
-                break
-        
-        if not suggested_time_valid:
-            logger.error(f"LLM suggested time {suggested_time} is not in available slots")
-            # Fall back to the first available time
-            suggested_time = formatted_times[0]["iso"]
-            logger.info(f"Falling back to first available time: {suggested_time}")
+        # Check if the suggested time already contains URL parameters and clean it if needed
+        if '?' in suggested_time:
+            suggested_time = suggested_time.split('?')[0]
+            logger.info(f"Cleaned suggested time: {suggested_time}")
         
         # Step 7: Create final booking URL
-        #logger.info("Creating booking URL")
+        logger.info("Creating booking URL")
         # Extract the base URL without any parameters
+        
         base_path = '/'.join(calendly_url.split('?')[0].split('/')[:-1]) 
+        
         if calendly_url.endswith('/'):
             base_path = base_path[:-1]  # Remove trailing slash if present
             
@@ -193,6 +205,7 @@ def run_calendly_workflow(
         
         # Construct the URL with the proper format that Calendly expects
         final_url = f"{base_path}/{event_type_slug}/{suggested_time}?month={month_str}&date={date_str}"
+        logger.info(f"Base path: {base_path}")
         logger.info(f"Created booking URL: {final_url}")
         
         # Step 8: Book appointment with retry logic for reCAPTCHA
@@ -204,53 +217,12 @@ def run_calendly_workflow(
             #logger.info(f"Booking attempt {attempt} of {max_retries}")
             
             # Set up a new browser instance for each attempt
-            #logger.info("Setting up Selenium with reCAPTCHA solver")
-            test_ua = 'Mozilla/5.0 (Windows NT 4.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36'
-            
-            options = Options()
-            options.add_argument("--headless")  # Remove for visible browser
-            options.add_argument("--window-size=1920,1080")
-            options.add_argument(f'--user-agent={test_ua}')
-            options.add_argument('--no-sandbox')
-            options.add_argument("--disable-extensions")
-            
-            driver = webdriver.Chrome(options=options)
-            solver = RecaptchaSolver(driver=driver)
+       
             
             try:
                 # Check for reCAPTCHA
                 #logger.info(f"Navigating to {final_url} to check for reCAPTCHA")
-                driver.get(final_url)
-                
-                # Check for multiple indicators of reCAPTCHA presence
-                recaptcha_iframes = driver.find_elements(By.XPATH, '//iframe[contains(@src, "recaptcha")]')
-                recaptcha_divs = driver.find_elements(By.XPATH, '//div[contains(@class, "g-recaptcha")]')
-                recaptcha_scripts = driver.find_elements(By.XPATH, '//script[contains(@src, "recaptcha")]')
-                
-                recaptcha_solved = True
-                if recaptcha_iframes and (recaptcha_divs or recaptcha_scripts):
-                    #logger.info("reCAPTCHA confirmed on the page")
-                    recaptcha_solved = False
-                else:
-                    logger.info("No reCAPTCHA detected on the page")
-                
-                if not recaptcha_solved:
-                    #logger.warning(f"reCAPTCHA detected and could not be solved on attempt {attempt}")
-                    # Close the browser before retrying
-                    driver.quit()
-                    
-                    if attempt < max_retries:
-                       # logger.info(f"Waiting 5 seconds before retry {attempt + 1}")
-                        time.sleep(5)  # Add a delay before retrying
-                        continue
-                    else:
-                        logger.error("Max retries reached, falling back to direct booking method")
-                
-                # If we get here, either no reCAPTCHA was detected or it was solved
-                #logger.info("Proceeding with booking using current browser session")
-                
-                # Close this browser and use the imported function
-                driver.quit()
+             
                 
                 booking_success = book_calendly_appointment(
                     url=final_url,
@@ -275,10 +247,7 @@ def run_calendly_workflow(
                 #logger.error(traceback.format_exc())
                 
                 # Make sure to close the browser before retrying
-                try:
-                    driver.quit()
-                except:
-                    pass
+             
                 
                 if attempt < max_retries:
                     #logger.info(f"Waiting 5 seconds before retry {attempt + 1}")

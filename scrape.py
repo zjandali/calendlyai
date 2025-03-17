@@ -31,7 +31,6 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'calendly_scraper.log'))
     ]
 )
 logger = logging.getLogger(__name__)
@@ -552,7 +551,13 @@ class CalendlyScraper:
             if not recaptcha_frames:
                 logger.info("No visible reCAPTCHA detected")
                 return True
+            else:
+                logger.info("reCAPTCHA detected, need to restart with new browser agent")
+                self._take_screenshot("recaptcha_detected.png")
+                # Signal that we need to restart the workflow
+                return "restart_needed"
             
+            # The code below will not be reached when reCAPTCHA is detected
             logger.info("reCAPTCHA detected, attempting to handle")
             self._take_screenshot("recaptcha_detected.png")
             
@@ -743,7 +748,8 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
                              headless: bool = False,
                              proxy: Optional[str] = None,
                              captcha_api_key: Optional[str] = None,
-                             debug: bool = False) -> bool:
+                             debug: bool = False,
+                             max_retries: int = 3) -> bool:
     """
     Book a Calendly appointment using the CalendlyScraper.
     
@@ -757,6 +763,7 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
         proxy: Optional proxy server to use
         captcha_api_key: Optional API key for CAPTCHA solving service
         debug: Enable debug logging
+        max_retries: Maximum number of retry attempts
         
     Returns:
         bool: True if booking was successful, False otherwise
@@ -775,42 +782,54 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
     if additional_info:
         form_data['additional_info'] = additional_info
     
-    # Initialize the scraper
-    scraper = CalendlyScraper(
-        headless=headless, 
-        proxy=proxy,
-        captcha_api_key=captcha_api_key
-    )
-    
-    try:
-        # Set up the WebDriver
-        scraper.setup_driver()
+    for attempt in range(max_retries):
+        logger.info(f"Attempt {attempt + 1}/{max_retries} to book appointment")
         
-        # Navigate to the Calendly URL
-        if not scraper.navigate_to_url(url):
-            logger.error("Failed to navigate to the Calendly URL")
-            return False
+        # Initialize the scraper
+        scraper = CalendlyScraper(
+            headless=headless, 
+            proxy=proxy,
+            captcha_api_key=captcha_api_key
+        )
         
-        # Fill out the form
-        if not scraper.fill_form(form_data):
-            logger.error("Failed to fill out the form")
-            return False
+        try:
+            # Set up the WebDriver
+            scraper.setup_driver()
+            
+            # Navigate to the Calendly URL
+            if not scraper.navigate_to_url(url):
+                logger.error("Failed to navigate to the Calendly URL")
+                continue  # Try again with a new browser session
+            
+            # Fill out the form
+            if not scraper.fill_form(form_data):
+                logger.error("Failed to fill out the form")
+                continue  # Try again with a new browser session
+            
+            # Submit the form
+            submit_result = scraper.submit_form()
+            
+            if submit_result == "restart_needed":
+                logger.info(f"reCAPTCHA detected on attempt {attempt + 1}, restarting with new browser agent")
+                continue  # Try again with a new browser session
+            
+            if submit_result:
+                logger.info("Successfully submitted the Calendly booking form")
+                return True
+            else:
+                logger.error("Failed to submit the form")
+                continue  # Try again with a new browser session
         
-        # Submit the form
-        if scraper.submit_form():
-            logger.info("Successfully submitted the Calendly booking form")
-            return True
-        else:
-            logger.error("Failed to submit the form")
-            return False
+        except Exception as e:
+            logger.error(f"An error occurred on attempt {attempt + 1}: {e}")
+            continue  # Try again with a new browser session
+        
+        finally:
+            # Clean up
+            scraper.close()
     
-    except Exception as e:
-        logger.error(f"An error occurred: {e}")
-        return False
-    
-    finally:
-        # Clean up
-        scraper.close()
+    logger.error(f"Failed to book appointment after {max_retries} attempts")
+    return False
 
 def main():
     """Main function to run the Calendly scraper."""
@@ -824,6 +843,7 @@ def main():
     parser.add_argument('--proxy', help='Proxy server to use (optional)')
     parser.add_argument('--captcha-api-key', help='API key for CAPTCHA solving service (optional)')
     parser.add_argument('--debug', action='store_true', help='Enable debug logging')
+    parser.add_argument('--max-retries', type=int, default=3, help='Maximum number of retry attempts (default: 3)')
     
     args = parser.parse_args()
     
@@ -836,7 +856,8 @@ def main():
         headless=args.headless,
         proxy=args.proxy,
         captcha_api_key=args.captcha_api_key,
-        debug=args.debug
+        debug=args.debug,
+        max_retries=args.max_retries
     )
     
     return 0 if success else 1

@@ -1,17 +1,16 @@
 from langchain.prompts import ChatPromptTemplate
 
 def scheduling_prompt():
-    return ChatPromptTemplate.from_template("""
+    template = """
     You are a scheduling assistant. Please analyze the following available meeting times and suggest the best option.
 
-    Available Times:
+    Overlapping Available Times:
     {overlapping_availability}
 
-    Find the best meeting time from these  time slots at the earliest reasonable business hour. DO NOT PICK A TIME THAT IS NOT IN THE  AVAILABILITY.
-    {format_instructions}
+    Based on the available times, please suggest the best meeting time. Choose a time that is during business hours (09:00:00-07:00 to 17:00:00-07:00 in ISO 8601 format) if possible, and preferably not too early or too late in the day.
 
-    Note: The suggested_time MUST be converted to this exact format:
-    "2025-03-05T09:30:00-07:00?month=2025-03&date=2025-03-05"
-    - Include query parameters for month and date
-    """)
+    {format_instructions}
+    """
+    
+    return ChatPromptTemplate.from_template(template)
 
