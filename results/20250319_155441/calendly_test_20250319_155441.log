@@ -1,0 +1,24 @@
+2025-03-19 15:54:41,837 - __main__ - INFO - Starting test suite with 5 runs
+2025-03-19 15:54:41,837 - __main__ - INFO - Delay between runs: 0 seconds
+2025-03-19 15:54:41,837 - __main__ - INFO - 
+Starting run 1/5
+2025-03-19 15:55:07,497 - __main__ - INFO - Run 1 successful - URL: https://calendly.com/robertjandali/30min/2025-03-21T10:30:00-07:00?month=2025-03&date=2025-03-21
+2025-03-19 15:55:07,497 - __main__ - INFO - Run 1 completed in 25.66 seconds
+2025-03-19 15:55:07,497 - __main__ - INFO - Waiting 0 seconds before next run...
+2025-03-19 15:55:07,497 - __main__ - INFO - 
+Starting run 2/5
+2025-03-19 15:55:32,887 - __main__ - INFO - Run 2 successful - URL: https://calendly.com/robertjandali/30min/2025-03-24T10:30:00-07:00?month=2025-03&date=2025-03-24
+2025-03-19 15:55:32,888 - __main__ - INFO - Run 2 completed in 25.39 seconds
+2025-03-19 15:55:32,888 - __main__ - INFO - Waiting 0 seconds before next run...
+2025-03-19 15:55:32,888 - __main__ - INFO - 
+Starting run 3/5
+2025-03-19 15:55:59,803 - __main__ - INFO - Run 3 successful - URL: https://calendly.com/robertjandali/30min/2025-03-25T11:00:00-07:00?month=2025-03&date=2025-03-25
+2025-03-19 15:55:59,804 - __main__ - INFO - Run 3 completed in 26.92 seconds
+2025-03-19 15:55:59,804 - __main__ - INFO - Waiting 0 seconds before next run...
+2025-03-19 15:55:59,804 - __main__ - INFO - 
+Starting run 4/5
+2025-03-19 15:56:11,113 - __main__ - INFO - Run 4 successful - URL: https://calendly.com/robertjandali/30min/2025-03-21T11:00:00-07:00?month=2025-03&date=2025-03-21
+2025-03-19 15:56:11,114 - __main__ - INFO - Run 4 completed in 11.31 seconds
+2025-03-19 15:56:11,115 - __main__ - INFO - Waiting 0 seconds before next run...
+2025-03-19 15:56:11,115 - __main__ - INFO - 
+Starting run 5/5

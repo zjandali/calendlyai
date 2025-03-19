@@ -1,0 +1,9 @@
+2025-03-19 16:19:00,360 - __main__ - INFO - Starting test suite with 5 runs
+2025-03-19 16:19:00,361 - __main__ - INFO - Delay between runs: 0 seconds
+2025-03-19 16:19:00,361 - __main__ - INFO - 
+Starting run 1/5
+2025-03-19 16:22:30,182 - __main__ - ERROR - Run 1 failed - No booking URL returned
+2025-03-19 16:22:30,183 - __main__ - INFO - Run 1 completed in 209.82 seconds
+2025-03-19 16:22:30,183 - __main__ - INFO - Waiting 0 seconds before next run...
+2025-03-19 16:22:30,183 - __main__ - INFO - 
+Starting run 2/5

@@ -24,6 +24,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException,
 from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
 from fake_useragent import UserAgent
+from selenium_recaptcha_solver import RecaptchaSolver
 
 # Configure logging
 logging.basicConfig(
@@ -179,12 +180,13 @@ class CalendlyScraper:
             self._take_screenshot("form_fill_error.png")
             return False
     
-    def submit_form(self) -> bool:
+    def submit_form(self) -> Any:
         """
         Submit the Calendly form and handle any reCAPTCHA challenges.
         
         Returns:
-            bool: True if form was submitted successfully, False otherwise
+            Union[bool, str]: True if form was submitted successfully, 
+                             "restart_needed" if reCAPTCHA detected, False otherwise
         """
         try:
             logger.info("Attempting to submit form")
@@ -229,7 +231,10 @@ class CalendlyScraper:
             
             # Check for reCAPTCHA and handle it if present
             recaptcha_result = self._handle_recaptcha()
-            if recaptcha_result:
+            if recaptcha_result == "restart_needed":
+                logger.info("reCAPTCHA detected, need restart with new session")
+                return "restart_needed"  # Return the restart signal directly
+            elif recaptcha_result:
                 logger.info("reCAPTCHA handled successfully")
                 return True
             
@@ -502,30 +507,15 @@ class CalendlyScraper:
             logger.error(f"Error filling phone number: {e}")
             raise
     
-    def _handle_recaptcha(self) -> bool:
+    def _handle_recaptcha(self) -> Any:
         """
-        Handle reCAPTCHA if present on the page.
+        Handle reCAPTCHA if present on the page using RecaptchaSolver.
         
         Returns:
-            bool: True if reCAPTCHA was handled successfully or not present, False otherwise
+            Union[bool, str]: True if reCAPTCHA was handled successfully or not present, 
+                             "restart_needed" if reCAPTCHA couldn't be solved, False otherwise
         """
         try:
-            # Wait a moment to see if page title changes
-            try:
-                WebDriverWait(self.driver, 15).until(
-                    lambda driver: "confirmed" in driver.title.lower() or 
-                    "confirmed" in driver.title.lower() or 
-                    "scheduled" in driver.title.lower() or
-                    "thank" in driver.title.lower() or 
-                    "confirmation" in driver.title.lower()
-                )
-                logger.info("Page title changed to indicate successful submission")
-                self._take_screenshot("title_change_success.png")
-                return True
-            except TimeoutException:
-                # Continue with normal flow if title doesn't change
-                pass
-            
             # Check if URL has changed to success/confirmation page
             current_url = self.driver.current_url.lower()
             page_title = self.driver.title.lower()
@@ -551,101 +541,69 @@ class CalendlyScraper:
             if not recaptcha_frames:
                 logger.info("No visible reCAPTCHA detected")
                 return True
-            else:
-                logger.info("reCAPTCHA detected, need to restart with new browser agent")
-                self._take_screenshot("recaptcha_detected.png")
-                # Signal that we need to restart the workflow
-                return "restart_needed"
             
-            # The code below will not be reached when reCAPTCHA is detected
-            logger.info("reCAPTCHA detected, attempting to handle")
+            logger.info("reCAPTCHA detected, attempting to solve")
             self._take_screenshot("recaptcha_detected.png")
             
-            # Try each frame until we find the checkbox
-            for frame in recaptcha_frames:
-                try:
-                    # Check URL again before switching frame
-                    current_url = self.driver.current_url.lower()
-                    if "confirmed" in current_url or "success" in current_url or "scheduled" in current_url:
-                        logger.info("URL indicates successful submission during frame handling")
-                        return True
-                        
-                    # Switch to the frame
-                    self.driver.switch_to.frame(frame)
-                    
-                    # Try to find the checkbox using multiple selectors
-                    checkbox = None
-                    selectors = [
-                        (By.ID, "recaptcha-anchor"),
-                        (By.CLASS_NAME, "recaptcha-checkbox-border"),
-                        (By.XPATH, "//div[@class='recaptcha-checkbox-border']"),
-                        (By.XPATH, "//span[@id='recaptcha-anchor']")
-                    ]
-                    
-                    for by, selector in selectors:
-                        try:
-                            checkbox = WebDriverWait(self.driver, 5).until(
-                                EC.presence_of_element_located((by, selector))
-                            )
-                            if checkbox and checkbox.is_displayed():
-                                break
-                        except:
-                            continue
-                    
-                    if checkbox and checkbox.is_displayed():
-                        # Try JavaScript click first
-                        try:
-                            self.driver.execute_script("arguments[0].click();", checkbox)
-                        except:
-                            # If JavaScript click fails, try regular click
-                            checkbox.click()
-                        
-                        # Switch back to default content
-                        self.driver.switch_to.default_content()
-                        
-                        # Check URL again after clicking
-                        current_url = self.driver.current_url.lower()
-                        if "confirmed" in current_url or "success" in current_url or "scheduled" in current_url:
-                            logger.info("URL indicates successful submission after checkbox click")
-                            return True
-                        
-                        # Check for challenge frame
-                        challenge_frames = self.driver.find_elements(
-                            By.XPATH, "//iframe[contains(@src, 'recaptcha/api2/bframe')]"
-                        )
-                        
-                        if challenge_frames:
-                            logger.warning("reCAPTCHA challenge detected")
-                            self._take_screenshot("recaptcha_challenge.png")
-                            
-                            if self.captcha_api_key:
-                                logger.info("Attempting to solve reCAPTCHA challenge using API")
-                                # Here you would integrate with a CAPTCHA solving service
-                                return False
-                            else:
-                                logger.warning("No CAPTCHA API key provided, cannot solve challenge")
-                                return False
-                        
-                        return True
-                    
-                except Exception as frame_error:
-                    logger.debug(f"Error in frame {frame}: {frame_error}")
-                    # Switch back to default content before trying next frame
-                    try:
-                        self.driver.switch_to.default_content()
-                    except:
-                        pass
-                    continue
+            # Initialize RecaptchaSolver
+            solver = RecaptchaSolver(driver=self.driver)
             
-            # Check URL one final time
-            current_url = self.driver.current_url.lower()
-            if "confirmed" in current_url or "success" in current_url or "scheduled" in current_url:
-                logger.info("URL indicates successful submission after frame checks")
+            # Find the reCAPTCHA iframe
+            recaptcha_iframe = recaptcha_frames[0]
+            
+            # Try to solve the reCAPTCHA
+            try:
+                logger.info("Attempting to solve reCAPTCHA using RecaptchaSolver")
+                solver.click_recaptcha_v2(iframe=recaptcha_iframe)
+                
+                
+                # Wait for a moment to let the solution process complete
+                time.sleep(2)
+                
+                # Check if the form was submitted successfully after solving
+                current_url = self.driver.current_url.lower()
+                if ("confirmed" in current_url or "success" in current_url or "scheduled" in current_url):
+                    logger.info("reCAPTCHA solved successfully and form submitted")
+                    return True
+                
+                # Try to click submit button again after solving reCAPTCHA
+                schedule_button = self._find_element_with_retry(
+                    By.XPATH, 
+                    """//button[
+                        contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'schedule event') or 
+                        contains(@class, 'submit') or 
+                        contains(@type, 'submit')
+                    ]""",
+                    max_retries=3
+                )
+                
+                if schedule_button:
+                    logger.info("Clicking submit button after solving reCAPTCHA")
+                    try:
+                        schedule_button.click()
+                    except:
+                        self.driver.execute_script("arguments[0].click();", schedule_button)
+                    
+                    # Check for successful submission
+                    try:
+                        WebDriverWait(self.driver, 15).until(
+                            lambda driver: "confirmed" in driver.current_url.lower() or 
+                            "success" in driver.current_url.lower() or
+                            "scheduled" in driver.current_url.lower()
+                        )
+                        logger.info("Form submitted successfully after solving reCAPTCHA")
+                        return True
+                    except TimeoutException:
+                        logger.warning("Form submission after reCAPTCHA solve timed out")
+                        return False
+                
+                logger.info("reCAPTCHA was likely solved but form submission check failed")
                 return True
                 
-            # If we get here, we couldn't find the checkbox in any frame
-            logger.error("Could not find reCAPTCHA checkbox in any frame")
-            return False
+            except Exception as e:
+                logger.error(f"Error solving reCAPTCHA: {e}")
+                self._take_screenshot("recaptcha_solving_error.png")
+                return "restart_needed"  # Signal restart if solving fails
             
         except Exception as e:
             logger.error(f"Error handling reCAPTCHA: {e}")
@@ -749,7 +707,8 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
                              proxy: Optional[str] = None,
                              captcha_api_key: Optional[str] = None,
                              debug: bool = False,
-                             max_retries: int = 3) -> bool:
+                             max_retries: int = 3,
+                             proxy_list: Optional[List[str]] = None) -> bool:
     """
     Book a Calendly appointment using the CalendlyScraper.
     
@@ -764,6 +723,7 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
         captcha_api_key: Optional API key for CAPTCHA solving service
         debug: Enable debug logging
         max_retries: Maximum number of retry attempts
+        proxy_list: Optional list of proxy servers to rotate through
         
     Returns:
         bool: True if booking was successful, False otherwise
@@ -782,6 +742,14 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
     if additional_info:
         form_data['additional_info'] = additional_info
     
+    # Initialize proxy rotation if proxy_list is provided
+    current_proxy_index = 0
+    if proxy_list and len(proxy_list) > 0:
+        # Start with the provided proxy if any
+        if proxy and proxy in proxy_list:
+            current_proxy_index = proxy_list.index(proxy)
+        proxy = proxy_list[current_proxy_index]
+    
     for attempt in range(max_retries):
         logger.info(f"Attempt {attempt + 1}/{max_retries} to book appointment")
         
@@ -799,11 +767,21 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
             # Navigate to the Calendly URL
             if not scraper.navigate_to_url(url):
                 logger.error("Failed to navigate to the Calendly URL")
+                # Rotate proxy and user agent before retry
+                if proxy_list and len(proxy_list) > 1:
+                    current_proxy_index = (current_proxy_index + 1) % len(proxy_list)
+                    proxy = proxy_list[current_proxy_index]
+                    logger.info(f"Rotating to new proxy: {proxy}")
                 continue  # Try again with a new browser session
             
             # Fill out the form
             if not scraper.fill_form(form_data):
                 logger.error("Failed to fill out the form")
+                # Rotate proxy and user agent before retry
+                if proxy_list and len(proxy_list) > 1:
+                    current_proxy_index = (current_proxy_index + 1) % len(proxy_list)
+                    proxy = proxy_list[current_proxy_index]
+                    logger.info(f"Rotating to new proxy: {proxy}")
                 continue  # Try again with a new browser session
             
             # Submit the form
@@ -811,6 +789,17 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
             
             if submit_result == "restart_needed":
                 logger.info(f"reCAPTCHA detected on attempt {attempt + 1}, restarting with new browser agent")
+                # Properly close the current scraper
+                scraper.close()
+                
+                # Rotate proxy if available
+                if proxy_list and len(proxy_list) > 1:
+                    current_proxy_index = (current_proxy_index + 1) % len(proxy_list)
+                    proxy = proxy_list[current_proxy_index]
+                    logger.info(f"Rotating to new proxy: {proxy}")
+                    
+                # Wait a bit before retry to avoid detection patterns
+                time.sleep(random.uniform(3, 7))
                 continue  # Try again with a new browser session
             
             if submit_result:
@@ -818,10 +807,20 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
                 return True
             else:
                 logger.error("Failed to submit the form")
+                # Rotate proxy and user agent before retry
+                if proxy_list and len(proxy_list) > 1:
+                    current_proxy_index = (current_proxy_index + 1) % len(proxy_list)
+                    proxy = proxy_list[current_proxy_index]
+                    logger.info(f"Rotating to new proxy: {proxy}")
                 continue  # Try again with a new browser session
         
         except Exception as e:
             logger.error(f"An error occurred on attempt {attempt + 1}: {e}")
+            # Rotate proxy and user agent before retry
+            if proxy_list and len(proxy_list) > 1:
+                current_proxy_index = (current_proxy_index + 1) % len(proxy_list)
+                proxy = proxy_list[current_proxy_index]
+                logger.info(f"Rotating to new proxy: {proxy}")
             continue  # Try again with a new browser session
         
         finally:
@@ -844,8 +843,12 @@ def main():
     parser.add_argument('--captcha-api-key', help='API key for CAPTCHA solving service (optional)')
     parser.add_argument('--debug', action='store_true', help='Enable debug logging')
     parser.add_argument('--max-retries', type=int, default=3, help='Maximum number of retry attempts (default: 3)')
+    parser.add_argument('--proxy-list', nargs='+', help='List of proxy servers to rotate through')
     
     args = parser.parse_args()
+    
+    # Convert the proxy list argument to a proper list
+    proxy_list = args.proxy_list if args.proxy_list else None
     
     success = book_calendly_appointment(
         url=args.url,
@@ -857,7 +860,8 @@ def main():
         proxy=args.proxy,
         captcha_api_key=args.captcha_api_key,
         debug=args.debug,
-        max_retries=args.max_retries
+        max_retries=args.max_retries,
+        proxy_list=proxy_list
     )
     
     return 0 if success else 1
