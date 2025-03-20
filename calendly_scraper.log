@@ -964,3 +964,179 @@ Stacktrace:
 2025-03-20 15:55:30,281 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/b25027a0f2a82f1ea0752f93565ddf98
 2025-03-20 15:55:30,282 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fdfcc22c7a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/b25027a0f2a82f1ea0752f93565ddf98
 2025-03-20 15:55:30,283 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fdfcc22cb30>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/b25027a0f2a82f1ea0752f93565ddf98
+2025-03-20 15:56:15,171 - __main__ - INFO - Setting up WebDriver with Browserbase
+2025-03-20 15:56:15,847 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 15:56:15,848 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.458624 seconds
+2025-03-20 15:56:16,457 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 15:56:16,457 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.960057 seconds
+2025-03-20 15:56:17,623 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 15:56:17,625 - __main__ - ERROR - Error setting up Browserbase: Error code: 429 - {'statusCode': 429, 'error': 'Too Many Requests', 'message': "You've exceeded your max concurrent sessions limit (limit 1, currently 1). Please contact support to increase your limit."}
+2025-03-20 15:56:17,625 - __main__ - INFO - Falling back to standard WebDriver setup
+2025-03-20 15:56:17,660 - __main__ - INFO - Using User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15
+2025-03-20 15:56:17,660 - WDM - INFO - ====== WebDriver manager ======
+2025-03-20 15:56:17,733 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-20 15:56:17,803 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-20 15:56:17,867 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.90/chromedriver-linux64/chromedriver] found in cache
+2025-03-20 15:56:18,990 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-21T00:00:00-07:00?month=2025-03&date=2025-03-21
+2025-03-20 15:56:20,955 - __main__ - INFO - Filling out Calendly form
+2025-03-20 15:56:23,024 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/e68b87ba98927face86f0ad61df51593
+2025-03-20 15:56:23,025 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7fcc8785c0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/e68b87ba98927face86f0ad61df51593
+2025-03-20 15:56:23,026 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7fcc878b00>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/e68b87ba98927face86f0ad61df51593
+2025-03-20 16:12:06,078 - __main__ - INFO - Setting up WebDriver with Browserbase
+2025-03-20 16:12:13,807 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 16:12:13,808 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.409977 seconds
+2025-03-20 16:12:14,447 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 16:12:14,448 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.861147 seconds
+2025-03-20 16:12:15,560 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 16:12:15,562 - __main__ - ERROR - Error setting up Browserbase: Error code: 429 - {'statusCode': 429, 'error': 'Too Many Requests', 'message': "You've exceeded your max concurrent sessions limit (limit 1, currently 1). Please contact support to increase your limit."}
+2025-03-20 16:12:15,562 - __main__ - INFO - Falling back to standard WebDriver setup
+2025-03-20 16:12:15,599 - __main__ - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1
+2025-03-20 16:12:15,599 - WDM - INFO - ====== WebDriver manager ======
+2025-03-20 16:12:15,670 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-20 16:12:15,737 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-20 16:12:15,805 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.90/chromedriver-linux64/chromedriver] found in cache
+2025-03-20 16:12:16,854 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-21T00:00:00-07:00?month=2025-03&date=2025-03-21
+2025-03-20 16:12:18,796 - __main__ - INFO - Filling out Calendly form
+2025-03-20 16:12:22,154 - __main__ - INFO - Processing phone: country code=+1, digits=15109198404
+2025-03-20 16:12:22,426 - __main__ - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x5598c0a9ea2a <unknown>
+#1 0x5598c05561e3 <unknown>
+#2 0x5598c059e282 <unknown>
+#3 0x5598c05cdbd2 <unknown>
+#4 0x5598c059b78a <unknown>
+#5 0x5598c05cdd9e <unknown>
+#6 0x5598c05f407b <unknown>
+#7 0x5598c05cd9a3 <unknown>
+#8 0x5598c059960e <unknown>
+#9 0x5598c059add1 <unknown>
+#10 0x5598c0a64deb <unknown>
+#11 0x5598c0a68ccc <unknown>
+#12 0x5598c0a4c3a2 <unknown>
+#13 0x5598c0a69844 <unknown>
+#14 0x5598c0a301ff <unknown>
+#15 0x5598c0a8d048 <unknown>
+#16 0x5598c0a8d226 <unknown>
+#17 0x5598c0a9d8a6 <unknown>
+#18 0x7f1df16e4aa4 <unknown>
+#19 0x7f1df1771c3c <unknown>
+
+2025-03-20 16:12:23,266 - __main__ - INFO - Form filled successfully
+2025-03-20 16:12:23,266 - __main__ - INFO - Attempting to submit form
+2025-03-20 16:12:23,526 - __main__ - INFO - reCAPTCHA detected, attempting to handle with 2Captcha
+2025-03-20 16:12:23,648 - __main__ - ERROR - 2Captcha solver not initialized. Please provide a valid API key.
+2025-03-20 16:12:23,648 - __main__ - INFO - Waiting for confirmation page...
+2025-03-20 16:12:42,558 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/4e88ec0a182af6e6b1b9a7c252975cb8
+2025-03-20 16:12:42,559 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f90c28068d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4e88ec0a182af6e6b1b9a7c252975cb8
+2025-03-20 16:12:42,560 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f90c2804ec0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4e88ec0a182af6e6b1b9a7c252975cb8
+2025-03-20 16:21:06,289 - __main__ - INFO - Setting up WebDriver with Browserbase
+2025-03-20 16:21:06,891 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 16:21:06,891 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.445068 seconds
+2025-03-20 16:21:07,644 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 16:21:07,645 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.930855 seconds
+2025-03-20 16:21:08,790 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 16:21:08,790 - __main__ - ERROR - Error setting up Browserbase: Error code: 429 - {'statusCode': 429, 'error': 'Too Many Requests', 'message': "You've exceeded your max concurrent sessions limit (limit 1, currently 1). Please contact support to increase your limit."}
+2025-03-20 16:21:08,790 - __main__ - INFO - Falling back to standard WebDriver setup
+2025-03-20 16:21:08,829 - __main__ - INFO - Using User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+2025-03-20 16:21:08,829 - WDM - INFO - ====== WebDriver manager ======
+2025-03-20 16:21:08,903 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-20 16:21:08,988 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-20 16:21:09,055 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.90/chromedriver-linux64/chromedriver] found in cache
+2025-03-20 16:21:10,119 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-21T00:00:00-07:00?month=2025-03&date=2025-03-21
+2025-03-20 16:21:12,096 - __main__ - INFO - Filling out Calendly form
+2025-03-20 16:21:15,662 - __main__ - INFO - Processing phone: country code=+1, digits=15109198404
+2025-03-20 16:21:15,979 - __main__ - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55e124738a2a <unknown>
+#1 0x55e1241f01e3 <unknown>
+#2 0x55e124238282 <unknown>
+#3 0x55e124267bd2 <unknown>
+#4 0x55e12423578a <unknown>
+#5 0x55e124267d9e <unknown>
+#6 0x55e12428e07b <unknown>
+#7 0x55e1242679a3 <unknown>
+#8 0x55e12423360e <unknown>
+#9 0x55e124234dd1 <unknown>
+#10 0x55e1246fedeb <unknown>
+#11 0x55e124702ccc <unknown>
+#12 0x55e1246e63a2 <unknown>
+#13 0x55e124703844 <unknown>
+#14 0x55e1246ca1ff <unknown>
+#15 0x55e124727048 <unknown>
+#16 0x55e124727226 <unknown>
+#17 0x55e1247378a6 <unknown>
+#18 0x7f06539dfaa4 <unknown>
+#19 0x7f0653a6cc3c <unknown>
+
+2025-03-20 16:21:16,953 - __main__ - INFO - Form filled successfully
+2025-03-20 16:21:16,953 - __main__ - INFO - Attempting to submit form
+2025-03-20 16:21:17,207 - __main__ - INFO - reCAPTCHA detected, attempting to handle with 2Captcha
+2025-03-20 16:21:17,307 - __main__ - ERROR - 2Captcha solver not initialized. Please provide a valid API key.
+2025-03-20 16:21:17,307 - __main__ - INFO - Waiting for confirmation page...
+2025-03-20 16:21:45,802 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/8ea9d6fff1dbe41f1334af63a541f738
+2025-03-20 16:21:45,803 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f6de2791f10>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/8ea9d6fff1dbe41f1334af63a541f738
+2025-03-20 16:21:45,804 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f6de2793140>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/8ea9d6fff1dbe41f1334af63a541f738
+2025-03-20 16:22:11,872 - __main__ - INFO - Setting up WebDriver with Browserbase
+2025-03-20 16:22:12,539 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 16:22:12,540 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.408842 seconds
+2025-03-20 16:22:13,173 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 16:22:13,174 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.983679 seconds
+2025-03-20 16:22:14,370 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-20 16:22:14,371 - __main__ - ERROR - Error setting up Browserbase: Error code: 429 - {'statusCode': 429, 'error': 'Too Many Requests', 'message': "You've exceeded your max concurrent sessions limit (limit 1, currently 1). Please contact support to increase your limit."}
+2025-03-20 16:22:14,371 - __main__ - INFO - Falling back to standard WebDriver setup
+2025-03-20 16:22:14,412 - __main__ - INFO - Using User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
+2025-03-20 16:22:14,412 - WDM - INFO - ====== WebDriver manager ======
+2025-03-20 16:22:14,492 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-20 16:22:14,556 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-20 16:22:14,626 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.90/chromedriver-linux64/chromedriver] found in cache
+2025-03-20 16:22:15,656 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-21T00:00:00-07:00?month=2025-03&date=2025-03-21
+2025-03-20 16:22:17,383 - __main__ - INFO - Filling out Calendly form
+2025-03-20 16:22:25,689 - __main__ - INFO - Processing phone: country code=+1, digits=15109198404
+2025-03-20 16:22:26,033 - __main__ - WARNING - Error using search input: Message: element not interactable
+  (Session info: chrome=134.0.6998.88)
+Stacktrace:
+#0 0x55daa1042a2a <unknown>
+#1 0x55daa0afa1e3 <unknown>
+#2 0x55daa0b42282 <unknown>
+#3 0x55daa0b71bd2 <unknown>
+#4 0x55daa0b3f78a <unknown>
+#5 0x55daa0b71d9e <unknown>
+#6 0x55daa0b9807b <unknown>
+#7 0x55daa0b719a3 <unknown>
+#8 0x55daa0b3d60e <unknown>
+#9 0x55daa0b3edd1 <unknown>
+#10 0x55daa1008deb <unknown>
+#11 0x55daa100cccc <unknown>
+#12 0x55daa0ff03a2 <unknown>
+#13 0x55daa100d844 <unknown>
+#14 0x55daa0fd41ff <unknown>
+#15 0x55daa1031048 <unknown>
+#16 0x55daa1031226 <unknown>
+#17 0x55daa10418a6 <unknown>
+#18 0x7f26d0524aa4 <unknown>
+#19 0x7f26d05b1c3c <unknown>
+
+2025-03-20 16:22:26,898 - __main__ - INFO - Form filled successfully
+2025-03-20 16:22:26,898 - __main__ - INFO - Attempting to submit form
+2025-03-20 16:22:27,144 - __main__ - INFO - reCAPTCHA detected, attempting to handle with 2Captcha
+2025-03-20 16:22:27,231 - __main__ - ERROR - 2Captcha solver not initialized. Please provide a valid API key.
+2025-03-20 16:22:27,231 - __main__ - INFO - Waiting for confirmation page...
+2025-03-20 16:22:30,522 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/6a81e79a61dc07e258c58a464921ae68
+2025-03-20 16:22:30,523 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff3e9b0ac60>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/6a81e79a61dc07e258c58a464921ae68
+2025-03-20 16:22:30,524 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff3e9b0acc0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/6a81e79a61dc07e258c58a464921ae68
+2025-03-20 16:29:45,862 - __main__ - INFO - Setting up Playwright browser
+2025-03-20 16:29:46,518 - __main__ - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Mobile/15E148 Safari/604.1
+2025-03-20 16:29:47,518 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-21T00:00:00-07:00
+2025-03-20 16:29:50,647 - __main__ - INFO - Found cookie dialog, clicking: button:has-text('OK')
+2025-03-20 16:29:50,836 - __main__ - INFO - Filling out Calendly form
+2025-03-20 16:30:00,838 - __main__ - ERROR - Error filling input field 'Name': Page.wait_for_selector: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator("label:has-text('Name') + input, label:has-text('Name') ~ input, label:has-text('Name') input") to be visible
+
+2025-03-20 16:30:00,839 - __main__ - ERROR - Error filling form: Page.wait_for_selector: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator("label:has-text('Name') + input, label:has-text('Name') ~ input, label:has-text('Name') input") to be visible
+
+2025-03-20 16:30:00,942 - __main__ - ERROR - Failed to fill out the form

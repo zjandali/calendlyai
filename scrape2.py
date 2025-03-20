@@ -41,14 +41,19 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Add this custom connection class for Browserbase
-class CustomRemoteConnection(RemoteConnection):
-    def __init__(self, remote_server_addr: str, signing_key: str):
-        super().__init__(remote_server_addr)
-        self._signing_key = signing_key
+class BrowserbaseConnection(RemoteConnection):
+    """Manage a single session with Browserbase."""
+
+    def __init__(self, session_id, *args, **kwargs):
+        self.session_id = session_id
+        super().__init__(*args, **kwargs)
 
     def get_remote_connection_headers(self, parsed_url, keep_alive=False):
         headers = super().get_remote_connection_headers(parsed_url, keep_alive)
-        headers.update({'x-bb-signing-key': self._signing_key})
+        headers.update({
+            "x-bb-api-key": os.getenv('BROWSERBASE_API_KEY'),
+            "session-id": self.session_id,
+        })
         return headers
 
 class CalendlyScraper:
@@ -89,34 +94,12 @@ class CalendlyScraper:
                 bb = Browserbase(api_key=self.browserbase_api_key)
                 
                 # Create a new browser session with advanced settings
-                self.bb_session = bb.sessions.create(
-                    project_id=self.browserbase_project_id,
-                    browser_settings={
-                        'fingerprint': {
-                            'browsers': ['chrome', 'firefox', 'edge', 'safari'],
-                            'devices': ['desktop', 'mobile'],
-                            'locales': ['en-US', 'en-GB'],
-                            'operatingSystems': ['android', 'ios', 'linux', 'macos', 'windows'],
-                            'screen': {
-                                'maxWidth': 1920,
-                                'maxHeight': 1080,
-                                'minWidth': 1024,
-                                'minHeight': 768,
-                            }
-                        },
-                        'viewport': {
-                            'width': 1366,
-                            'height': 768,
-                        },
-                        'solveCaptchas': True,  # Enable automatic CAPTCHA solving
-                    },
-                    proxies=True if self.proxy else False,  # Enable proxy usage if requested
-                )
+                self.bb_session = bb.sessions.create(project_id=self.browserbase_project_id)
                 
                 # Use the updated remote connection approach
-                custom_conn = CustomRemoteConnection(
-                    self.bb_session.selenium_remote_url, 
-                    self.bb_session.signing_key
+                custom_conn = BrowserbaseConnection(
+                    self.bb_session.id, 
+                    self.bb_session.selenium_remote_url
                 )
                 options = webdriver.ChromeOptions()
                 self.driver = webdriver.Remote(custom_conn, options=options)
