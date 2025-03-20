@@ -290,6 +290,25 @@ test-tox = ["click", "equinox", "jax[cpu]", "jaxtyping", "langchain", "mypy (>=0
 test-tox-coverage = ["coverage (>=5.5)"]
 
 [[package]]
+name = "browserbase"
+version = "1.2.0"
+description = "The official Python library for the Browserbase API"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "browserbase-1.2.0-py3-none-any.whl", hash = "sha256:0b8d9429dea58f787b42b0109306f7a193770b78a24329ed13f50864debdf959"},
+    {file = "browserbase-1.2.0.tar.gz", hash = "sha256:44a1dbf2562893a8f9447c3d6de6fe72d3ae30fe743a5c2c52439928d0464a7b"},
+]
+
+[package.dependencies]
+anyio = ">=3.5.0,<5"
+distro = ">=1.7.0,<2"
+httpx = ">=0.23.0,<1"
+pydantic = ">=1.9.0,<3"
+sniffio = "*"
+typing-extensions = ">=4.10,<5"
+
+[[package]]
 name = "certifi"
 version = "2025.1.31"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -3603,4 +3622,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.12,<3.13"
-content-hash = "6997cdfd0686ed4b42135c562227abffe13b1d4bf5b17508d22849b7064c45c0"
+content-hash = "095144383a0ae24ca92f82bbca7907aa04c44b869e4080c22003963ecd18787a"

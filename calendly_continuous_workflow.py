@@ -231,7 +231,8 @@ def run_calendly_workflow(
                     phone=phone,
                     additional_info=additional_info,
                     debug=True,
-                    headless=False
+                    headless=False,
+                    captcha_api_key=os.getenv('2CAPTCHA_API_KEY')
                 )
                 
                 if booking_success:

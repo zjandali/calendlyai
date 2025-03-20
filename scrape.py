@@ -13,6 +13,10 @@ import logging
 import sys
 import os
 from typing import Dict, Any, Optional, List, Tuple
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env'))
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -24,7 +28,8 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException,
 from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
 from fake_useragent import UserAgent
-from selenium_recaptcha_solver import RecaptchaSolver
+import requests
+import json
 
 # Configure logging
 logging.basicConfig(
@@ -46,7 +51,7 @@ class CalendlyScraper:
         Args:
             headless: Whether to run Chrome in headless mode
             proxy: Optional proxy server to use
-            captcha_api_key: Optional API key for CAPTCHA solving service
+            captcha_api_key: API key for 2Captcha service
         """
         self.headless = headless
         self.proxy = proxy
@@ -69,7 +74,25 @@ class CalendlyScraper:
         
         # Add proxy if specified
         if self.proxy:
-            options.add_argument(f'--proxy-server={self.proxy}')
+            # Check if it's a Bright Data proxy (string starting with 'bright:')
+            if self.proxy.startswith('bright:'):
+                # Extract Bright Data credentials from the proxy string
+                # Format: 'bright:username:password'
+                _, proxy_username, proxy_password = self.proxy.split(':')
+                
+                # Bright Data Proxy Configuration
+                proxy_host = "brd.superproxy.io"
+                proxy_port = "33335"  # Default Bright Data super proxy port
+                
+                # Full Proxy URL
+                bright_proxy = f"http://{proxy_username}:{proxy_password}@{proxy_host}:{proxy_port}"
+                logger.info(f"Using Bright Data proxy: {proxy_username}@{proxy_host}")
+                
+                options.add_argument(f'--proxy-server={bright_proxy}')
+                options.add_argument('--ignore-certificate-errors')  # Ignore SSL errors
+            else:
+                # Regular proxy handling (existing code)
+                options.add_argument(f'--proxy-server={self.proxy}')
         
         # Additional options to avoid detection
         options.add_argument('--disable-blink-features=AutomationControlled')
@@ -189,6 +212,17 @@ class CalendlyScraper:
                              "restart_needed" if reCAPTCHA detected, False otherwise
         """
         try:
+            logger.info("Checking for reCAPTCHA before submission")
+            
+            # Check for reCAPTCHA before attempting to submit
+            recaptcha_result = self._check_and_handle_recaptcha()
+            if recaptcha_result == "restart_needed":
+                logger.info("reCAPTCHA detected, need restart with new session")
+                return "restart_needed"
+            elif recaptcha_result is False:
+                logger.error("Failed to handle reCAPTCHA before submission")
+                return False
+                
             logger.info("Attempting to submit form")
             
             # Debug: Print all buttons on the page
@@ -229,14 +263,16 @@ class CalendlyScraper:
             # Take a screenshot after clicking submit
             self._take_screenshot("after_submit_click.png")
             
-            # Check for reCAPTCHA and handle it if present
-            recaptcha_result = self._handle_recaptcha()
-            if recaptcha_result == "restart_needed":
-                logger.info("reCAPTCHA detected, need restart with new session")
-                return "restart_needed"  # Return the restart signal directly
-            elif recaptcha_result:
-                logger.info("reCAPTCHA handled successfully")
-                return True
+            # Check for reCAPTCHA again after submission
+            if self._recaptcha_is_present():
+                logger.info("reCAPTCHA detected after submission, attempting to handle")
+                recaptcha_result = self._handle_recaptcha()
+                if recaptcha_result == "restart_needed":
+                    logger.info("reCAPTCHA could not be handled, need restart with new session")
+                    return "restart_needed"
+                elif recaptcha_result is False:
+                    logger.error("Failed to handle reCAPTCHA after submission")
+                    return False
             
             # Wait for confirmation page or error message
             try:
@@ -507,103 +543,222 @@ class CalendlyScraper:
             logger.error(f"Error filling phone number: {e}")
             raise
     
-    def _handle_recaptcha(self) -> Any:
+    def _check_and_handle_recaptcha(self) -> Any:
         """
-        Handle reCAPTCHA if present on the page using RecaptchaSolver.
+        Check if reCAPTCHA is present on the page and handle it if needed.
         
         Returns:
             Union[bool, str]: True if reCAPTCHA was handled successfully or not present, 
                              "restart_needed" if reCAPTCHA couldn't be solved, False otherwise
         """
         try:
-            # Check if URL has changed to success/confirmation page
-            current_url = self.driver.current_url.lower()
-            page_title = self.driver.title.lower()
+            # Check if reCAPTCHA is present on the page
+            if not self._recaptcha_is_present():
+                logger.info("No reCAPTCHA detected on the page before submission")
+                return True
+                
+            logger.info("reCAPTCHA detected before form submission, attempting to solve")
+            self._take_screenshot("recaptcha_detected_before_submit.png")
             
-            # Check if URL or page title indicates successful submission
-            if ("confirmed" in current_url or "success" in current_url or "scheduled" in current_url or
-                "confirmed" in page_title or "success" in page_title or "scheduled" in page_title or
-                "thank" in page_title or "confirmation" in page_title):
-                logger.info("URL or page title indicates successful submission")
-                self._take_screenshot("submission_success_before_recaptcha.png")
+            return self._handle_recaptcha()
+            
+        except Exception as e:
+            logger.error(f"Error checking for reCAPTCHA: {e}")
+            self._take_screenshot("recaptcha_check_error.png")
+            return False
+            
+    def _recaptcha_is_present(self) -> bool:
+        """
+        Check if reCAPTCHA is present on the page.
+        
+        Returns:
+            bool: True if reCAPTCHA is detected, False otherwise
+        """
+        try:
+            # Check for "Confirm you're human" modal
+            confirm_human_headers = self.driver.find_elements(
+                By.XPATH, "//h2[contains(text(), 'Confirm you') and contains(text(), 'human')]"
+            )
+            if confirm_human_headers:
+                logger.info("'Confirm you're human' modal detected")
+                return True
+                
+            # Check for reCAPTCHA iframes
+            recaptcha_frames = self.driver.find_elements(
+                By.XPATH, "//iframe[contains(@src, 'recaptcha') or contains(@title, 'reCAPTCHA')]"
+            )
+            if recaptcha_frames:
+                logger.info("reCAPTCHA iframe detected")
+                return True
+                
+            # Check for reCAPTCHA divs
+            recaptcha_divs = self.driver.find_elements(
+                By.XPATH, "//div[@class='g-recaptcha' or contains(@data-sitekey, 'recaptcha')]"
+            )
+            if recaptcha_divs:
+                logger.info("reCAPTCHA div detected")
+                return True
+                
+            # Check for CAPTCHA text
+            captcha_text = self.driver.find_elements(
+                By.XPATH, "//*[contains(text(), 'CAPTCHA') or contains(text(), 'captcha')]"
+            )
+            if captcha_text:
+                logger.info("CAPTCHA text detected on page")
+                return True
+                
+            return False
+            
+        except Exception as e:
+            logger.error(f"Error checking for reCAPTCHA presence: {e}")
+            return False
+    
+    def _handle_recaptcha(self) -> Any:
+        """
+        Handle reCAPTCHA if present on the page using 2Captcha API.
+        
+        Returns:
+            Union[bool, str]: True if reCAPTCHA was handled successfully or not present, 
+                             "restart_needed" if reCAPTCHA couldn't be solved, False otherwise
+        """
+        try:
+            # Check if "Confirm you're human" modal is present
+            confirm_human_headers = self.driver.find_elements(
+                By.XPATH, "//h2[contains(text(), 'Confirm you') and contains(text(), 'human')]"
+            )
+            
+            if not confirm_human_headers:
+                logger.info("No 'Confirm you're human' modal detected")
                 return True
             
-            # Check if reCAPTCHA iframe exists using multiple selectors
+            logger.info("reCAPTCHA modal detected, attempting to solve")
+            self._take_screenshot("recaptcha_modal_detected.png")
+            
+            # Find the reCAPTCHA iframe
             recaptcha_frames = self.driver.find_elements(
-                By.XPATH, 
-                """//iframe[
-                    contains(@src, 'recaptcha') or 
-                    contains(@title, 'reCAPTCHA') or
-                    contains(@class, 'g-recaptcha')
-                ]"""
+                By.XPATH, "//iframe[contains(@src, 'recaptcha') or contains(@title, 'reCAPTCHA')]"
             )
             
             if not recaptcha_frames:
-                logger.info("No visible reCAPTCHA detected")
-                return True
+                logger.error("Could not find reCAPTCHA iframe in modal")
+                return "restart_needed"
             
-            logger.info("reCAPTCHA detected, attempting to solve")
-            self._take_screenshot("recaptcha_detected.png")
+            # Check for error message
+            error_message = self.driver.find_elements(
+                By.XPATH, "//div[contains(text(), 'CAPTCHA check failed')]"
+            )
+            if error_message:
+                logger.warning("Found 'CAPTCHA check failed' error message")
             
-            # Initialize RecaptchaSolver
-            solver = RecaptchaSolver(driver=self.driver)
-            
-            # Find the reCAPTCHA iframe
-            recaptcha_iframe = recaptcha_frames[0]
-            
-            # Try to solve the reCAPTCHA
+            # 1. First try direct checkbox click
             try:
-                logger.info("Attempting to solve reCAPTCHA using RecaptchaSolver")
-                solver.click_recaptcha_v2(iframe=recaptcha_iframe)
+                # Switch to the reCAPTCHA iframe
+                self.driver.switch_to.frame(recaptcha_frames[0])
                 
-                
-                # Wait for a moment to let the solution process complete
-                time.sleep(2)
-                
-                # Check if the form was submitted successfully after solving
-                current_url = self.driver.current_url.lower()
-                if ("confirmed" in current_url or "success" in current_url or "scheduled" in current_url):
-                    logger.info("reCAPTCHA solved successfully and form submitted")
-                    return True
-                
-                # Try to click submit button again after solving reCAPTCHA
-                schedule_button = self._find_element_with_retry(
-                    By.XPATH, 
-                    """//button[
-                        contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'schedule event') or 
-                        contains(@class, 'submit') or 
-                        contains(@type, 'submit')
-                    ]""",
-                    max_retries=3
+                # Find and click the checkbox
+                checkbox = WebDriverWait(self.driver, 5).until(
+                    EC.element_to_be_clickable((By.CSS_SELECTOR, ".recaptcha-checkbox-border"))
                 )
                 
-                if schedule_button:
-                    logger.info("Clicking submit button after solving reCAPTCHA")
-                    try:
-                        schedule_button.click()
-                    except:
-                        self.driver.execute_script("arguments[0].click();", schedule_button)
-                    
-                    # Check for successful submission
-                    try:
-                        WebDriverWait(self.driver, 15).until(
-                            lambda driver: "confirmed" in driver.current_url.lower() or 
-                            "success" in driver.current_url.lower() or
-                            "scheduled" in driver.current_url.lower()
-                        )
-                        logger.info("Form submitted successfully after solving reCAPTCHA")
-                        return True
-                    except TimeoutException:
-                        logger.warning("Form submission after reCAPTCHA solve timed out")
-                        return False
+                logger.info("Clicking reCAPTCHA checkbox")
+                checkbox.click()
                 
-                logger.info("reCAPTCHA was likely solved but form submission check failed")
-                return True
+                # Switch back to main content
+                self.driver.switch_to.default_content()
+                
+                # Wait to see if checkbox was successful
+                time.sleep(3)
+                
+                # Check if Continue button is enabled
+                continue_button = self._find_element_with_retry(
+                    By.XPATH, "//button[contains(text(), 'Continue')]", max_retries=2
+                )
+                
+                if continue_button and continue_button.is_enabled():
+                    logger.info("reCAPTCHA solved by checkbox click")
+                    continue_button.click()
+                    return True
                 
             except Exception as e:
-                logger.error(f"Error solving reCAPTCHA: {e}")
-                self._take_screenshot("recaptcha_solving_error.png")
-                return "restart_needed"  # Signal restart if solving fails
+                logger.warning(f"Error during checkbox click: {e}")
+                # Switch back to main content
+                self.driver.switch_to.default_content()
+            
+            # 2. If checkbox click failed, use 2Captcha
+            if not self.captcha_api_key:
+                logger.error("No 2Captcha API key provided")
+                return "restart_needed"
+            
+            # Extract the site key
+            site_key = self._extract_recaptcha_site_key()
+            if not site_key:
+                logger.error("Could not extract reCAPTCHA site key")
+                return "restart_needed"
+            
+            # Solve using 2Captcha
+            logger.info(f"Attempting to solve reCAPTCHA with 2Captcha API key: {self.captcha_api_key[:5]}...{self.captcha_api_key[-5:]}")
+            token = self._solve_recaptcha_with_2captcha(site_key)
+            if not token:
+                logger.error("Failed to solve reCAPTCHA with 2Captcha")
+                return "restart_needed"
+            
+            # Inject the token
+            token_injected = self._inject_recaptcha_token(token)
+            if not token_injected:
+                logger.error("Failed to inject reCAPTCHA token")
+                return "restart_needed"
+            
+            # Wait a moment for the page to process
+            time.sleep(2)
+            
+            # Find and click the Continue button
+            continue_button = self._find_element_with_retry(
+                By.XPATH, "//button[contains(text(), 'Continue')]", max_retries=2
+            )
+            
+            if continue_button:
+                logger.info("Found Continue button after solving reCAPTCHA")
+                try:
+                    # Take a screenshot before clicking
+                    self._take_screenshot("before_continue_click.png")
+                    
+                    # Try several methods to click the button
+                    try:
+                        continue_button.click()
+                    except:
+                        try:
+                            self.driver.execute_script("arguments[0].click();", continue_button)
+                        except:
+                            from selenium.webdriver.common.action_chains import ActionChains
+                            ActionChains(self.driver).move_to_element(continue_button).click().perform()
+                    
+                    # Take a screenshot after clicking
+                    self._take_screenshot("after_continue_click.png")
+                    
+                    # Wait to see if we get past the CAPTCHA modal
+                    time.sleep(2)
+                    
+                    # Check if modal is still present
+                    confirm_modal = self.driver.find_elements(
+                        By.XPATH, "//h2[contains(text(), 'Confirm you') and contains(text(), 'human')]"
+                    )
+                    if not confirm_modal:
+                        logger.info("Successfully passed reCAPTCHA verification")
+                        return True
+                    
+                    # Check for error message again
+                    error_message = self.driver.find_elements(
+                        By.XPATH, "//div[contains(text(), 'CAPTCHA check failed')]"
+                    )
+                    if error_message:
+                        logger.warning("Still seeing 'CAPTCHA check failed' error after token injection")
+                        return "restart_needed"
+                    
+                except Exception as e:
+                    logger.error(f"Error clicking Continue button: {e}")
+                    return "restart_needed"
+            
+            return "restart_needed"
             
         except Exception as e:
             logger.error(f"Error handling reCAPTCHA: {e}")
@@ -613,6 +768,255 @@ class CalendlyScraper:
                 self.driver.switch_to.default_content()
             except:
                 pass
+            return "restart_needed"
+    
+    def _extract_recaptcha_site_key(self) -> Optional[str]:
+        """
+        Extract the reCAPTCHA site key from the page.
+        
+        Returns:
+            Optional[str]: The site key or None if not found
+        """
+        try:
+            # Method 1: Try to find the site key in a div with data-sitekey attribute
+            elements = self.driver.find_elements(
+                By.XPATH, "//div[@data-sitekey]|//div[@class='g-recaptcha' and @data-sitekey]"
+            )
+            if elements:
+                site_key = elements[0].get_attribute('data-sitekey')
+                if site_key:
+                    logger.info(f"Found reCAPTCHA site key: {site_key}")
+                    return site_key
+            
+            # Method 2: Try to extract from the reCAPTCHA iframe src
+            recaptcha_frames = self.driver.find_elements(
+                By.XPATH, "//iframe[contains(@src, 'recaptcha')]"
+            )
+            if recaptcha_frames:
+                src = recaptcha_frames[0].get_attribute('src')
+                if src:
+                    import re
+                    match = re.search(r'[?&]k=([^&]+)', src)
+                    if match:
+                        site_key = match.group(1)
+                        logger.info(f"Extracted reCAPTCHA site key from iframe: {site_key}")
+                        return site_key
+            
+            # Method 3: Execute JavaScript to find the site key
+            site_key = self.driver.execute_script("""
+                return document.querySelector('.g-recaptcha').getAttribute('data-sitekey') || 
+                       document.querySelector('div[data-sitekey]').getAttribute('data-sitekey') || 
+                       document.querySelector('iframe[src*="recaptcha"]').getAttribute('src').match(/[?&]k=([^&]+)/)[1];
+            """)
+            if site_key:
+                logger.info(f"Found reCAPTCHA site key via JavaScript: {site_key}")
+                return site_key
+            
+            logger.error("Could not extract reCAPTCHA site key")
+            return None
+        except Exception as e:
+            logger.error(f"Error extracting reCAPTCHA site key: {e}")
+            return None
+
+    def _solve_recaptcha_with_2captcha(self, site_key: str) -> Optional[str]:
+        """
+        Solve reCAPTCHA using 2Captcha API.
+        
+        Args:
+            site_key: The reCAPTCHA site key
+            
+        Returns:
+            Optional[str]: The solved token or None if unsuccessful
+        """
+        try:
+            api_key = self.captcha_api_key
+            current_url = self.driver.current_url
+            
+            # Create the task
+            create_task_url = "https://api.2captcha.com/createTask"
+            create_task_payload = {
+                "clientKey": api_key,
+                "task": {
+                    "type": "RecaptchaV2TaskProxyless",
+                    "websiteURL": current_url,
+                    "websiteKey": site_key,
+                }
+            }
+            
+            logger.info("Sending reCAPTCHA solving request to 2Captcha")
+            response = requests.post(create_task_url, json=create_task_payload)
+            
+            if response.status_code != 200:
+                logger.error(f"Error response from 2Captcha API: {response.text}")
+                return None
+            
+            response_data = response.json()
+            
+            if response_data.get('errorId') != 0:
+                logger.error(f"2Captcha API error: {response_data.get('errorDescription', 'Unknown error')}")
+                return None
+            
+            task_id = response_data.get('taskId')
+            if not task_id:
+                logger.error("No task ID received from 2Captcha")
+                return None
+            
+            logger.info(f"2Captcha task created with ID: {task_id}")
+            
+            # Poll for the result
+            get_result_url = "https://api.2captcha.com/getTaskResult"
+            max_attempts = 30
+            polling_interval = 5  # seconds
+            
+            for attempt in range(max_attempts):
+                logger.info(f"Polling for result (attempt {attempt+1}/{max_attempts})")
+                time.sleep(polling_interval)
+                
+                get_result_payload = {
+                    "clientKey": api_key,
+                    "taskId": task_id
+                }
+                
+                result_response = requests.post(get_result_url, json=get_result_payload)
+                
+                if result_response.status_code != 200:
+                    logger.error(f"Error response when polling 2Captcha: {result_response.text}")
+                    continue
+                
+                result_data = result_response.json()
+                
+                if result_data.get('errorId') != 0:
+                    logger.error(f"2Captcha API error when polling: {result_data.get('errorDescription', 'Unknown error')}")
+                    continue
+                
+                if result_data.get('status') == 'ready':
+                    token = result_data.get('solution', {}).get('token')
+                    if token:
+                        logger.info("Successfully received reCAPTCHA token from 2Captcha")
+                        return token
+                    else:
+                        logger.error("No token in the 2Captcha response")
+                        return None
+                
+                logger.info(f"Status: {result_data.get('status', 'unknown')}, waiting...")
+            
+            logger.error("Timed out waiting for 2Captcha result")
+            return None
+        except Exception as e:
+            logger.error(f"Error solving reCAPTCHA with 2Captcha: {e}")
+            return None
+
+    def _inject_recaptcha_token(self, token: str) -> bool:
+        """
+        Inject the reCAPTCHA token into the page.
+        
+        Args:
+            token: The reCAPTCHA token from 2Captcha
+            
+        Returns:
+            bool: True if injection was successful, False otherwise
+        """
+        try:
+            logger.info("Injecting reCAPTCHA token into the page")
+            
+            # Take a screenshot before injection
+            self._take_screenshot("before_token_injection.png")
+            
+            # Method 1: Find all potential response elements and set the token
+            all_frames = self.driver.find_elements(By.TAG_NAME, "iframe")
+            recaptcha_frames = []
+            
+            # Find all reCAPTCHA frames
+            for frame in all_frames:
+                src = frame.get_attribute("src")
+                if src and ("recaptcha" in src or "recaptcha" in frame.get_attribute("title", "")):
+                    recaptcha_frames.append(frame)
+            
+            # Try to set token in all frames
+            success = False
+            
+            # First try setting it in the main document
+            try:
+                main_script = f"""
+                document.querySelector('[name="g-recaptcha-response"]').innerHTML = '{token}';
+                return true;
+                """
+                success = self.driver.execute_script(main_script) or success
+            except:
+                pass
+            
+            # Then try in each iframe
+            for frame in recaptcha_frames:
+                try:
+                    self.driver.switch_to.frame(frame)
+                    frame_script = f"""
+                    document.querySelector('[name="g-recaptcha-response"]').innerHTML = '{token}';
+                    return true;
+                    """
+                    success = self.driver.execute_script(frame_script) or success
+                    self.driver.switch_to.default_content()
+                except:
+                    self.driver.switch_to.default_content()
+            
+            # If we couldn't set it directly, try the comprehensive approach
+            if not success:
+                comprehensive_script = f"""
+                // Set token in the g-recaptcha-response textarea
+                var responses = document.getElementsByName('g-recaptcha-response');
+                var success = false;
+                
+                for (var i = 0; i < responses.length; i++) {{
+                    responses[i].innerHTML = '{token}';
+                    success = true;
+                }}
+                
+                // For invisible reCAPTCHA
+                if (typeof(___grecaptcha_cfg) !== 'undefined') {{
+                    try {{
+                        var widgetIds = Object.keys(___grecaptcha_cfg.clients);
+                        for (var i = 0; i < widgetIds.length; i++) {{
+                            var client = ___grecaptcha_cfg.clients[widgetIds[i]];
+                            
+                            // Try multiple callback paths
+                            for (var key in client) {{
+                                if (client[key] && typeof client[key].callback === 'function') {{
+                                    client[key].callback('{token}');
+                                    success = true;
+                                }}
+                            }}
+                        }}
+                    }} catch (e) {{
+                        console.error("Error in reCAPTCHA callback:", e);
+                    }}
+                }}
+                
+                // Try to trigger the callback directly
+                var captchaElements = document.querySelectorAll('[data-callback]');
+                for (var i = 0; i < captchaElements.length; i++) {{
+                    var callback = captchaElements[i].getAttribute('data-callback');
+                    if (callback && window[callback]) {{
+                        window[callback]('{token}');
+                        success = true;
+                    }}
+                }}
+                
+                return success;
+                """
+                
+                success = self.driver.execute_script(comprehensive_script) or success
+            
+            # Take a screenshot after injection
+            self._take_screenshot("after_token_injection.png")
+            
+            if success:
+                logger.info("Successfully injected reCAPTCHA token")
+                return True
+            else:
+                logger.warning("Could not inject reCAPTCHA token")
+                return False
+            
+        except Exception as e:
+            logger.error(f"Error injecting reCAPTCHA token: {e}")
             return False
     
     def _handle_cookie_dialogs(self) -> None:
@@ -732,6 +1136,12 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
     if debug:
         logger.setLevel(logging.DEBUG)
     
+    # Log the captcha API key status
+    if captcha_api_key:
+        logger.info(f"Using 2Captcha API key: {captcha_api_key[:5]}...{captcha_api_key[-5:]}")
+    else:
+        logger.warning("No 2Captcha API key provided")
+    
     # Create form data dictionary
     form_data = {
         'name': name,
@@ -832,23 +1242,50 @@ def book_calendly_appointment(url: str, name: str, email: str, phone: str,
 
 def main():
     """Main function to run the Calendly scraper."""
+    # Load the API key directly
+    captcha_api_key = '36483071b9fe06d051d4b66f3beca836'
+    if captcha_api_key:
+        logger.info(f"Found 2CAPTCHA_API_KEY in environment: {captcha_api_key[:5]}...{captcha_api_key[-5:]}")
+    else:
+        logger.warning("2CAPTCHA_API_KEY not found in environment variables")
+    
     parser = argparse.ArgumentParser(description='Calendly Booking Form Scraper')
-    parser.add_argument('--url', required=True, help='Calendly booking URL')
-    parser.add_argument('--name', required=True, help='Name to enter in the form')
-    parser.add_argument('--email', required=True, help='Email to enter in the form')
-    parser.add_argument('--phone', required=True, help='Phone number to enter in the form')
-    parser.add_argument('--info', help='Additional information to provide (optional)')
+    parser.add_argument('--url', default='https://calendly.com/robertjandali/30min', 
+                        help='Calendly booking URL (default: %(default)s)')
+    parser.add_argument('--name', default='Robert Jandali', 
+                        help='Name to enter in the form (default: %(default)s)')
+    parser.add_argument('--email', default='robert@jandali.com', 
+                        help='Email to enter in the form (default: %(default)s)')
+    parser.add_argument('--phone', default='5109198404', 
+                        help='Phone number to enter in the form (default: %(default)s)')
+    parser.add_argument('--info', default=None, 
+                        help='Additional information to provide (optional)')
     parser.add_argument('--headless', action='store_true', help='Run in headless mode')
     parser.add_argument('--proxy', help='Proxy server to use (optional)')
-    parser.add_argument('--captcha-api-key', help='API key for CAPTCHA solving service (optional)')
+    parser.add_argument('--bright-data', action='store_true', 
+                        help='Use Bright Data proxy (requires --bright-username and --bright-password)')
+    parser.add_argument('--bright-username', default='hl_3b9ca4fa', 
+                        help='Bright Data username (default: %(default)s)')
+    parser.add_argument('--bright-password', default='ga8f1xepto43', 
+                        help='Bright Data password (default: %(default)s)')
+    parser.add_argument('--captcha-api-key', default=captcha_api_key, 
+                        help='API key for CAPTCHA solving service (default: %(default)s)')
     parser.add_argument('--debug', action='store_true', help='Enable debug logging')
-    parser.add_argument('--max-retries', type=int, default=3, help='Maximum number of retry attempts (default: 3)')
+    parser.add_argument('--max-retries', type=int, default=3, 
+                        help='Maximum number of retry attempts (default: %(default)s)')
     parser.add_argument('--proxy-list', nargs='+', help='List of proxy servers to rotate through')
     
     args = parser.parse_args()
     
     # Convert the proxy list argument to a proper list
     proxy_list = args.proxy_list if args.proxy_list else None
+    
+    # Set up Bright Data proxy if requested
+    if args.bright_data:
+        proxy = f"bright:{args.bright_username}:{args.bright_password}"
+        logger.info(f"Using Bright Data proxy with username: {args.bright_username}")
+    else:
+        proxy = args.proxy
     
     success = book_calendly_appointment(
         url=args.url,
@@ -857,7 +1294,7 @@ def main():
         phone=args.phone,
         additional_info=args.info,
         headless=args.headless,
-        proxy=args.proxy,
+        proxy=proxy,
         captcha_api_key=args.captcha_api_key,
         debug=args.debug,
         max_retries=args.max_retries,

@@ -1,0 +1,9 @@
+2025-03-19 17:21:20,184 - __main__ - INFO - Starting test suite with 5 runs
+2025-03-19 17:21:20,185 - __main__ - INFO - Delay between runs: 0 seconds
+2025-03-19 17:21:20,185 - __main__ - INFO - 
+Starting run 1/5
+2025-03-19 17:21:31,111 - __main__ - INFO - Run 1 successful - URL: https://calendly.com/robertjandali/30min/2025-03-25T14:30:00-07:00?month=2025-03&date=2025-03-25
+2025-03-19 17:21:31,111 - __main__ - INFO - Run 1 completed in 10.93 seconds
+2025-03-19 17:21:31,112 - __main__ - INFO - Waiting 0 seconds before next run...
+2025-03-19 17:21:31,112 - __main__ - INFO - 
+Starting run 2/5
