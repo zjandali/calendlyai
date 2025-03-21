@@ -1,54 +1,68 @@
-2025-03-20 16:33:27,808 - __main__ - INFO - Setting up Playwright browser
-2025-03-20 16:33:28,201 - __main__ - INFO - Using User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
-2025-03-20 16:33:28,713 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-21T00:00:00-07:00
-2025-03-20 16:33:31,729 - __main__ - INFO - Filling out Calendly form
-2025-03-20 16:33:36,454 - __main__ - INFO - Processing phone: country code=+1, digits=5109198404
-2025-03-20 16:33:46,820 - asyncio - ERROR - Task was destroyed but it is pending!
-task: <Task pending name='Task-57' coro=<Browser.close() running at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_browser.py:183> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111]>
-2025-03-20 16:33:46,820 - asyncio - ERROR - Task was destroyed but it is pending!
-task: <Task pending name='Task-56' coro=<ElementHandle.fill() done, defined at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_element_handle.py:177> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111, ProtocolCallback.__init__.<locals>.cb() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:198]>
-2025-03-20 16:33:51,453 - __main__ - INFO - Setting up Playwright browser
-2025-03-20 16:33:51,851 - __main__ - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Mobile/15E148 Safari/604.1
-2025-03-20 16:33:52,748 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-21T00:00:00-07:00
-2025-03-20 16:33:54,983 - __main__ - INFO - Filling out Calendly form
-2025-03-20 16:34:00,568 - __main__ - INFO - Processing phone: country code=+1, digits=15109198404
-2025-03-20 16:34:31,011 - __main__ - WARNING - Error using search input: ElementHandle.fill: Timeout 30000ms exceeded.
+2025-03-20 21:17:52,303 - __main__ - INFO - Setting up Hyperbrowser session
+2025-03-20 21:17:53,175 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-03-20 21:30:09,851 - __main__ - INFO - Setting up Hyperbrowser session
+2025-03-20 21:30:12,585 - __main__ - INFO - Connected to Hyperbrowser session
+2025-03-20 21:30:12,585 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-21T00:00:00-07:00
+2025-03-20 21:30:16,661 - __main__ - INFO - Found cookie dialog, clicking: //button[contains(text(), 'Allow')]
+2025-03-20 21:30:46,668 - __main__ - WARNING - Error clicking cookie button: ElementHandle.click: Timeout 30000ms exceeded.
 Call log:
-    - fill("")
-  -   - attempting fill action
-  -     2 × waiting for element to be visible, enabled and editable
+  - attempting click action
+  -     2 × waiting for element to be visible, enabled and stable
   -       - element is not visible
-  -     - retrying fill action
+  -     - retrying click action
   -     - waiting 20ms
-  -     2 × waiting for element to be visible, enabled and editable
+  -     2 × waiting for element to be visible, enabled and stable
   -       - element is not visible
-  -     - retrying fill action
+  -     - retrying click action
   -       - waiting 100ms
-  -     59 × waiting for element to be visible, enabled and editable
+  -     33 × waiting for element to be visible, enabled and stable
   -        - element is not visible
-  -      - retrying fill action
+  -      - retrying click action
   -        - waiting 500ms
+  -     - waiting for element to be visible, enabled and stable
 
-2025-03-20 16:34:32,772 - __main__ - INFO - Form filled successfully
-2025-03-20 16:34:32,772 - __main__ - INFO - Attempting to submit form
-2025-03-20 16:34:33,010 - __main__ - INFO - reCAPTCHA detected, attempting to handle with 2Captcha
-2025-03-20 16:34:33,140 - __main__ - ERROR - 2Captcha solver not initialized. Please provide a valid API key.
-2025-03-20 16:34:33,140 - __main__ - INFO - Waiting for confirmation page...
-2025-03-20 16:35:17,311 - asyncio - ERROR - Task was destroyed but it is pending!
-task: <Task pending name='Task-82' coro=<Browser.close() running at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_browser.py:183> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111]>
-2025-03-20 16:35:17,312 - asyncio - ERROR - Task was destroyed but it is pending!
-task: <Task pending name='Task-81' coro=<Page.wait_for_selector() done, defined at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_page.py:417> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111, ProtocolCallback.__init__.<locals>.cb() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:198]>
-2025-03-20 16:35:18,428 - __main__ - INFO - Setting up Playwright browser
-2025-03-20 16:35:18,820 - __main__ - INFO - Using User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1
-2025-03-20 16:35:19,665 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-21T00:00:00-07:00
-2025-03-20 16:35:21,930 - __main__ - INFO - Filling out Calendly form
-2025-03-20 16:35:26,866 - __main__ - INFO - Processing phone: country code=+1, digits=15109198404
-2025-03-20 16:35:27,952 - __main__ - INFO - Form filled successfully
-2025-03-20 16:35:27,953 - __main__ - INFO - Attempting to submit form
-2025-03-20 16:35:28,263 - __main__ - INFO - reCAPTCHA detected, attempting to handle with 2Captcha
-2025-03-20 16:35:28,416 - __main__ - ERROR - 2Captcha solver not initialized. Please provide a valid API key.
-2025-03-20 16:35:28,416 - __main__ - INFO - Waiting for confirmation page...
-2025-03-20 16:35:32,626 - asyncio - ERROR - Task was destroyed but it is pending!
-task: <Task pending name='Task-73' coro=<Browser.close() running at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_browser.py:183> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111]>
-2025-03-20 16:35:32,627 - asyncio - ERROR - Task was destroyed but it is pending!
-task: <Task pending name='Task-72' coro=<Page.wait_for_selector() done, defined at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_page.py:417> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111, ProtocolCallback.__init__.<locals>.cb() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:198]>
+2025-03-20 21:30:48,475 - __main__ - INFO - Filling out Calendly form
+2025-03-20 21:31:06,296 - __main__ - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-20 21:31:13,694 - __main__ - INFO - Form filled successfully
+2025-03-20 21:31:13,694 - __main__ - INFO - Attempting to submit form
+2025-03-20 21:31:16,021 - __main__ - INFO - Waiting for confirmation page...
+2025-03-20 21:31:29,555 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-71' coro=<Browser.close() running at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_browser.py:183> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111]>
+2025-03-20 21:31:29,555 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-70' coro=<Page.wait_for_selector() done, defined at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_page.py:417> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111, ProtocolCallback.__init__.<locals>.cb() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:198]>
+2025-03-20 21:31:48,462 - __main__ - INFO - Setting up Hyperbrowser session
+2025-03-20 21:31:50,279 - __main__ - INFO - Connected to Hyperbrowser session
+2025-03-20 21:31:50,279 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-28T00:00:00-07:00
+2025-03-20 21:31:54,545 - __main__ - INFO - Found cookie dialog, clicking: //button[contains(text(), 'Allow')]
+2025-03-20 21:32:21,234 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13' coro=<Browser.close() running at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_browser.py:183> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111]>
+2025-03-20 21:32:21,234 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-12' coro=<ElementHandle.click() done, defined at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_element_handle.py:120> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[SyncBase._sync.<locals>.<lambda>() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py:111, ProtocolCallback.__init__.<locals>.cb() at /home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:198]>
+2025-03-20 21:34:06,658 - __main__ - INFO - Setting up Hyperbrowser session
+2025-03-20 21:34:08,500 - __main__ - INFO - Connected to Hyperbrowser session
+2025-03-20 21:34:08,500 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-28T00:00:00-07:00
+2025-03-20 21:34:12,071 - __main__ - INFO - Attempting JavaScript click on cookie button: //button[contains(text(), 'I understand')]
+2025-03-20 21:34:13,286 - __main__ - INFO - Filling out Calendly form
+2025-03-20 21:34:31,479 - __main__ - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-20 21:34:39,129 - __main__ - INFO - Form filled successfully
+2025-03-20 21:34:39,129 - __main__ - INFO - Attempting to submit form
+2025-03-20 21:34:40,818 - __main__ - INFO - Waiting for confirmation page...
+2025-03-20 21:34:41,735 - __main__ - INFO - Confirmation page detected
+2025-03-20 21:34:41,735 - __main__ - INFO - Form submitted successfully and confirmation page detected
+2025-03-20 21:34:42,306 - __main__ - INFO - Successfully submitted the Calendly booking form
+2025-03-20 21:34:45,306 - __main__ - INFO - Closing browser after successful submission
+2025-03-20 21:35:25,666 - __main__ - INFO - Setting up Hyperbrowser session
+2025-03-20 21:35:28,147 - __main__ - INFO - Connected to Hyperbrowser session
+2025-03-20 21:35:28,148 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-28T00:00:00-07:00
+2025-03-20 21:35:31,682 - __main__ - INFO - Attempting JavaScript click on cookie button: //button[contains(text(), 'Allow')]
+2025-03-20 21:35:32,890 - __main__ - INFO - Filling out Calendly form
+2025-03-20 21:35:51,726 - __main__ - INFO - Processing phone: country code=+1, digits=5109198404
+2025-03-20 21:35:58,536 - __main__ - INFO - Form filled successfully
+2025-03-20 21:35:58,536 - __main__ - INFO - Attempting to submit form
+2025-03-20 21:36:00,227 - __main__ - INFO - Waiting for confirmation page...
+2025-03-20 21:36:01,157 - __main__ - INFO - Confirmation page detected
+2025-03-20 21:36:01,157 - __main__ - INFO - Form submitted successfully and confirmation page detected
+2025-03-20 21:36:01,676 - __main__ - INFO - Successfully submitted the Calendly booking form
+2025-03-20 21:36:04,677 - __main__ - INFO - Closing browser

@@ -1146,7 +1146,7 @@ def main():
     parser = argparse.ArgumentParser(description='Calendly Booking Form Scraper')
     
     # Required arguments
-    parser.add_argument('url', help='Calendly booking URL')
+    parser.add_argument('--url', help='Calendly booking URL')
     
     # Form data arguments
     parser.add_argument('--name', required=True, help='Name to use for booking')

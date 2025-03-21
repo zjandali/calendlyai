@@ -17,7 +17,7 @@ from typing import Dict, Any, Optional
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 from fake_useragent import UserAgent
-from twocaptcha import TwoCaptcha
+from dotenv import load_dotenv
 
 # Configure logging
 logging.basicConfig(
@@ -30,63 +30,65 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Load environment variables for Hyperbrowser
+load_dotenv()
+
 
 class CalendlyScraper:
     """
     Class to handle Calendly form filling and submission using Playwright.
-    Browserbase integration is not implemented in this version.
+    Hyperbrowser integration is available in this version.
     """
     
     def __init__(
         self, 
         headless: bool = False, 
         proxy: Optional[str] = None, 
-        captcha_api_key: Optional[str] = None,
-        browserbase_api_key: Optional[str] = None,   # not used in this version
-        browserbase_project_id: Optional[str] = None  # not used in this version
+        hyperbrowser_api_key: Optional[str] = None
     ):
         self.headless = headless
         self.proxy = proxy
-        self.captcha_api_key = captcha_api_key
-        self.browserbase_api_key = browserbase_api_key
-        self.browserbase_project_id = browserbase_project_id
+        self.hyperbrowser_api_key = hyperbrowser_api_key
         self.playwright = None
         self.browser = None
         self.context = None
         self.page = None
         self.wait_time = 10  # seconds
-        
-        # Initialize 2Captcha solver if API key is provided and Browserbase is not used.
-        self.solver = None
-        if self.captcha_api_key and not self.browserbase_api_key:
-            self.solver = TwoCaptcha(self.captcha_api_key)
     
     def setup_driver(self) -> None:
-        """Set up the Playwright browser and page with anti-detection measures."""
-        logger.info("Setting up Playwright browser")
-        self.playwright = sync_playwright().start()
-        
-        # Prepare launch arguments; note: proxy support in Playwright is set via context options.
-        launch_args = {}
-        if self.proxy:
-            launch_args["proxy"] = {"server": self.proxy}
-        
-        # Rotate user agent to avoid detection
-        ua = UserAgent()
-        user_agent = ua.random
-        logger.info(f"Using User-Agent: {user_agent}")
-        
-        # Launch browser (Chromium)
-        self.browser = self.playwright.chromium.launch(headless=self.headless, **launch_args)
-        
-        # Create a browser context with a custom user agent and viewport
-        self.context = self.browser.new_context(
-            user_agent=user_agent,
-            viewport={"width": 1366, "height": 768}
-        )
-        self.page = self.context.new_page()
-        
-        # You can add further anti-detection measures using page.evaluate if needed.
+        """Set up the Playwright browser with Hyperbrowser integration."""
+        if self.hyperbrowser_api_key:
+            logger.info("Setting up Hyperbrowser session")
+            
+            # Initialize Playwright and connect to Hyperbrowser
+            self.playwright = sync_playwright().start()
+            self.browser = self.playwright.chromium.connect_over_cdp(
+                f"wss://connect.hyperbrowser.ai?apiKey={self.hyperbrowser_api_key}"
+            )
+            
+            # Getting the default context to ensure the sessions are recorded
+            self.context = self.browser.contexts[0]
+            self.page = self.context.pages[0]
+            
+            logger.info(f"Connected to Hyperbrowser session")
+        else:
+            # Fall back to regular Playwright setup
+            logger.info("Setting up regular Playwright browser (Hyperbrowser credentials not provided)")
+            self.playwright = sync_playwright().start()
+            
+            # Launch browser (Chromium)
+            self.browser = self.playwright.chromium.launch(headless=self.headless)
+            
+            # Create a browser context with a custom user agent and viewport
+            ua = UserAgent()
+            user_agent = ua.random
+            logger.info(f"Using User-Agent: {user_agent}")
+            
+            self.context = self.browser.new_context(
+                user_agent=user_agent,
+                viewport={"width": 1366, "height": 768}
+            )
+            self.page = self.context.new_page()
     
     def navigate_to_url(self, url: str) -> bool:
         """
@@ -140,7 +142,7 @@ class CalendlyScraper:
     
     def submit_form(self) -> bool:
         """
-        Submit the Calendly form and handle any reCAPTCHA challenges using 2Captcha.
+        Submit the Calendly form.
         
         Returns:
             bool: True if form was submitted successfully, False otherwise.
@@ -162,9 +164,6 @@ class CalendlyScraper:
                 self.page.evaluate("element => element.click()", schedule_button)
             
             self._take_screenshot("after_submit_click.png")
-            
-            if self._handle_recaptcha_with_2captcha():
-                logger.info("reCAPTCHA handled successfully")
             
             if self._wait_for_confirmation_page():
                 logger.info("Form submitted successfully and confirmation page detected")
@@ -345,130 +344,10 @@ class CalendlyScraper:
             logger.error(f"Error filling phone number: {e}")
             raise
     
-    def _handle_recaptcha_with_2captcha(self) -> bool:
-        """
-        Handle reCAPTCHA using 2Captcha service.
-        
-        Returns:
-            bool: True if reCAPTCHA was handled successfully or not present, False otherwise.
-        """
-        try:
-            recaptcha_frames = self.page.query_selector_all("//iframe[contains(@src, 'recaptcha')]")
-            if not recaptcha_frames:
-                logger.info("No visible reCAPTCHA detected")
-                return True
-            
-            logger.info("reCAPTCHA detected, attempting to handle with 2Captcha")
-            self._take_screenshot("recaptcha_detected.png")
-            
-            if not self.solver:
-                logger.error("2Captcha solver not initialized. Please provide a valid API key.")
-                return False
-            
-            site_key = self._extract_recaptcha_site_key()
-            if not site_key:
-                logger.error("Could not extract reCAPTCHA site key")
-                return False
-            
-            logger.info(f"Found reCAPTCHA site key: {site_key}")
-            page_url = self.page.url
-            logger.info("Sending reCAPTCHA to 2Captcha for solving...")
-            try:
-                result = self.solver.recaptcha(sitekey=site_key, url=page_url)
-                token = result.get("code")
-                logger.info("Received solution from 2Captcha")
-                self._apply_recaptcha_token(token)
-                return True
-            except Exception as e:
-                logger.error(f"Error solving reCAPTCHA with 2Captcha: {e}")
-                return False
-        except Exception as e:
-            logger.error(f"Error handling reCAPTCHA: {e}")
-            self._take_screenshot("recaptcha_error.png")
-            return False
-    
-    def _extract_recaptcha_site_key(self) -> Optional[str]:
-        """
-        Extract the reCAPTCHA site key from the page.
-        
-        Returns:
-            Optional[str]: The reCAPTCHA site key, or None if not found.
-        """
-        try:
-            recaptcha_frames = self.page.query_selector_all("//iframe[contains(@src, 'recaptcha')]")
-            if recaptcha_frames:
-                for frame in recaptcha_frames:
-                    src = frame.get_attribute("src")
-                    if src:
-                        match = re.search(r"k=([^&]+)", src)
-                        if match:
-                            return match.group(1)
-            recaptcha_divs = self.page.query_selector_all("//div[@data-sitekey]")
-            if recaptcha_divs:
-                for div in recaptcha_divs:
-                    site_key = div.get_attribute("data-sitekey")
-                    if site_key:
-                        return site_key
-            page_source = self.page.content()
-            match = re.search(r'data-sitekey="([^"]+)"', page_source)
-            if match:
-                return match.group(1)
-            
-            site_key = self.page.evaluate("""() => {
-                const recaptcha = document.querySelector('.g-recaptcha') || document.querySelector('div[data-sitekey]');
-                if (recaptcha) {
-                    return recaptcha.getAttribute('data-sitekey') || null;
-                }
-                const iframe = document.querySelector('iframe[src*="recaptcha"]');
-                if (iframe) {
-                    const src = iframe.getAttribute('src');
-                    const m = src.match(/k=([^&]+)/);
-                    return m ? m[1] : null;
-                }
-                return null;
-            }""")
-            if site_key:
-                return site_key
-            logger.warning("Could not extract reCAPTCHA site key using any method")
-            return None
-        except Exception as e:
-            logger.error(f"Error extracting reCAPTCHA site key: {e}")
-            return None
-    
-    def _apply_recaptcha_token(self, token: str) -> None:
-        """
-        Apply the reCAPTCHA solution token to the page.
-        
-        Args:
-            token: The reCAPTCHA solution token from 2Captcha.
-        """
-        try:
-            self.page.evaluate(f"""
-                () => {{
-                    const responseElem = document.getElementById('g-recaptcha-response');
-                    if(responseElem) {{
-                        responseElem.innerHTML = '{token}';
-                    }}
-                    if (window.___grecaptcha_cfg) {{
-                        Object.keys(window.___grecaptcha_cfg.clients).forEach(function(key) {{
-                            const client = window.___grecaptcha_cfg.clients[key];
-                            Object.keys(client).forEach(function(idx) {{
-                                if (typeof client[idx].callback === 'function') {{
-                                    client[idx].callback('{token}');
-                                }}
-                            }});
-                        }});
-                    }}
-                }}
-            """)
-            logger.info("Applied reCAPTCHA solution token to the page")
-        except Exception as e:
-            logger.error(f"Error applying reCAPTCHA token: {e}")
-            raise
-    
     def _handle_cookie_dialogs(self) -> None:
         """Handle common cookie consent dialogs that might appear on the page."""
         try:
+            # First check if any cookie dialogs are visible
             cookie_xpaths = [
                 "//button[contains(text(), 'Accept')]",
                 "//button[contains(text(), 'I understand')]",
@@ -476,17 +355,51 @@ class CalendlyScraper:
                 "//button[contains(text(), 'Got it')]",
                 "//button[contains(text(), 'Allow')]",
                 "//button[contains(@id, 'cookie') and contains(text(), 'Accept')]",
-                "//div[contains(@id, 'cookie')]//button[contains(text(), 'Accept')]"
+                "//div[contains(@id, 'cookie')]//button[contains(text(), 'Accept')]",
+                "//div[contains(@class, 'cookie')]//button",
+                "//div[contains(@class, 'consent')]//button"
             ]
+            
+            # Try standard click first
+            for xpath in cookie_xpaths:
+                try:
+                    # Use force:true to attempt to click even if element might be covered
+                    button = self.page.query_selector(xpath)
+                    if button and button.is_visible():
+                        logger.info(f"Found visible cookie dialog, clicking: {xpath}")
+                        self.page.click(xpath, force=True, timeout=5000)
+                        time.sleep(0.5)  # Short pause after clicking
+                        return
+                except Exception as e:
+                    logger.debug(f"Standard click on {xpath} failed: {e}")
+            
+            # If standard click fails, try JavaScript click for all buttons
             for xpath in cookie_xpaths:
                 buttons = self.page.query_selector_all(xpath)
                 if buttons:
-                    logger.info(f"Found cookie dialog, clicking: {xpath}")
-                    try:
-                        buttons[0].click()
-                        return
-                    except Exception as e:
-                        logger.warning(f"Error clicking cookie button: {e}")
+                    for button in buttons:
+                        try:
+                            logger.info(f"Attempting JavaScript click on cookie button: {xpath}")
+                            self.page.evaluate("element => element.click()", button)
+                            time.sleep(0.5)  # Short pause after clicking
+                            return
+                        except Exception as e:
+                            logger.debug(f"JavaScript click failed: {e}")
+            
+            # Look for iframes that might contain cookie consent
+            frames = self.page.frames
+            for frame in frames:
+                try:
+                    for xpath in cookie_xpaths:
+                        button = frame.query_selector(xpath)
+                        if button:
+                            logger.info(f"Found cookie button in iframe, clicking: {xpath}")
+                            frame.click(xpath, force=True, timeout=5000)
+                            return
+                except Exception as e:
+                    logger.debug(f"Error handling cookie in iframe: {e}")
+                
+            logger.info("No actionable cookie dialogs found or all attempts to handle them failed")
         except Exception as e:
             logger.warning(f"Error handling cookie dialogs: {e}")
     
@@ -551,17 +464,15 @@ class CalendlyScraper:
 
 def main():
     parser = argparse.ArgumentParser(description="Calendly Booking Form Scraper with Playwright")
-    parser.add_argument("--url", required=True, help="Calendly booking URL")
-    parser.add_argument("--name", required=True, help="Name to enter in the form")
-    parser.add_argument("--email", required=True, help="Email to enter in the form")
-    parser.add_argument("--phone", required=True, help="Phone number to enter in the form")
+    parser.add_argument("--url", required=True, default="https://calendly.com/robertjandali/30min/2025-03-28T00:00:00-07:00", help="Calendly booking URL")
+    parser.add_argument("--name", default="john doe", help="Name to enter in the form")
+    parser.add_argument("--email", default="your-email@example.com", help="Email to enter in the form")
+    parser.add_argument("--phone", default="5109198404", help="Phone number to enter in the form")
     parser.add_argument("--info", help="Additional information to provide (optional)")
     parser.add_argument("--headless", action="store_true", help="Run in headless mode")
     parser.add_argument("--proxy", help="Proxy server to use (optional)")
-    parser.add_argument("--captcha-api-key", default="36483071b9fe06d051d4b66f3beca836", 
-                        help="API key for 2Captcha service (default: provided key)")
-    parser.add_argument("--browserbase-api-key", default=os.getenv("BROWSERBASE_API_KEY"), help="API key for Browserbase")
-    parser.add_argument("--browserbase-project-id", default=os.getenv("BROWSERBASE_PROJECT_ID"), help="Project ID for Browserbase")
+    parser.add_argument("--hyperbrowser-api-key", default=os.getenv("HYPERBROWSER_API_KEY"), 
+                        help="API key for Hyperbrowser")
     parser.add_argument("--debug", action="store_true", help="Enable debug logging")
     
     args = parser.parse_args()
@@ -580,11 +491,10 @@ def main():
     scraper = CalendlyScraper(
         headless=args.headless,
         proxy=args.proxy,
-        captcha_api_key=args.captcha_api_key,
-        browserbase_api_key=args.browserbase_api_key,
-        browserbase_project_id=args.browserbase_project_id
+        hyperbrowser_api_key=args.hyperbrowser_api_key
     )
     
+    success = False
     try:
         scraper.setup_driver()
         if not scraper.navigate_to_url(args.url):
@@ -598,8 +508,7 @@ def main():
         if scraper.submit_form():
             logger.info("Successfully submitted the Calendly booking form")
             time.sleep(3)
-            logger.info("Closing browser after successful submission")
-            scraper.close()
+            success = True
             return 0
         else:
             logger.error("Failed to submit the form")
@@ -608,8 +517,16 @@ def main():
         logger.error(f"An error occurred: {e}")
         return 1
     finally:
-        scraper.close()
+        if scraper:
+            logger.info("Closing browser")
+            try:
+                scraper.close()
+            except Exception as e:
+                logger.warning(f"Error during browser cleanup: {e}")
 
 
 if __name__ == "__main__":
+    # For simplified usage, you can run without arguments to use defaults
+    if len(sys.argv) == 1:
+        sys.argv.extend(["--url", "https://calendly.com/robertjandali/30min/2025-03-28T00:00:00-07:00"])
     sys.exit(main())

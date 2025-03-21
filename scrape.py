@@ -1250,7 +1250,7 @@ def main():
         logger.warning("2CAPTCHA_API_KEY not found in environment variables")
     
     parser = argparse.ArgumentParser(description='Calendly Booking Form Scraper')
-    parser.add_argument('--url', default='https://calendly.com/robertjandali/30min', 
+    parser.add_argument('--url', default='https://calendly.com/robertjandali/30min/2025-03-27T00:00:00-07:00', 
                         help='Calendly booking URL (default: %(default)s)')
     parser.add_argument('--name', default='Robert Jandali', 
                         help='Name to enter in the form (default: %(default)s)')

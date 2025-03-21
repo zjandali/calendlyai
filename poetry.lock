@@ -929,6 +929,22 @@ files = [
 ]
 
 [[package]]
+name = "hyperbrowser"
+version = "0.38.0"
+description = "Python SDK for hyperbrowser"
+optional = false
+python-versions = "<4.0,>=3.8"
+files = [
+    {file = "hyperbrowser-0.38.0-py3-none-any.whl", hash = "sha256:80c4cb770bb6490fb4087368b1b69a5cb34f6d5bb3b063b707e6e4d7d6611847"},
+    {file = "hyperbrowser-0.38.0.tar.gz", hash = "sha256:059bb0ec31cb52fb31e5d2e29fe2126ddbf472d111f304c8bcaa1491e4925b5e"},
+]
+
+[package.dependencies]
+httpx = ">=0.23.0,<1"
+jsonref = ">=1.1.0"
+pydantic = ">=2.0,<3"
+
+[[package]]
 name = "idna"
 version = "3.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -1164,6 +1180,17 @@ python-versions = ">=3.7"
 files = [
     {file = "jsonpointer-3.0.0-py2.py3-none-any.whl", hash = "sha256:13e088adc14fca8b6aa8177c044e12701e6ad4b28ff10e65f2267a90109c9942"},
     {file = "jsonpointer-3.0.0.tar.gz", hash = "sha256:2b2d729f2091522d61c3b31f82e11870f60b68f43fbc705cb76bf4b832af59ef"},
+]
+
+[[package]]
+name = "jsonref"
+version = "1.1.0"
+description = "jsonref is a library for automatic dereferencing of JSON Reference objects for Python."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "jsonref-1.1.0-py3-none-any.whl", hash = "sha256:590dc7773df6c21cbf948b5dac07a72a251db28b0238ceecce0a2abfa8ec30a9"},
+    {file = "jsonref-1.1.0.tar.gz", hash = "sha256:32fe8e1d85af0fdefbebce950af85590b22b60f9e95443176adbde4e1ecea552"},
 ]
 
 [[package]]
@@ -3622,4 +3649,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.12,<3.13"
-content-hash = "095144383a0ae24ca92f82bbca7907aa04c44b869e4080c22003963ecd18787a"
+content-hash = "3572f037c16f627ed1af2db38d5a466368f170b761fbd59813014522e5358eec"
