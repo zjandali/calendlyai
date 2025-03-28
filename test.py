@@ -3,7 +3,7 @@ import time
 import json
 import os
 from datetime import datetime
-from calendly_continuous_workflow import run_calendly_workflow
+from book import book_calendly_meeting
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -50,19 +50,20 @@ def run_test_suite(num_runs, delay_between_runs=0):
         try:
             logger.info(f"\nStarting run {run_num}/{num_runs}")
             
-            # Test data - you can modify these values as needed
+            # Test data - modified to match book_calendly_meeting parameters
             test_data = {
+                "calendly_url": "https://calendly.com/robertjandali/30min",
                 "name": f"Test User {run_num}",
                 "email": f"test{run_num}@example.com",
                 "phone": "5109198404",
                 "additional_info": f"Test booking {run_num}",
-                "timezone": "America/Los_Angeles",
-                "max_retries": 3
+                "timezone": "America/Los_Angeles"
+                # Removed max_retries as it's not in book_calendly_meeting
             }
             
-            # Run the workflow
+            # Run the workflow using book_calendly_meeting instead
             start_time = time.time()
-            result = run_calendly_workflow(**test_data)
+            result = book_calendly_meeting(**test_data)
             end_time = time.time()
             
             run_result = {
@@ -114,7 +115,12 @@ def run_test_suite(num_runs, delay_between_runs=0):
     
     # Calculate and log final statistics
     results['end_time'] = datetime.now().isoformat()
-    duration = results['end_time'] - results['start_time']
+    
+    # Convert ISO format strings to datetime objects
+    start_time = datetime.fromisoformat(results['start_time'])
+    end_time = datetime.fromisoformat(results['end_time'])
+    duration = end_time - start_time
+    
     success_rate = (results['successful'] / results['total_runs']) * 100
     
     logger.info("\n=== Test Suite Results ===")
@@ -145,7 +151,7 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description='Run Calendly workflow test suite')
     parser.add_argument('--runs', type=int, default=5, help='Number of test runs to perform')
-    parser.add_argument('--delay', type=int, default=0, help='Delay between runs in seconds')
+    parser.add_argument('--delay', type=int, default=10, help='Delay between runs in seconds')
     
     args = parser.parse_args()
     

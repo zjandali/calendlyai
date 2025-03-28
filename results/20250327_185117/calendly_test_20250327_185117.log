@@ -1,0 +1,22 @@
+2025-03-27 18:51:17,950 - __main__ - INFO - Starting test suite with 2 runs
+2025-03-27 18:51:17,950 - __main__ - INFO - Delay between runs: 0 seconds
+2025-03-27 18:51:17,950 - __main__ - INFO - 
+Starting run 1/2
+2025-03-27 18:51:35,309 - __main__ - INFO - Run 1 successful - URL: https://calendly.com/robertjandali/30min/2025-03-28T11:00:00-07:00
+2025-03-27 18:51:35,310 - __main__ - INFO - Run 1 completed in 17.36 seconds
+2025-03-27 18:51:35,310 - __main__ - INFO - Waiting 0 seconds before next run...
+2025-03-27 18:51:35,310 - __main__ - INFO - 
+Starting run 2/2
+2025-03-27 18:51:39,397 - __main__ - ERROR - Run 2 failed - No booking URL returned
+2025-03-27 18:51:39,397 - __main__ - INFO - Run 2 completed in 4.09 seconds
+2025-03-27 18:51:39,397 - __main__ - INFO - 
+=== Test Suite Results ===
+2025-03-27 18:51:39,397 - __main__ - INFO - Total Runs: 2
+2025-03-27 18:51:39,397 - __main__ - INFO - Successful: 1
+2025-03-27 18:51:39,397 - __main__ - INFO - Failed: 1
+2025-03-27 18:51:39,398 - __main__ - INFO - Success Rate: 50.00%
+2025-03-27 18:51:39,398 - __main__ - INFO - Total Duration: 0:00:21.447268
+2025-03-27 18:51:39,398 - __main__ - INFO - Average Time Per Run: 10.72 seconds
+2025-03-27 18:51:39,398 - __main__ - INFO - 
+Errors encountered:
+2025-03-27 18:51:39,398 - __main__ - INFO - - Run 2 failed - No booking URL returned

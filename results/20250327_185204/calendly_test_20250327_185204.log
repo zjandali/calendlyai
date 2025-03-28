@@ -1,0 +1,19 @@
+2025-03-27 18:52:04,390 - __main__ - INFO - Starting test suite with 2 runs
+2025-03-27 18:52:04,391 - __main__ - INFO - Delay between runs: 10 seconds
+2025-03-27 18:52:04,391 - __main__ - INFO - 
+Starting run 1/2
+2025-03-27 18:52:20,919 - __main__ - INFO - Run 1 successful - URL: https://calendly.com/robertjandali/30min/2025-04-01T14:00:00-07:00
+2025-03-27 18:52:20,919 - __main__ - INFO - Run 1 completed in 16.53 seconds
+2025-03-27 18:52:20,919 - __main__ - INFO - Waiting 10 seconds before next run...
+2025-03-27 18:52:30,919 - __main__ - INFO - 
+Starting run 2/2
+2025-03-27 18:52:49,075 - __main__ - INFO - Run 2 successful - URL: https://calendly.com/robertjandali/30min/2025-03-31T12:00:00-07:00
+2025-03-27 18:52:49,075 - __main__ - INFO - Run 2 completed in 18.16 seconds
+2025-03-27 18:52:49,076 - __main__ - INFO - 
+=== Test Suite Results ===
+2025-03-27 18:52:49,076 - __main__ - INFO - Total Runs: 2
+2025-03-27 18:52:49,076 - __main__ - INFO - Successful: 2
+2025-03-27 18:52:49,076 - __main__ - INFO - Failed: 0
+2025-03-27 18:52:49,076 - __main__ - INFO - Success Rate: 100.00%
+2025-03-27 18:52:49,076 - __main__ - INFO - Total Duration: 0:00:44.685197
+2025-03-27 18:52:49,077 - __main__ - INFO - Average Time Per Run: 22.34 seconds

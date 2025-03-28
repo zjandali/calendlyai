@@ -1,0 +1,27 @@
+{
+  "successful": 1,
+  "failed": 1,
+  "total_runs": 2,
+  "start_time": "2025-03-27T18:51:17.950179",
+  "runs": [
+    {
+      "run_number": 1,
+      "duration": 17.359128952026367,
+      "timestamp": "2025-03-27T18:51:35.309952",
+      "status": "success",
+      "booking_url": "https://calendly.com/robertjandali/30min/2025-03-28T11:00:00-07:00",
+      "booking_time": "2025-03-28T11:00:00-07:00"
+    },
+    {
+      "run_number": 2,
+      "duration": 4.086282968521118,
+      "timestamp": "2025-03-27T18:51:39.397067",
+      "status": "failed",
+      "error": "Run 2 failed - No booking URL returned"
+    }
+  ],
+  "errors": [
+    "Run 2 failed - No booking URL returned"
+  ],
+  "end_time": "2025-03-27T18:51:39.397447"
+}

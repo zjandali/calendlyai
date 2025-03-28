@@ -12,7 +12,7 @@ from browserbase import Browserbase
 import dotenv
 
 dotenv.load_dotenv()
-print(os.getenv('BROWSERBASE_API_KEY'))
+
 
 logger = logging.getLogger(__name__)
 
