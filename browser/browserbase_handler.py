@@ -3,7 +3,6 @@ Browser automation utilities using Browserbase
 """
 
 import os
-import time
 import logging
 import traceback
 from selenium import webdriver
@@ -81,40 +80,10 @@ class CalendlyScraper:
         try:
             logger.info(f"Navigating to {url}")
             self.driver.get(url)
-            
-            # Handle cookie consent if present
-            self._handle_cookie_consent()
-            
             return True
         except Exception as e:
             logger.error(f"Error navigating to URL: {str(e)}")
             return False
-    
-    def _handle_cookie_consent(self):
-        """Handle cookie consent dialogs if they appear."""
-        try:
-            # Common cookie consent button selectors
-            selectors = [
-                "//button[contains(text(), 'Accept')]",
-                "//button[contains(text(), 'Allow')]",
-                "//button[contains(@class, 'cookie-consent')]",
-                "//div[contains(@class, 'cookie-banner')]//button"
-            ]
-            
-            for selector in selectors:
-                try:
-                    # Try to find and click without explicit wait
-                    cookie_button = self.driver.find_element(By.XPATH, selector)
-                    if cookie_button.is_displayed() and cookie_button.is_enabled():
-                        cookie_button.click()
-                        logger.info(f"Found cookie dialog, clicked: {selector}")
-                        return
-                except:
-                    continue
-                    
-        except Exception as e:
-            logger.warning(f"Error handling cookie consent: {str(e)}")
-            # Non-critical error, continue execution
     
     def fill_name(self, name):
         """Fill in the name field."""
@@ -270,9 +239,6 @@ class CalendlyScraper:
             else:
                 logger.error("Submit button not found")
                 return False
-            
-            # Wait a moment for the page to update after submission
-            time.sleep(1)
             
             # Check for confirmation without explicit wait
             confirmation_selectors = [

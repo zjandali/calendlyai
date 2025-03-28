@@ -25,8 +25,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 from browserbase import Browserbase
 from selenium.webdriver.remote.remote_connection import RemoteConnection
 from webdriver_manager.chrome import ChromeDriverManager
-from fake_useragent import UserAgent
-from twocaptcha import TwoCaptcha
 from selenium.webdriver.chrome.service import Service
 
 # Configure logging

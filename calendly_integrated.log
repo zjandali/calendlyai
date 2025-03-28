@@ -268,3 +268,31 @@ selenium.common.exceptions.WebDriverException: Message: Authorization Required
 2025-03-27 18:26:32,210 - __main__ - INFO - Booking successful
 2025-03-27 18:26:32,210 - __main__ - INFO - Closing browser
 2025-03-27 18:26:32,385 - browser.browserbase_handler - INFO - Browser closed
+2025-03-27 18:30:24,432 - __main__ - INFO - Starting integrated Calendly workflow
+2025-03-27 18:30:24,433 - __main__ - INFO - Generating mock calendar data
+2025-03-27 18:30:24,433 - utils.calendly_api - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-27 18:30:25,020 - utils.calendly_api - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-27 18:30:26,967 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 18:30:26,976 - __main__ - INFO - Suggested time: 2025-03-31T11:00:00-07:00
+2025-03-27 18:30:26,976 - utils.calendly_api - INFO - Creating booking URL
+2025-03-27 18:30:26,976 - utils.calendly_api - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-03-31T11:00:00-07:00
+2025-03-27 18:30:26,976 - __main__ - INFO - Creating CalendlyScraper instance with Browserbase
+2025-03-27 18:30:26,977 - __main__ - INFO - Initializing Browserbase browser
+2025-03-27 18:30:26,977 - browser.browserbase_handler - INFO - Setting up Browserbase WebDriver
+2025-03-27 18:30:27,463 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 201 Created"
+2025-03-27 18:30:27,918 - browser.browserbase_handler - INFO - Successfully set up Browserbase WebDriver
+2025-03-27 18:30:27,918 - __main__ - INFO - Navigating to booking URL: https://calendly.com/robertjandali/30min/2025-03-31T11:00:00-07:00
+2025-03-27 18:30:27,918 - browser.browserbase_handler - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-31T11:00:00-07:00
+2025-03-27 18:30:29,867 - __main__ - INFO - Filling out booking form
+2025-03-27 18:30:34,926 - browser.browserbase_handler - INFO - Name filled successfully
+2025-03-27 18:30:36,247 - browser.browserbase_handler - INFO - Email filled successfully
+2025-03-27 18:30:36,247 - browser.browserbase_handler - INFO - Processing phone: +15109198404
+2025-03-27 18:30:37,394 - browser.browserbase_handler - INFO - Phone filled successfully
+2025-03-27 18:30:38,614 - browser.browserbase_handler - INFO - Additional info filled successfully
+2025-03-27 18:30:38,615 - __main__ - INFO - Submitting booking form
+2025-03-27 18:30:40,482 - browser.browserbase_handler - INFO - Found submit button with selector: //button[@type='submit']
+2025-03-27 18:30:41,113 - browser.browserbase_handler - INFO - Form submitted
+2025-03-27 18:30:43,277 - browser.browserbase_handler - INFO - Form submitted successfully but no explicit confirmation found
+2025-03-27 18:30:43,277 - __main__ - INFO - Booking successful
+2025-03-27 18:30:43,277 - __main__ - INFO - Closing browser
+2025-03-27 18:30:43,587 - browser.browserbase_handler - INFO - Browser closed
