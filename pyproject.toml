@@ -1,35 +1,22 @@
 [tool.poetry]
 name = "calendly"
 version = "0.1.0"
-description = ""
-authors = ["zjandali <yzjandali@berkeley.edu>"]
+description = "Calendly Booking System"
+authors = ["User"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.12,<3.13"
-requests = ">=2.28.1,<2.32.0"
-nest-asyncio = "^1.6.0"
-playwright = "^1.50.0"
-langchain = "^0.3.20"
-openai = "^1.65.4"
-pyzt = "^0.0.2"
-pydantic-settings = "^2.8.1"
-langchain-community = "^0.3.19"
-pytz = "^2025.1"
-pyside6 = "^6.8.2.1"
-stagehand = "^0.3.6"
-stagehand-py = "^0.2.1"
-selenium = ">=4.8.0,<4.9.0"
+python = "^3.9"
+pytz = "^2025.2"
+requests = "^2.32.3"
+langchain = "^0.3.21"
+langchain-community = "^0.3.20"
+langchain-openai = ">=0.0.2"
+selenium = "^4.30.0"
 webdriver-manager = "^4.0.2"
-fake-useragent = "^2.1.0"
-selenium-recaptcha-solver = "^1.9.0"
-2captcha-python = "^1.5.1"
+twocaptcha = "^0.0.1"
 browserbase = "^1.2.0"
-hyperbrowser = "^0.38.0"
 
-
-[tool.poetry.group.dev.dependencies]
-ipykernel = "^6.29.5"
 
 [build-system]
 requires = ["poetry-core"]

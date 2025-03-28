@@ -1,0 +1,270 @@
+2025-03-27 17:42:27,612 - __main__ - INFO - Starting integrated Calendly workflow
+2025-03-27 17:42:27,613 - __main__ - INFO - Generating mock calendar data
+2025-03-27 17:42:27,613 - __main__ - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-27 17:42:28,166 - __main__ - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-27 17:42:30,809 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 17:42:30,816 - __main__ - INFO - Suggested time: 2025-04-01T10:00:00-07:00
+2025-03-27 17:42:30,817 - __main__ - INFO - Creating booking URL
+2025-03-27 17:42:30,817 - __main__ - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-04-01T10:00:00-07:00
+2025-03-27 17:42:30,817 - __main__ - INFO - Creating CalendlyScraper instance
+2025-03-27 17:42:30,817 - __main__ - INFO - Initializing browser
+2025-03-27 17:42:30,817 - __main__ - INFO - Setting up WebDriver
+2025-03-27 17:42:30,817 - WDM - INFO - ====== WebDriver manager ======
+2025-03-27 17:42:31,084 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-27 17:42:31,169 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-27 17:42:31,200 - WDM - INFO - There is no [linux64] chromedriver "134.0.6998.165" for browser google-chrome "134.0.6998" in cache
+2025-03-27 17:42:31,200 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-27 17:42:31,301 - WDM - INFO - WebDriver version 134.0.6998.165 selected
+2025-03-27 17:42:31,305 - WDM - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/linux64/chromedriver-linux64.zip
+2025-03-27 17:42:31,305 - WDM - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/linux64/chromedriver-linux64.zip
+2025-03-27 17:42:31,462 - WDM - INFO - Driver downloading response is 200
+2025-03-27 17:42:32,056 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-27 17:42:32,235 - WDM - INFO - Driver has been saved in cache [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.165]
+2025-03-27 17:42:32,235 - __main__ - ERROR - Error initializing browser: WebDriver.__init__() got multiple values for argument 'options'
+2025-03-27 17:42:32,236 - __main__ - ERROR - Traceback (most recent call last):
+  File "/home/zain/projects/xsap/calendly/book.py", line 266, in initialize_browser
+    self.driver = webdriver.Chrome(
+                  ^^^^^^^^^^^^^^^^^
+TypeError: WebDriver.__init__() got multiple values for argument 'options'
+
+2025-03-27 17:42:32,236 - __main__ - INFO - Navigating to booking URL: https://calendly.com/robertjandali/30min/2025-04-01T10:00:00-07:00
+2025-03-27 17:42:32,236 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-04-01T10:00:00-07:00
+2025-03-27 17:42:32,236 - __main__ - ERROR - Error navigating to URL: 'NoneType' object has no attribute 'get'
+2025-03-27 17:42:32,237 - __main__ - INFO - Filling out booking form
+2025-03-27 17:42:32,237 - __main__ - ERROR - Name field not found
+2025-03-27 17:42:32,237 - __main__ - ERROR - Email field not found
+2025-03-27 17:42:32,237 - __main__ - INFO - Processing phone: country code=+1, digits=+15109198404
+2025-03-27 17:42:32,237 - __main__ - ERROR - Phone field not found
+2025-03-27 17:42:32,237 - __main__ - WARNING - Additional info field not found, skipping
+2025-03-27 17:42:32,238 - __main__ - INFO - Submitting booking form
+2025-03-27 17:42:32,238 - __main__ - ERROR - Submit button not found
+2025-03-27 17:42:32,238 - __main__ - ERROR - Booking failed
+2025-03-27 17:42:32,238 - __main__ - INFO - Closing browser
+2025-03-27 17:42:43,465 - __main__ - INFO - Starting integrated Calendly workflow
+2025-03-27 17:42:43,465 - __main__ - INFO - Generating mock calendar data
+2025-03-27 17:42:43,466 - __main__ - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-27 17:42:44,333 - __main__ - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-27 17:42:45,904 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 17:42:45,912 - __main__ - INFO - Suggested time: 2025-04-01T11:00:00-07:00
+2025-03-27 17:42:45,913 - __main__ - INFO - Creating booking URL
+2025-03-27 17:42:45,913 - __main__ - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-04-01T11:00:00-07:00
+2025-03-27 17:42:45,913 - __main__ - INFO - Creating CalendlyScraper instance
+2025-03-27 17:42:45,913 - __main__ - INFO - Initializing browser
+2025-03-27 17:42:45,913 - __main__ - INFO - Setting up WebDriver
+2025-03-27 17:42:45,913 - WDM - INFO - ====== WebDriver manager ======
+2025-03-27 17:42:45,987 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-27 17:42:46,013 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-27 17:42:46,066 - WDM - INFO - Driver [/home/zain/.wdm/drivers/chromedriver/linux64/134.0.6998.165/chromedriver-linux64/chromedriver] found in cache
+2025-03-27 17:42:46,066 - __main__ - ERROR - Error initializing browser: WebDriver.__init__() got multiple values for argument 'options'
+2025-03-27 17:42:46,067 - __main__ - ERROR - Traceback (most recent call last):
+  File "/home/zain/projects/xsap/calendly/book.py", line 266, in initialize_browser
+    self.driver = webdriver.Chrome(
+                  ^^^^^^^^^^^^^^^^^
+TypeError: WebDriver.__init__() got multiple values for argument 'options'
+
+2025-03-27 17:42:46,067 - __main__ - INFO - Navigating to booking URL: https://calendly.com/robertjandali/30min/2025-04-01T11:00:00-07:00
+2025-03-27 17:42:46,067 - __main__ - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-04-01T11:00:00-07:00
+2025-03-27 17:42:46,067 - __main__ - ERROR - Error navigating to URL: 'NoneType' object has no attribute 'get'
+2025-03-27 17:42:46,067 - __main__ - INFO - Filling out booking form
+2025-03-27 17:42:46,068 - __main__ - ERROR - Name field not found
+2025-03-27 17:42:46,068 - __main__ - ERROR - Email field not found
+2025-03-27 17:42:46,068 - __main__ - INFO - Processing phone: country code=+1, digits=+15109198404
+2025-03-27 17:42:46,068 - __main__ - ERROR - Phone field not found
+2025-03-27 17:42:46,068 - __main__ - WARNING - Additional info field not found, skipping
+2025-03-27 17:42:46,068 - __main__ - INFO - Submitting booking form
+2025-03-27 17:42:46,069 - __main__ - ERROR - Submit button not found
+2025-03-27 17:42:46,069 - __main__ - ERROR - Booking failed
+2025-03-27 17:42:46,069 - __main__ - INFO - Closing browser
+2025-03-27 18:14:29,407 - __main__ - INFO - Starting integrated Calendly workflow
+2025-03-27 18:14:29,408 - __main__ - INFO - Generating mock calendar data
+2025-03-27 18:14:29,408 - utils.calendly_api - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-27 18:14:29,980 - utils.calendly_api - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-27 18:14:31,975 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 18:14:31,985 - __main__ - INFO - Suggested time: 2025-03-31T14:00:00-07:00
+2025-03-27 18:14:31,986 - utils.calendly_api - INFO - Creating booking URL
+2025-03-27 18:14:31,986 - utils.calendly_api - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-03-31T14:00:00-07:00
+2025-03-27 18:14:31,986 - __main__ - INFO - Creating CalendlyScraper instance with Browserbase
+2025-03-27 18:14:31,986 - __main__ - INFO - Initializing Browserbase browser
+2025-03-27 18:14:31,986 - browser.browserbase_handler - INFO - Setting up Browserbase WebDriver
+2025-03-27 18:14:32,429 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 201 Created"
+2025-03-27 18:14:32,547 - browser.browserbase_handler - ERROR - Error setting up Browserbase: Message: Authorization Required
+
+2025-03-27 18:14:32,548 - browser.browserbase_handler - ERROR - Traceback (most recent call last):
+  File "/home/zain/projects/xsap/calendly/browser/browserbase_handler.py", line 44, in initialize_browser
+    self.driver = webdriver.Remote(
+                  ^^^^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 250, in __init__
+    self.start_session(capabilities)
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 342, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 196, in check_response
+    raise exception_class(value)
+selenium.common.exceptions.WebDriverException: Message: Authorization Required
+
+
+2025-03-27 18:14:32,549 - __main__ - ERROR - Failed to initialize Browserbase browser
+2025-03-27 18:15:17,442 - __main__ - INFO - Starting integrated Calendly workflow
+2025-03-27 18:15:17,443 - __main__ - INFO - Generating mock calendar data
+2025-03-27 18:15:17,443 - utils.calendly_api - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-27 18:15:17,976 - utils.calendly_api - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-27 18:15:19,919 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 18:15:19,928 - __main__ - INFO - Suggested time: 2025-03-31T12:30:00-07:00
+2025-03-27 18:15:19,929 - utils.calendly_api - INFO - Creating booking URL
+2025-03-27 18:15:19,929 - utils.calendly_api - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-03-31T12:30:00-07:00
+2025-03-27 18:15:19,929 - __main__ - INFO - Creating CalendlyScraper instance with Browserbase
+2025-03-27 18:15:19,930 - __main__ - INFO - Initializing Browserbase browser
+2025-03-27 18:15:19,930 - browser.browserbase_handler - INFO - Setting up Browserbase WebDriver
+2025-03-27 18:15:20,244 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-27 18:15:20,244 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.380599 seconds
+2025-03-27 18:15:20,821 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-27 18:15:20,822 - browserbase._base_client - INFO - Retrying request to /v1/sessions in 0.931833 seconds
+2025-03-27 18:15:21,940 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 429 Too Many Requests"
+2025-03-27 18:15:21,941 - browser.browserbase_handler - ERROR - Error setting up Browserbase: Error code: 429 - {'statusCode': 429, 'error': 'Too Many Requests', 'message': "You've exceeded your max concurrent sessions limit (limit 1, currently 1). Please contact support to increase your limit."}
+2025-03-27 18:15:21,943 - browser.browserbase_handler - ERROR - Traceback (most recent call last):
+  File "/home/zain/projects/xsap/calendly/browser/browserbase_handler.py", line 45, in initialize_browser
+    self.bb_session = bb.sessions.create(project_id=self.browserbase_project_id)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/browserbase/resources/sessions/sessions.py", line 152, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/browserbase/_base_client.py", line 1273, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/browserbase/_base_client.py", line 965, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/browserbase/_base_client.py", line 1053, in _request
+    return self._retry_request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/browserbase/_base_client.py", line 1102, in _retry_request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/browserbase/_base_client.py", line 1053, in _request
+    return self._retry_request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/browserbase/_base_client.py", line 1102, in _retry_request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/browserbase/_base_client.py", line 1068, in _request
+    raise self._make_status_error_from_response(err.response) from None
+browserbase.RateLimitError: Error code: 429 - {'statusCode': 429, 'error': 'Too Many Requests', 'message': "You've exceeded your max concurrent sessions limit (limit 1, currently 1). Please contact support to increase your limit."}
+
+2025-03-27 18:15:21,944 - __main__ - ERROR - Failed to initialize Browserbase browser
+2025-03-27 18:16:32,596 - __main__ - INFO - Starting integrated Calendly workflow
+2025-03-27 18:16:32,596 - __main__ - INFO - Generating mock calendar data
+2025-03-27 18:16:32,596 - utils.calendly_api - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-27 18:16:33,169 - utils.calendly_api - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-27 18:16:35,286 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 18:16:35,294 - __main__ - INFO - Suggested time: 2025-03-31T12:00:00-07:00
+2025-03-27 18:16:35,294 - utils.calendly_api - INFO - Creating booking URL
+2025-03-27 18:16:35,294 - utils.calendly_api - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-03-31T12:00:00-07:00
+2025-03-27 18:16:35,294 - __main__ - INFO - Creating CalendlyScraper instance with Browserbase
+2025-03-27 18:16:35,294 - __main__ - INFO - Initializing Browserbase browser
+2025-03-27 18:16:35,295 - browser.browserbase_handler - INFO - Setting up Browserbase WebDriver
+2025-03-27 18:16:35,728 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 201 Created"
+2025-03-27 18:16:35,864 - browser.browserbase_handler - ERROR - Error setting up Browserbase: Message: Authorization Required
+
+2025-03-27 18:16:35,865 - browser.browserbase_handler - ERROR - Traceback (most recent call last):
+  File "/home/zain/projects/xsap/calendly/browser/browserbase_handler.py", line 48, in initialize_browser
+    self.driver = webdriver.Remote(
+                  ^^^^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 250, in __init__
+    self.start_session(capabilities)
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 342, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "/home/zain/projects/xsap/calendly/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 196, in check_response
+    raise exception_class(value)
+selenium.common.exceptions.WebDriverException: Message: Authorization Required
+
+
+2025-03-27 18:16:35,865 - __main__ - ERROR - Failed to initialize Browserbase browser
+2025-03-27 18:24:50,625 - __main__ - INFO - Starting integrated Calendly workflow
+2025-03-27 18:24:50,625 - __main__ - INFO - Generating mock calendar data
+2025-03-27 18:24:50,626 - utils.calendly_api - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-27 18:24:51,425 - utils.calendly_api - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-27 18:24:54,107 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 18:24:54,120 - __main__ - INFO - Suggested time: 2025-04-01T10:00:00-07:00
+2025-03-27 18:24:54,120 - utils.calendly_api - INFO - Creating booking URL
+2025-03-27 18:24:54,120 - utils.calendly_api - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-04-01T10:00:00-07:00
+2025-03-27 18:24:54,120 - __main__ - INFO - Creating CalendlyScraper instance with Browserbase
+2025-03-27 18:24:54,121 - __main__ - INFO - Initializing Browserbase browser
+2025-03-27 18:24:54,121 - browser.browserbase_handler - INFO - Setting up Browserbase WebDriver
+2025-03-27 18:24:54,594 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 201 Created"
+2025-03-27 18:24:54,998 - browser.browserbase_handler - INFO - Successfully set up Browserbase WebDriver
+2025-03-27 18:24:54,998 - __main__ - INFO - Navigating to booking URL: https://calendly.com/robertjandali/30min/2025-04-01T10:00:00-07:00
+2025-03-27 18:24:54,999 - browser.browserbase_handler - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-04-01T10:00:00-07:00
+2025-03-27 18:24:58,236 - __main__ - INFO - Filling out booking form
+2025-03-27 18:25:00,806 - browser.browserbase_handler - INFO - Name filled successfully
+2025-03-27 18:25:02,318 - browser.browserbase_handler - INFO - Email filled successfully
+2025-03-27 18:25:02,319 - browser.browserbase_handler - INFO - Processing phone: +15109198404
+2025-03-27 18:25:03,560 - browser.browserbase_handler - INFO - Phone filled successfully
+2025-03-27 18:25:04,801 - browser.browserbase_handler - INFO - Additional info filled successfully
+2025-03-27 18:25:04,802 - __main__ - INFO - Submitting booking form
+2025-03-27 18:25:07,914 - browser.browserbase_handler - INFO - Found submit button with selector: //button[@type='submit']
+2025-03-27 18:25:08,284 - browser.browserbase_handler - INFO - Form submitted
+2025-03-27 18:25:10,661 - browser.browserbase_handler - INFO - Form submitted successfully but no explicit confirmation found
+2025-03-27 18:25:10,661 - __main__ - INFO - Booking successful
+2025-03-27 18:25:10,661 - __main__ - INFO - Closing browser
+2025-03-27 18:25:11,034 - browser.browserbase_handler - INFO - Browser closed
+2025-03-27 18:25:35,904 - __main__ - INFO - Starting integrated Calendly workflow
+2025-03-27 18:25:35,904 - __main__ - INFO - Generating mock calendar data
+2025-03-27 18:25:35,905 - utils.calendly_api - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-27 18:25:36,414 - utils.calendly_api - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-27 18:25:38,654 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 18:25:38,661 - __main__ - INFO - Suggested time: 2025-03-31T13:00:00-07:00
+2025-03-27 18:25:38,662 - utils.calendly_api - INFO - Creating booking URL
+2025-03-27 18:25:38,662 - utils.calendly_api - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-03-31T13:00:00-07:00
+2025-03-27 18:25:38,662 - __main__ - INFO - Creating CalendlyScraper instance with Browserbase
+2025-03-27 18:25:38,662 - __main__ - INFO - Initializing Browserbase browser
+2025-03-27 18:25:38,662 - browser.browserbase_handler - INFO - Setting up Browserbase WebDriver
+2025-03-27 18:25:38,964 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 201 Created"
+2025-03-27 18:25:39,549 - browser.browserbase_handler - INFO - Successfully set up Browserbase WebDriver
+2025-03-27 18:25:39,549 - __main__ - INFO - Navigating to booking URL: https://calendly.com/robertjandali/30min/2025-03-31T13:00:00-07:00
+2025-03-27 18:25:39,550 - browser.browserbase_handler - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-03-31T13:00:00-07:00
+2025-03-27 18:25:44,237 - __main__ - INFO - Filling out booking form
+2025-03-27 18:25:45,462 - browser.browserbase_handler - INFO - Name filled successfully
+2025-03-27 18:25:46,259 - browser.browserbase_handler - INFO - Email filled successfully
+2025-03-27 18:25:46,260 - browser.browserbase_handler - INFO - Processing phone: +15109198404
+2025-03-27 18:25:47,401 - browser.browserbase_handler - INFO - Phone filled successfully
+2025-03-27 18:25:48,391 - browser.browserbase_handler - INFO - Additional info filled successfully
+2025-03-27 18:25:48,392 - __main__ - INFO - Submitting booking form
+2025-03-27 18:25:50,218 - browser.browserbase_handler - INFO - Found submit button with selector: //button[@type='submit']
+2025-03-27 18:25:50,570 - browser.browserbase_handler - INFO - Form submitted
+2025-03-27 18:25:52,848 - browser.browserbase_handler - INFO - Form submitted successfully but no explicit confirmation found
+2025-03-27 18:25:52,849 - __main__ - INFO - Booking successful
+2025-03-27 18:25:52,849 - __main__ - INFO - Closing browser
+2025-03-27 18:25:53,021 - browser.browserbase_handler - INFO - Browser closed
+2025-03-27 18:26:14,699 - __main__ - INFO - Starting integrated Calendly workflow
+2025-03-27 18:26:14,699 - __main__ - INFO - Generating mock calendar data
+2025-03-27 18:26:14,700 - utils.calendly_api - INFO - Setting up Calendly API for URL: https://calendly.com/robertjandali/30min
+2025-03-27 18:26:15,294 - utils.calendly_api - INFO - Successfully retrieved UUID: 987a2219-b57a-4bef-a2ae-1001d1ae7837
+2025-03-27 18:26:17,352 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 18:26:17,364 - __main__ - INFO - Suggested time: 2025-04-01T10:30:00-07:00
+2025-03-27 18:26:17,365 - utils.calendly_api - INFO - Creating booking URL
+2025-03-27 18:26:17,365 - utils.calendly_api - INFO - Created booking URL: https://calendly.com/robertjandali/30min/2025-04-01T10:30:00-07:00
+2025-03-27 18:26:17,365 - __main__ - INFO - Creating CalendlyScraper instance with Browserbase
+2025-03-27 18:26:17,365 - __main__ - INFO - Initializing Browserbase browser
+2025-03-27 18:26:17,365 - browser.browserbase_handler - INFO - Setting up Browserbase WebDriver
+2025-03-27 18:26:17,862 - httpx - INFO - HTTP Request: POST https://api.browserbase.com/v1/sessions "HTTP/1.1 201 Created"
+2025-03-27 18:26:18,428 - browser.browserbase_handler - INFO - Successfully set up Browserbase WebDriver
+2025-03-27 18:26:18,428 - __main__ - INFO - Navigating to booking URL: https://calendly.com/robertjandali/30min/2025-04-01T10:30:00-07:00
+2025-03-27 18:26:18,428 - browser.browserbase_handler - INFO - Navigating to https://calendly.com/robertjandali/30min/2025-04-01T10:30:00-07:00
+2025-03-27 18:26:22,785 - __main__ - INFO - Filling out booking form
+2025-03-27 18:26:23,970 - browser.browserbase_handler - INFO - Name filled successfully
+2025-03-27 18:26:25,005 - browser.browserbase_handler - INFO - Email filled successfully
+2025-03-27 18:26:25,005 - browser.browserbase_handler - INFO - Processing phone: +15109198404
+2025-03-27 18:26:26,427 - browser.browserbase_handler - INFO - Phone filled successfully
+2025-03-27 18:26:27,364 - browser.browserbase_handler - INFO - Additional info filled successfully
+2025-03-27 18:26:27,364 - __main__ - INFO - Submitting booking form
+2025-03-27 18:26:29,186 - browser.browserbase_handler - INFO - Found submit button with selector: //button[@type='submit']
+2025-03-27 18:26:29,853 - browser.browserbase_handler - INFO - Form submitted
+2025-03-27 18:26:32,210 - browser.browserbase_handler - INFO - Form submitted successfully but no explicit confirmation found
+2025-03-27 18:26:32,210 - __main__ - INFO - Booking successful
+2025-03-27 18:26:32,210 - __main__ - INFO - Closing browser
+2025-03-27 18:26:32,385 - browser.browserbase_handler - INFO - Browser closed

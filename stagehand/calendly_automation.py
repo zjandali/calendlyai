@@ -1,4 +1,4 @@
-from stagehand import Stagehand
+from solutions.stagehand import Stagehand
 import asyncio
 import os
 from dotenv import load_dotenv
