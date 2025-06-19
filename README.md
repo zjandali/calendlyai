@@ -68,7 +68,7 @@ CalendlyAI is a fully-automated pipeline that finds the best mutual time between
 
    The script will:
 
-   1. Generate a mock invitee calendar.
+   1. Gather Calender data from Google api and process it for agent
    2. Pull host availability from Calendly.
    3. Compute overlaps with [`utils.find_matching_times`](utils/calendar_utils.py#L40).
    4. Ask GPT-4o-mini to recommend the best slot via [`utils.get_suggested_time`](utils/calendly_api.py#L55).
